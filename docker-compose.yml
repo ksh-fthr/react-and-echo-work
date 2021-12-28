@@ -1,0 +1,9 @@
+version: "3"
+services:
+  api:
+    build: ./restapi
+    ports:
+      - "8080:8080"
+    working_dir: /api
+    tty: true
+
