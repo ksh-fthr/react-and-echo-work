@@ -1,1 +1,4 @@
-# react-and-echo-work
+# このプロジェクトについて
+Docker + React + Echo + MySQL の環境構築を試したものです。
+今後知見が増えたりアイディアが出たら更新することもあります。
+
