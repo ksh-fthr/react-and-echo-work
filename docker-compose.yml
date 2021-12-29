@@ -2,8 +2,17 @@ version: "3"
 services:
   api:
     build: ./restapi
+    container_name: "restapi"
     ports:
       - "8080:8080"
     working_dir: /api
     tty: true
-
+  app:
+    build: ./webapp
+    container_name: "webapp"
+    ports:
+      - "80:8888"
+    working_dir: /app
+    environment:
+      TZ: "Asia/Tokyo"
+ 
