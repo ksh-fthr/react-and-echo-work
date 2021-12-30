@@ -5,14 +5,12 @@ services:
     container_name: "restapi"
     ports:
       - "8080:8080"
-    working_dir: /api
     tty: true
   app:
     build: ./webapp
     container_name: "webapp"
     ports:
-      - "80:8888"
-    working_dir: /app
+      - "8888:8888"
     environment:
       TZ: "Asia/Tokyo"
  

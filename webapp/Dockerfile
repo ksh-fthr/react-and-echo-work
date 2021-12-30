@@ -1,19 +1,23 @@
-FROM node:16-alpine
+# -----------------------------------------------------
+# React アプリをビルドするための環境を構築する
+# -----------------------------------------------------
+FROM node:14.17.6 as build-stage
 
 WORKDIR /app
 COPY ./app/package*.json /app/
 
+# npm 資産のインストールとアプリビルド
 RUN npm install
 COPY ./app/ /app/
-ARG configuration=production
 
-RUN npm run build -- --output-path=./dist/out --configuration $configuration
+RUN npm run build
 
+# -----------------------------------------------------
+# Nginx の Docker 環境を構築する
+# -----------------------------------------------------
 FROM nginx:1.15
 
-# ビルドした成果物を Docker 上の Nginx のドキュメントとして扱うためにコピー(デプロイ)
-COPY --from=build-stage /app/dist/out/ /usr/share/nginx/html
-
-# Nginx の設定ファイルを Docker 上の Nginx にコピー
+# nginx に資産を置く
+COPY --from=build-stage /app/build/ /usr/share/nginx/html
 COPY ./nginx/conf/nginx.conf /etc/nginx/nginx.conf
 
