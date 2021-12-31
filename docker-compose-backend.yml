@@ -1,0 +1,9 @@
+version: "3"
+services:
+  api:
+    build: ./restapi
+    container_name: "restapi"
+    ports:
+      - "8080:8080"
+    tty: true
+ 
