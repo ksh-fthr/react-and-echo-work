@@ -3,6 +3,7 @@ services:
   api:
     build: ./restapi
     container_name: "restapi"
+    command: "air -c .air.toml"
     ports:
       - "8080:8080"
     tty: true
