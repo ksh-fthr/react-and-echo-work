@@ -40,12 +40,12 @@ const Hello = () => {
   ]);
 
   return (
-    <>
+    <div>
       <h2>Hello</h2>
       {error && "Error!"}
       {loading && "Loading..."}
       {message}
-    </>
+    </div>
   );
 };
 export default Hello;
