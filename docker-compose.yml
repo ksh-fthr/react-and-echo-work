@@ -1,4 +1,12 @@
 version: "3"
+networks:
+  app_net:
+    driver: bridge
+    ipam:
+     driver: default
+     config:
+       - subnet: 172.30.0.0/24
+
 services:
   api:
     build: ./restapi
@@ -6,11 +14,18 @@ services:
     ports:
       - "8080:8080"
     tty: true
+    networks:
+      app_net:
+        ipv4_address: 172.30.0.20
+
   app:
     build: ./webapp
     container_name: "webapp"
     ports:
-      - "8888:8888"
+      - "3000:3000"
     environment:
       TZ: "Asia/Tokyo"
+    networks:
+      app_net:
+        ipv4_address: 172.30.0.30
  

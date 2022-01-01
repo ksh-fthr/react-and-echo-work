@@ -10,11 +10,11 @@ const Routing = () => {
       <div>
         <ul>
           <li><Link to='/'>React</Link></li>
-          <li><Link to='/hello'>Hello</Link></li>
+          <li><Link to='/api/hello'>Hello</Link></li>
         </ul>
         <Routes>
           <Route path='/' element={<App />} />
-          <Route path='/hello' element={<Hello />} />
+          <Route path='/api/hello' element={<Hello />} />
         </Routes>
       </div>
    </BrowserRouter>
