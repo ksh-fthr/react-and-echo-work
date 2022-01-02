@@ -22,11 +22,21 @@ Docker + React + Echo + MySQL の環境構築を試したものです。
 ```
 
 #### docker-compose を経由しない場合
+(ホットリロードなし)
 
 ```bash
 % pwd
 /path/to/react-and-echo-work
 % cd restapi/api
 % go run server.go
+```
+
+(ホットリロードあり)
+
+```bash
+% pwd
+/path/to/react-and-echo-work
+% cd restapi/api
+% air -c .air.toml
 ```
 
