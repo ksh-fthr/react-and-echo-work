@@ -12,7 +12,7 @@ func main() {
 	e := echo.New()
 	e.GET("/hello", func(c echo.Context) error {
 		fmt.Println("exec hello.")
-		return c.String(http.StatusOK, "Hello, World!")
+		return c.String(http.StatusOK, "Hello, World!\n")
 	})
 	e.Logger.Fatal(e.Start(":8080"))
 }

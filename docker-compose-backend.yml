@@ -3,8 +3,17 @@ services:
   api:
     build: ./restapi
     container_name: "restapi"
-    command: "air -c .air.toml"
     ports:
       - "8080:8080"
     tty: true
+    volumes:
+      #
+      # ローカルとコンテナのディレクトリをバインドマウント（同期）
+      # これを指定しておかないと air でホットリロードが有効にならない
+      - ./restapi/api:/api 
+      #
+      # パッケージやバイナリファイルのインストール先（$GOPATH）を永続化
+      - go_path:/go
+volumes:
+  go_path:
 

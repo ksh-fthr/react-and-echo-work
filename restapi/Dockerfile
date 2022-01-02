@@ -1,16 +1,10 @@
-FROM golang:latest
+FROM golang:1.16.7
 
 WORKDIR /api
 COPY ./api /api
 
-RUN go get -u github.com/cosmtrek/air
-RUN go build
+RUN go mod tidy
+RUN go get github.com/cosmtrek/air
 
-ENV CGO_ENABLED=0 \
-  GOOS=linux \
-  GOARCH=amd64
-EXPOSE 8080
-
-
-CMD ["go", "run", "server.go"]
+CMD ["air", "-c", ".air.toml"]
 
