@@ -8,7 +8,7 @@ Go 言語のフレームワークである `Echo` の理解を深めるために
 | 環境 | バージョン | 備考 |
 | ---- | ---------- | ---- |
 | [Go](https://go.dev/)   | v1.16.7 linux/amd64 | `go version` で確認 |
-| [Echo](https://echo.labstack.com/) | v4.6.1     | Go の Web ブレームワーク. バージョンは起動時に表示されるロゴで確認 |
+| [Echo](https://echo.labstack.com/) | v4.6.1     | Go の Web フレームワーク. バージョンは起動時に表示されるロゴで確認 |
 | [Air](https://github.com/cosmtrek/air)  | ??? | ホットリロードを実現するライブラリ<br /> バージョンは `built with Go` と出るだけで不明 |
 
 <details>
