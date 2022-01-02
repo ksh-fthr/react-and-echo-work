@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
-import App from './App';
-import Hello from './Hello';
+import App from './component/App/App';
+import Hello from './component/Hello/Hello';
 
 const Routing = () => {
   return (

@@ -17,3 +17,6 @@
 # swap files
 *.swp
 
+# tmp directory created by air
+restapi/api/tmp
+
