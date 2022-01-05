@@ -13,15 +13,12 @@ const Hello = () => {
     loading,
     error
   } = useFetch(
-    // Notes:
-    // api サーバは 127.0.0.1:8080 で起動している. 
-    // そのままだと CORS エラーとなるので, package.json で proxy の設定を記述している.
     "http://127.0.0.1:3000"
   );
 
   const initialize = useCallback(
     async () => {
-      const initialMessage = await get("/hello");
+      const initialMessage = await get("/api/hello");
       if (response.ok) {
         setMessage(initialMessage);
       }
