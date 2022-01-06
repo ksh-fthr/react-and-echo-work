@@ -13,12 +13,12 @@ const Hello = () => {
     loading,
     error
   } = useFetch(
-    "http://127.0.0.1:3000"
+    "http://127.0.0.1:3000/api"
   );
 
   const initialize = useCallback(
     async () => {
-      const initialMessage = await get("/api/hello");
+      const initialMessage = await get("/hello");
       if (response.ok) {
         setMessage(initialMessage);
       }
