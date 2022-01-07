@@ -7,13 +7,20 @@ const Hello = () => {
     setMessage
   ] = useState([]);
 
+  const options = {
+    headers: {
+      Accept: 'application/json',
+    }
+  };
+
   const {
     get,
     response,
     loading,
     error
   } = useFetch(
-    "http://127.0.0.1:3000/api"
+    "http://127.0.0.1:3000/api",
+    options
   );
 
   const initialize = useCallback(
