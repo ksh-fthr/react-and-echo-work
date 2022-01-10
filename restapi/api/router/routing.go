@@ -1,4 +1,4 @@
-package api_routing
+package router
 
 import (
 	"fmt"

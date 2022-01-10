@@ -1,7 +1,7 @@
 package main
 
 import (
-	"restapi/api_routing"
+	"restapi/router"
 
 	"github.com/labstack/echo/v4"
 )
@@ -9,6 +9,6 @@ import (
 // echo による rest-api
 func main() {
 	e := echo.New()
-	api_routing.Routing(e)
+	router.Routing(e)
 	e.Logger.Fatal(e.Start(":8080"))
 }
