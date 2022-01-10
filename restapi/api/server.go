@@ -1,8 +1,7 @@
 package main
 
 import (
-	"fmt"
-	"net/http"
+	"restapi/api_routing"
 
 	"github.com/labstack/echo/v4"
 )
@@ -10,9 +9,6 @@ import (
 // echo による rest-api
 func main() {
 	e := echo.New()
-	e.GET("/hello", func(c echo.Context) error {
-		fmt.Println("exec hello.")
-		return c.String(http.StatusOK, "Hello, World!\n")
-	})
+	api_routing.Routing(e)
 	e.Logger.Fatal(e.Start(":8080"))
 }
