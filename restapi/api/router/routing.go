@@ -1,9 +1,8 @@
 package router
 
 import (
-	"fmt"
-	"net/http"
 	"restapi/contents"
+	"restapi/hello"
 
 	"github.com/labstack/echo/v4"
 )
@@ -14,11 +13,7 @@ import (
  * API のルーティングを管理する
  */
 func Routing(e *echo.Echo) {
-	// Todo: Routing メソッドで利用する api は package 化 & メソッド化する
-	e.GET("/hello", func(c echo.Context) error {
-		fmt.Println("exec hello.")
-		return c.String(http.StatusOK, "Hello, World!\n")
-	})
+	e.GET("/hello", hello.Hello)
 
 	// Contents API
 	e.GET("/contents/all", contents.All)
