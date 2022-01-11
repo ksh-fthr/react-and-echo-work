@@ -3,6 +3,7 @@ package router
 import (
 	"fmt"
 	"net/http"
+	"restapi/contents"
 
 	"github.com/labstack/echo/v4"
 )
@@ -18,4 +19,11 @@ func Routing(e *echo.Echo) {
 		fmt.Println("exec hello.")
 		return c.String(http.StatusOK, "Hello, World!\n")
 	})
+
+	// Contents API
+	e.GET("/contents/all", contents.All)
+	e.GET("/contents/:id", contents.Content)
+	e.POST("/contents", contents.Register)
+	e.PUT("/contents/:id", contents.Update)
+	e.DELETE("/contents/:id", contents.Delete)
 }

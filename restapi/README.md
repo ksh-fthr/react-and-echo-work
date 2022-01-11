@@ -52,3 +52,51 @@ ____________________________________O/_______
 ```
 </details>
 
+# API の確認
+動作検証用に `Contents` API として次の 5つ のメソッドを用意しています。 
+POST, PUT メソッドにおける body の解釈は未実装なので、実行例の body 部は無視してください
+
+## 取得( 全取得 )
+- URL
+  - http://localhost:8080/contents/all
+- 実行例
+```bash
+$ curl http://localhost:8080/contents/all
+All Contents
+```
+
+## 取得( ID 指定 )
+- URL
+  - http://localhost:8080/contents/:id
+- 実行例
+```bash
+$ curl http://localhost:8080/contents/asdasdasd # asdasdasd は任意の文字列 
+Contens, id=asdasdasd
+```
+
+## 登録
+- URL
+  - http://localhost:8080/contents
+- 実行例
+```bash
+$ curl -X POST -H "Content-Type: application/json" -d '{content: "hjodfsdfsdf"}' localhost:8080/contents
+Register OK
+```
+
+## 更新( ID 指定 )
+- URL
+  - http://localhost:8080/contents/:id
+- 実行例
+```bash
+$ curl -X PUT -H "Content-Type: application/json" -d '{content: "hjodfsdfsdf"}' localhost:8080/contents/asdasdasd
+Update, id=asdasdasd
+```
+
+## 削除( ID 指定 )
+- URL
+  - http://localhost:8080/contents/:id
+- 実行例
+```bash
+$ curl -X DELETE -H "Content-Type: application/json" localhost:8080/contents/dsdwewqas
+Delete, id=dsdwewqas
+```
