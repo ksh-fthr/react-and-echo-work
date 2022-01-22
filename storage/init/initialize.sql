@@ -1,18 +1,17 @@
-drop database if exists company;
-create database company;
+drop database if exists mydb;
+create database mydb;
 
-use company;
+use mydb;
 
-drop table if exists employee;
-create table if not exists employee (
+drop table if exists mydata;
+create table if not exists mydata (
 	id serial,
-    name varchar(100) not null unique,
-    phone varchar(100),
+    data text not null,
     created_at datetime DEFAULT NULL,
     updated_at datetime DEFAULT NULL,
     primary key(id)
 );
 
-grant all privileges on company.* to `mysql`@'%';
+grant all privileges on mydb.* to `mysql`@'%';
 flush privileges;
 
