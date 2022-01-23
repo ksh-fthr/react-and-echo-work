@@ -1,6 +1,7 @@
 package router
 
 import (
+	"restapi/modules/contents"
 	"restapi/modules/hello"
 	"restapi/modules/testapi"
 
@@ -15,10 +16,13 @@ import (
 func Routing(e *echo.Echo) {
 	e.GET("/hello", hello.Hello)
 
-	// Contents API
+	// testapi API
 	e.GET("/testapi/all", testapi.All)
 	e.GET("/testapi/:id", testapi.Content)
 	e.POST("/testapi", testapi.Register)
 	e.PUT("/testapi/:id", testapi.Update)
 	e.DELETE("/testapi/:id", testapi.Delete)
+
+	// contents API
+	e.GET("/contents/connect", contents.TryConnect)
 }
