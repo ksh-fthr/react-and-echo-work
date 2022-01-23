@@ -1,8 +1,8 @@
 package router
 
 import (
-	"restapi/hello"
-	"restapi/testapi"
+	"restapi/modules/hello"
+	"restapi/modules/testapi"
 
 	"github.com/labstack/echo/v4"
 )
