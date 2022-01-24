@@ -1,11 +1,12 @@
 version: "3"
+
 networks:
-  app_net:
+  app-net:
     driver: bridge
     ipam:
-     driver: default
-     config:
-       - subnet: 172.30.0.0/24
+      driver: default
+      config:
+        - subnet: 172.30.10.0/24
 
 services:
   api:
@@ -15,8 +16,8 @@ services:
       - "8080:8080"
     tty: true
     networks:
-      app_net:
-        ipv4_address: 172.30.0.20
+      app-net:
+        ipv4_address: 172.30.10.20
     volumes:
       #
       # ローカルとコンテナのディレクトリをバインドマウント（同期）
@@ -26,6 +27,25 @@ services:
       # パッケージやバイナリファイルのインストール先（$GOPATH）を永続化
       - go_path:/go
 
+  mysql:
+    build: ./storage/
+    container_name: "storage"
+    volumes:
+      - ./storage/init:/docker-entrypoint-initdb.d # 初期データ投入
+    environment:
+      MYSQL_ROOT_PASSWORD: mysqladmin
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: mysqladmin
+      TZ: "Asia/Tokyo"
+    hostname: storage
+    restart: always
+    ports:
+      - 3306:3306
+    networks: 
+      app-net:
+        ipv4_address: 172.30.10.100
+
   app:
     build: ./webapp
     container_name: "webapp"
@@ -34,8 +54,8 @@ services:
     environment:
       TZ: "Asia/Tokyo"
     networks:
-      app_net:
-        ipv4_address: 172.30.0.30
+      app-net:
+        ipv4_address: 172.30.10.30
 
 volumes:
   go_path:
