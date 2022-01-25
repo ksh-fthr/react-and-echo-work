@@ -49,3 +49,6 @@ v14.17.6
 
 </details>
 
+# 起動
+[リポジトリ直下の README](../README.md) を参照
+

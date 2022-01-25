@@ -52,6 +52,9 @@ ____________________________________O/_______
 ```
 </details>
 
+# 起動
+[リポジトリ直下の README](../README.md) を参照
+
 # API の確認
 動作検証用に `testapi` API として次の 5つ のメソッドを用意しています。 
 POST, PUT メソッドにおける body の解釈は未実装なので、実行例の body 部は無視してください
@@ -100,3 +103,4 @@ Update, id=asdasdasd
 $ curl -X DELETE -H "Content-Type: application/json" localhost:8080/testapi/dsdwewqas
 Delete, id=dsdwewqas
 ```
+
