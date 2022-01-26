@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import './Routing.css';
 import App from './component/App/App';
 import Hello from './component/Hello/Hello';
+import DbConnect from './component/DbConnect/DbConnect';
 
 const tabClassName = 'tab-item';
 const currentTabClassName = `${tabClassName} current`;
@@ -29,10 +30,12 @@ const Routing = () => {
         <ul className='tab-menu-base'>
           <li className={currentTabClassName} onClick={currentTab}><Link className='li-link' to='/'>React</Link></li>
           <li className={tabClassName} onClick={currentTab}><Link className='li-link' to='/api/hello'>Hello</Link></li>
+          <li className={tabClassName} onClick={currentTab}><Link className='li-link' to='/api/connect'>DbConnect</Link></li>
         </ul>
         <Routes>
           <Route path='/' element={<App />} />
           <Route path='/api/hello' element={<Hello />} />
+          <Route path='/api/connect' element={<DbConnect />} />
         </Routes>
       </div>
    </BrowserRouter>
