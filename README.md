@@ -19,7 +19,9 @@ Docker + React + Echo + MySQL の環境構築を試したものです。
 ```
 
 ## restapi + mysql のみ起動
-#### docker-compose 経由で起動する場合
+### docker-compose 経由で起動する場合
+ホットリロードありで起動します。
+( ホットリロードは [Air](https://github.com/cosmtrek/air) によって実現しています )
 
 ```bash
 % pwd
@@ -27,8 +29,8 @@ Docker + React + Echo + MySQL の環境構築を試したものです。
 % docker-compose -f docker-compose-backend.yml up --build # バックグラウンドで起動したければ `-d` もつける
 ```
 
-#### docker-compose を経由しない場合
-##### ホットリロードなし
+### docker-compose を経由しない場合
+#### ホットリロードなし
 
 ```bash
 % pwd
@@ -37,8 +39,7 @@ Docker + React + Echo + MySQL の環境構築を試したものです。
 % go run server.go
 ```
 
-##### ホットリロードあり
-ホットリロードは [Air](https://github.com/cosmtrek/air) によって実現しています。
+#### ホットリロードあり
 
 ```bash
 % pwd
@@ -83,7 +84,7 @@ WARNING! This will remove:
 Are you sure you want to continue? [y/N] # <- `y` を入力
 ```
 
-## TODO
+# TODO
 - `docker-compose.yml` と `docker-compose-backend.yml` でネットワークアドレスを別にしてもアプリが正常動作するようにする
 
 
