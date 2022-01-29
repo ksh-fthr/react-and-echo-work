@@ -28,7 +28,7 @@ Docker + React + Echo + MySQL の環境構築を試したものです。
 ```
 
 #### docker-compose を経由しない場合
-(ホットリロードなし)
+##### ホットリロードなし
 
 ```bash
 % pwd
@@ -37,7 +37,8 @@ Docker + React + Echo + MySQL の環境構築を試したものです。
 % go run server.go
 ```
 
-(ホットリロードあり)
+##### ホットリロードあり
+ホットリロードは [Air](https://github.com/cosmtrek/air) によって実現しています。
 
 ```bash
 % pwd
