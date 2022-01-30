@@ -10,11 +10,7 @@ const Hello = () => {
       if (httpService._response.ok) {
         httpService._setMessage(initialMessage);
       }
-    },
-    [
-      httpService._get,
-      httpService._response
-    ]
+    },[]
   );
 
   useEffect(() => {
