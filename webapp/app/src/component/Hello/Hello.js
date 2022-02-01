@@ -1,16 +1,39 @@
-import React, { useEffect, useCallback } from "react";
-
-import httpService from "../../service/HttpService";
+import React, { useState, useEffect, useCallback } from "react";
+import useFetch from "use-http"
 
 const Hello = () => {
+  const [
+    message,
+    setMessage
+  ] = useState([]);
+
+  const options = {
+    headers: {
+      Accept: 'application/json',
+    }
+  };
+
+  const {
+    get,
+    response,
+    loading,
+    error
+  } = useFetch(
+    "http://127.0.0.1:3000/api",
+    options
+  );
 
   const initialize = useCallback(
     async () => {
-      const initialMessage = await httpService._get("/hello");
-      if (httpService._response.ok) {
-        httpService._setMessage(initialMessage);
+      const initialMessage = await get("/hello");
+      if (response.ok) {
+        setMessage(initialMessage);
       }
-    },[]
+    },
+    [
+      get,
+      response
+    ]
   );
 
   useEffect(() => {
@@ -23,9 +46,9 @@ const Hello = () => {
   return (
     <div>
       <h2>Hello</h2>
-      {httpService._error && "Error!"}
-      {httpService._loading && "Loading..."}
-      {httpService._message}
+      {error && "Error!"}
+      {loading && "Loading..."}
+      {message}
     </div>
   );
 };
