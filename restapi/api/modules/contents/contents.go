@@ -10,12 +10,12 @@ import (
 )
 
 func TryConnect(c echo.Context) error {
-	fmt.Println("exec contents::TryeConnect.")
+	fmt.Println("exec contents::TryConnect.")
 
 	db := dbconnect.Connect()
 
 	// 接続が終了したらクローズする
-	defer db.Close()
+	defer dbconnect.DisConnect(db)
 
 	// 疎通確認
 	err := db.Ping()
