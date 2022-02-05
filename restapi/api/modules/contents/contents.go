@@ -2,7 +2,6 @@ package contents
 
 import (
 	"database/sql"
-	"fmt"
 	"log"
 	"net/http"
 
@@ -12,7 +11,7 @@ import (
 )
 
 func TryConnect(c echo.Context) error {
-	fmt.Println("exec contents::TryConnect.")
+	log.Println("exec contents::TryConnect.")
 
 	db := dbconnect.Connect()
 	defer dbconnect.DisConnect(db)
@@ -21,16 +20,16 @@ func TryConnect(c echo.Context) error {
 	err := db.Ping()
 
 	if err != nil {
-		fmt.Println("データベース接続失敗")
+		log.Println("データベース接続失敗")
 		return c.String(http.StatusOK, "ERROR: DB Connection.\n")
 	} else {
-		fmt.Println("データベース接続成功")
+		log.Println("データベース接続成功")
 		return c.String(http.StatusOK, "SUCCESS: DB Connection.\n")
 	}
 }
 
 func GetAllContents(c echo.Context) error {
-	fmt.Println("exec contents::GetAllContents.")
+	log.Println("exec contents::GetAllContents.")
 
 	var (
 		id       int
@@ -46,7 +45,7 @@ func GetAllContents(c echo.Context) error {
 	checkErr(err)
 	defer rows.Close()
 
-	fmt.Println("Total count:", checkCount(rows))
+	log.Println("Total count:", checkCount(rows))
 	for rows.Next() {
 		err := rows.Scan(&id, &title, &contents, &remarks)
 		checkErr(err)
