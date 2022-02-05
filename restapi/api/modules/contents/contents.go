@@ -1,6 +1,7 @@
 package contents
 
 import (
+	"database/sql"
 	"fmt"
 	"log"
 	"net/http"
@@ -42,23 +43,32 @@ func GetAllContents(c echo.Context) error {
 	defer dbconnect.DisConnect(db)
 
 	rows, err := db.Query("select id, title, contents, remarks from contents")
-	if err != nil {
-		log.Fatal(err)
-		return c.String(http.StatusInternalServerError, "Exception: DB Exec Query.\n")
-	}
+	checkErr(err)
 	defer rows.Close()
+
+	fmt.Println("Total count:", checkCount(rows))
 	for rows.Next() {
 		err := rows.Scan(&id, &title, &contents, &remarks)
-		if err != nil {
-			log.Fatal(err)
-		}
+		checkErr(err)
 		log.Println(id, title, contents, remarks)
 	}
 	err = rows.Err()
-	if err != nil {
-		log.Fatal(err)
-		return c.String(http.StatusInternalServerError, "Exception: DB Validate Rrecords.\n")
-	}
+	checkErr(err)
 
 	return c.String(http.StatusOK, "Success: DB Exec Query.\n")
+}
+
+func checkCount(rows *sql.Rows) (count int) {
+	for rows.Next() {
+		err := rows.Scan(&count)
+		checkErr(err)
+	}
+	return count
+}
+
+func checkErr(err error) {
+	if err != nil {
+		log.Fatal(err)
+		panic(err)
+	}
 }
