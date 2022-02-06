@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import useFetch from "use-http"
+import React, { useState } from 'react';
+import useFetch from 'use-http'
 
 const TestApi = () => {
   const [
@@ -12,9 +12,17 @@ const TestApi = () => {
     setId
   ] = useState('');
 
-  const options = {
+  const httpOptions = {
     headers: {
-      Accept: 'application/json',
+      // 'Content-Type': 'application/json',
+      // 'Access-Control-Allow-Origin': '*',
+      // 'Access-Control-Allow-Methods': 'POST, PUT, DELETE, PATCH, GET, OPTIONS',
+      // 'Access-Control-Allow-Headers': 'Origin, Authorization, Accept, Content-Type',
+      // 'Access-Control-Allow-Credentials': true,
+      // 'Access-Control-Expose-Headers': 'Content-Length,API-Key',
+      // 'Accept': 'application/json',
+      // 'Accept-Encoding': 'gzip, deflate, br',
+      // 'Connection': 'keep-alive',
     }
   };
 
@@ -23,12 +31,13 @@ const TestApi = () => {
     post,
     put,
     del,
+    options,
     response,
     loading,
     error
   } = useFetch(
-    "http://127.0.0.1:3000/api",
-    options
+    'http://127.0.0.1:3000/api',
+    httpOptions
   );
 
   const handleIdChange = (event) => {
@@ -39,7 +48,7 @@ const TestApi = () => {
    * コンテンツ取得 API の呼び出し( ID 指定なし )
    */
   const getAllContents = async () => {
-    const contents = await get("/testapi/all");
+    const contents = await get('/testapi/all');
     if (response.ok) {
       setContents(contents);
     }
@@ -96,9 +105,9 @@ const TestApi = () => {
       <h2>TestApi</h2>
       <div>
         <div>
-          <input type="text" id="content-id" value={id} onChange={handleIdChange} />
+          <input type='text' id='content-id' value={id} onChange={handleIdChange} />
         </div>
-        <div class="api-buttons">
+        <div className='api-buttons'>
           <button onClick={getAllContents}>get all contents</button>
           <button onClick={getContents}>get contents</button>
           <button onClick={postContents}>post contents</button>
@@ -108,8 +117,8 @@ const TestApi = () => {
       </div>
       <hr />
       <div>
-        {error && "Error!"}
-        {loading && "Loading..."}
+        {error && 'Error!'}
+        {loading && 'Loading...'}
         {contents}
       </div>
     </div>
