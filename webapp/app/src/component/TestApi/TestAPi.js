@@ -12,20 +12,6 @@ const TestApi = () => {
     setId
   ] = useState('');
 
-  const httpOptions = {
-    headers: {
-      // 'Content-Type': 'application/json',
-      // 'Access-Control-Allow-Origin': '*',
-      // 'Access-Control-Allow-Methods': 'POST, PUT, DELETE, PATCH, GET, OPTIONS',
-      // 'Access-Control-Allow-Headers': 'Origin, Authorization, Accept, Content-Type',
-      // 'Access-Control-Allow-Credentials': true,
-      // 'Access-Control-Expose-Headers': 'Content-Length,API-Key',
-      // 'Accept': 'application/json',
-      // 'Accept-Encoding': 'gzip, deflate, br',
-      // 'Connection': 'keep-alive',
-    }
-  };
-
   const {
     get,
     post,
@@ -37,7 +23,6 @@ const TestApi = () => {
     error
   } = useFetch(
     'http://127.0.0.1:3000/api',
-    httpOptions
   );
 
   const handleIdChange = (event) => {
