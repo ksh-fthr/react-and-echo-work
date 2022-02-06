@@ -12,8 +12,8 @@ module.exports = function(app) {
       onProxyRes: function (proxyRes, req, res) {
         // 少なとも `Access-Control-Allow-Origin` を設定しないと CORS エラーが発生する
         proxyRes.headers['Access-Control-Allow-Origin'] = '*';
-        proxyRes.headers['Access-Control-Allow-Methods'] = "POST, GET, OPTIONS";
-        proxyRes.headers['Access-Control-Allow-Headers'] = "Origin, Authorization, Accept";
+        proxyRes.headers['Access-Control-Allow-Methods'] = "POST, PUT, DELETE, PATCH, GET, OPTIONS";
+        proxyRes.headers['Access-Control-Allow-Headers'] = "Origin, Authorization, Accept, Content-Type";
         proxyRes.headers['Access-Control-Allow-Credentials'] = true;
       }
     })
