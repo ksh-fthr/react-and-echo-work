@@ -5,6 +5,7 @@ import './Routing.css';
 import App from './component/App/App';
 import Hello from './component/Hello/Hello';
 import DbConnect from './component/DbConnect/DbConnect';
+import TestApi from './component/TestApi/TestAPi';
 
 const tabClassName = 'tab-item';
 const currentTabClassName = `${tabClassName} current`;
@@ -31,11 +32,13 @@ const Routing = () => {
           <li className={currentTabClassName} onClick={currentTab}><Link className='li-link' to='/'>React</Link></li>
           <li className={tabClassName} onClick={currentTab}><Link className='li-link' to='/api/hello'>Hello</Link></li>
           <li className={tabClassName} onClick={currentTab}><Link className='li-link' to='/api/connect'>DbConnect</Link></li>
+          <li className={tabClassName} onClick={currentTab}><Link className='li-link' to='/api/testapi'>TestApi</Link></li>
         </ul>
         <Routes>
           <Route path='/' element={<App />} />
           <Route path='/api/hello' element={<Hello />} />
           <Route path='/api/connect' element={<DbConnect />} />
+          <Route path='/api/testapi' element={<TestApi />} />
         </Routes>
       </div>
    </BrowserRouter>
