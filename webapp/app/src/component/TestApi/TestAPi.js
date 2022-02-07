@@ -25,8 +25,12 @@ const TestApi = () => {
     'http://127.0.0.1:3000/api',
   );
 
+  /**
+   * InputBox のイベントハンドラ.
+   * 入力値を状態として保持する.
+   */
   const handleIdChange = (event) => {
-      setId(event.target.value);
+    setId(event.target.value);
   };
 
   /**
