@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import useFetch from 'use-http'
 
 const TestApi = () => {
@@ -17,7 +17,6 @@ const TestApi = () => {
     post,
     put,
     del,
-    options,
     response,
     loading,
     error
@@ -36,27 +35,36 @@ const TestApi = () => {
   /**
    * コンテンツ取得 API の呼び出し( ID 指定なし )
    */
-  const getAllContents = async () => {
+  const getAllContents = useCallback(async () => {
     const contents = await get('/testapi/all');
     if (response.ok) {
       setContents(contents);
     }
-  };
+  },
+  [
+    get,
+    response
+  ]);
 
   /**
    * コンテンツ取得 API の呼び出し( ID 指定あり )
    */
-  const getContents = async () => {
+  const getContents = useCallback(async () => {
     const contents = await get(`/testapi/${id}`);
     if (response.ok) {
       setContents(contents);
     }
-  };
+  },
+  [
+    id,
+    get,
+    response
+  ]);
 
   /**
    * コンテンツ登録 API の呼び出し
    */
-  const postContents = async () => {
+  const postContents = useCallback(async () => {
     const postData = {
       contents: 'post contents data'
     };
@@ -64,12 +72,16 @@ const TestApi = () => {
     if (response.ok) {
       setContents(contents);
     }
-  }
+  },
+  [
+    post,
+    response
+  ]);
 
   /**
    * コンテンツ更新 API の呼び出し
    */
-  const putContents = async () => {
+  const putContents = useCallback(async () => {
     const putData = {
       contents: 'put contents data'
     };
@@ -77,17 +89,27 @@ const TestApi = () => {
     if (response.ok) {
       setContents(contents);
     }
-  }
+  },
+  [
+    id,
+    put,
+    response
+  ]);
 
   /**
    * コンテンツを削除 API の呼び出し
    */
-  const deleteContents = async () => {
+  const deleteContents = useCallback(async () => {
     const contents = await del(`/testapi/${id}`);
     if (response.ok) {
       setContents(contents);
     }
-  }
+  },
+  [
+    id,
+    del,
+    response
+  ]);
 
   return (
     <div>
