@@ -20,6 +20,9 @@ go version go1.16.7 linux/amd64
 ```
 </details>
 
+Go 言語の環境構築については [こちら](./README_ENV.md) を参照。
+
+
 <details>
 <summary>Echo 起動時に表示されるバージョン</summary>
 
