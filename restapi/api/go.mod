@@ -7,7 +7,7 @@ require (
 	github.com/fatih/color v1.13.0 // indirect
 	github.com/fsnotify/fsnotify v1.5.1 // indirect
 	github.com/go-sql-driver/mysql v1.6.0
-	github.com/labstack/echo/v4 v4.6.3
+	github.com/labstack/echo/v4 v4.7.2
 	github.com/mattn/go-colorable v0.1.12 // indirect
 	github.com/pelletier/go-toml v1.9.4 // indirect
 	golang.org/x/crypto v0.0.0-20220131195533-30dcbda58838 // indirect
