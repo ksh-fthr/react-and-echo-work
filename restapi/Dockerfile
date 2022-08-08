@@ -1,4 +1,4 @@
-FROM golang:1.16.7
+FROM golang:1.19.0
 
 WORKDIR /api
 COPY ./api /api
