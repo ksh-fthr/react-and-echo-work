@@ -3,8 +3,9 @@ FROM golang:1.19.0
 WORKDIR /api
 COPY ./api /api
 
+RUN go get -u ./...
 RUN go mod tidy
-RUN go get github.com/cosmtrek/air
+#RUN go get github.com/cosmtrek/air
 
 # air による build と api の起動を行う
 CMD ["air", "-c", ".air.toml"]
