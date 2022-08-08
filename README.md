@@ -48,6 +48,10 @@ Docker + React + Echo + MySQL の環境構築を試したものです。
 % air -c .air.toml
 ```
 
+# 動作確認
+`http://localhost:3000/` にアクセスしてください。
+( `npm run start`, `docker-compose up --build` のどちらで起動しても、上記 URL から動作確認できます  )
+
 # 注意事項
 docker 起動時、
 
