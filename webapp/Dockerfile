@@ -7,7 +7,9 @@ WORKDIR /app
 COPY ./app/package*.json /app/
 
 # npm 資産のインストールとアプリビルド
-RUN npm install
+# `use^http` が React 18.2.0 に追従していないのでエラーになる
+# その一時的な回避策として `--legacy-peer-deps` を指定する
+RUN npm install --legacy-peer-deps
 COPY ./app/ /app/
 
 RUN npm run build
