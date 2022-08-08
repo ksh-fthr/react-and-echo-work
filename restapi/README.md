@@ -7,8 +7,8 @@ Go 言語のフレームワークである `Echo` の理解を深めるために
 
 | 環境 | バージョン | 備考 |
 | ---- | ---------- | ---- |
-| [Go](https://go.dev/)   | v1.16.7 linux/amd64 | `go version` で確認 |
-| [Echo](https://echo.labstack.com/) | v4.6.1     | Go の Web フレームワーク. バージョンは起動時に表示されるロゴで確認 |
+| [Go](https://go.dev/)   | v1.19 linux/amd64 | `go version` で確認 |
+| [Echo](https://echo.labstack.com/) | v4.7.2     | Go の Web フレームワーク. バージョンは起動時に表示されるロゴで確認 |
 | [Air](https://github.com/cosmtrek/air)  | ??? | ホットリロードを実現するライブラリ<br /> バージョンは `built with Go` と出るだけで不明 |
 
 <details>
@@ -16,7 +16,7 @@ Go 言語のフレームワークである `Echo` の理解を深めるために
 
 ```bash
 % go version
-go version go1.16.7 linux/amd64
+go version go1.19 darwin/amd64
 ```
 </details>
 
@@ -27,17 +27,17 @@ Go 言語の環境構築については [こちら](./README_ENV.md) を参照�
 <summary>Echo 起動時に表示されるバージョン</summary>
 
 ```bash
+% go run server.go
 
    ____    __
   / __/___/ /  ___
  / _// __/ _ \/ _ \
-/___/\__/_//_/\___/ v4.6.1
+/___/\__/_//_/\___/ v4.7.2
 High performance, minimalist Go web framework
 https://echo.labstack.com
 ____________________________________O/_______
                                     O\
 ⇨ http server started on [::]:8080
-
 ```
 
 </details>
