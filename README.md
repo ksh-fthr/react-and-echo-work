@@ -49,8 +49,15 @@ Docker + React + Echo + MySQL の環境構築を試したものです。
 ```
 
 # 動作確認
-`http://localhost:3000/` にアクセスしてください。
+```bash
+http://localhost:3000/
+```
+にアクセスしてください。
+
 ( `npm run start`, `docker-compose up --build` のどちらで起動しても、上記 URL から動作確認できます  )
+
+<img width="1278" alt="スクリーンショット 2022-08-08 17 00 22" src="https://user-images.githubusercontent.com/3907225/183370113-2e941bed-1911-4038-a68e-4023e82a4ef2.png">
+
 
 # 注意事項
 docker 起動時、
