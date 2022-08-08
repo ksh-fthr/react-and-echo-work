@@ -57,4 +57,8 @@ $ go install github.com/mdempsky/gocode@latest
 $ go install github.com/rogpeppe/godef@latest
 ```
 
+## 6. air のインストール
 
+```zsh
+$ go get -u github.com/cosmtrek/air
+```
