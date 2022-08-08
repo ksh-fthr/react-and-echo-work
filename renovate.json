@@ -3,11 +3,27 @@
   "extends": [
     "config:base"
   ],
+  "timezone": "Asia/Tokyo",  
+  "constraints": {
+    "go": "1.19",
+    "node": "18.7.0"
+  },  
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
+    },
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "matchPackageNames": ["react", "@types/react", "react-dom", "@types/react-dom"],
+      "groupName": "react",
+      "automerge": true
+    },
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "matchPackageNames": ["echo", "air"],
+      "groupName": "go-lib",
+      "automerge": true
     }
   ]
-
 }
