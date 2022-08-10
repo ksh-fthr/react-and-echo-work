@@ -16,7 +16,7 @@
     },
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "matchPackageNames": ["react", "@types/react", "react-dom", "@types/react-dom"],
+      "matchPackagePatterns": ["*react*"],
       "groupName": "react",
       "automerge": true
     },
