@@ -16,13 +16,13 @@
     },
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "matchPackagePatterns": ["*react*"],
+      "matchPackagePatterns": ["react"],
       "groupName": "react",
       "automerge": true
     },
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "matchPackageNames": ["echo", "air"],
+      "matchPackagePatterns": ["echo", "air"],
       "groupName": "go-lib",
       "automerge": true
     }
