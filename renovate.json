@@ -3,7 +3,9 @@
   "extends": [
     "config:base"
   ],
-  "timezone": "Asia/Tokyo",  
+  "timezone": "Asia/Tokyo",
+  "dependencyDashboard": false,
+  "automerge": true,
   "constraints": {
     "go": "1.19",
     "node": "18.7.0"
