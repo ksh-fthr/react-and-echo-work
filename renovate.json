@@ -4,7 +4,7 @@
     "config:base"
   ],
   "timezone": "Asia/Tokyo",
-  "schedule": ["before 7pm"],
+  "schedule": ["every hour"],
   "dependencyDashboard": false,
   "constraints": {
     "go": "1.19",
