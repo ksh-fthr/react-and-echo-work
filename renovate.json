@@ -3,6 +3,8 @@
   "extends": [
     "config:base"
   ],
+  "dependencyDashboard": false
+  "requiredStatusChecks": null,
   "timezone": "Asia/Tokyo",
   "schedule": [
     "every 1 hour after 00:00 and before 23:59 every day"
@@ -10,11 +12,13 @@
   "automergeSchedule": [
     "every 1 hour after 00:00 and before 23:59 every day"
   ],
-  "dependencyDashboard": false,
   "constraints": {
     "go": "1.19",
     "node": "18.7.0"
   },  
+  "major": {
+    "enabled": false
+  },
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
