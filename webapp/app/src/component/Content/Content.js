@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import useFetch from 'use-http'
-import CreateContent from './CreateContent/CreateContent';
+import CreateContent from './Create/CreateContent';
 
 const Content = () => {
   const [
