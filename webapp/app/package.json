@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "npm": "8.19.0"
+    "npm": "8.19.1"
   },
   "scripts": {
     "start": "react-scripts start",
