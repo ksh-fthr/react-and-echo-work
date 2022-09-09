@@ -1,4 +1,4 @@
-# streamlit-work
+# react-and-echo-work
 フロントエンド: React, バックエンド: Go + Echo の学習用リポジトリです。
 上記の学習にあたり Docker + React + Echo + MySQL で環境構築をしています。
 
