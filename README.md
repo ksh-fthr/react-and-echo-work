@@ -1,5 +1,7 @@
-# このプロジェクトについて
-Docker + React + Echo + MySQL の環境構築を試したものです。
+# streamlit-work
+フロントエンド: React, バックエンド: Go + Echo の学習用リポジトリです。
+上記の学習にあたり Docker + React + Echo + MySQL で環境構築をしています。
+
 
 # 起動
 ## webapp + restapi + mysql の全部入りで起動
