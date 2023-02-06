@@ -8,8 +8,8 @@ JavaScript のライブラリである `React` の理解を深めるためにア
 | 環境 | バージョン | 備考 |
 | ---- | ---------- | ---- |
 | [React](https://ja.reactjs.org/)   | v18.2.0 | バージョンは `npm list --depth=0` で確認 |
-| [Node.js](https://nodejs.org/ja/) | v18.7.0 | バージョンは `node --version` で確認 |
-| [npm](https://www.npmjs.com/)  | v8.16.0 | バージョンは `npm --version` で確認 |
+| [Node.js](https://nodejs.org/ja/) | v18.14.0 | バージョンは `node --version` で確認 |
+| [npm](https://www.npmjs.com/)  | v9.3.1 | バージョンは `npm --version` で確認 |
 
 <details>
 <summary>React のバージョン確認</summary>
@@ -34,7 +34,7 @@ app@0.1.0 /Users/ksh-fthr/workspace/react-and-echo-work/webapp/app
 
 ```bash
 % node --version
-v18.7.0
+v18.14.0
 ```
 
 </details>
@@ -44,7 +44,7 @@ v18.7.0
 
 ```bash
 % npm -v
-8.15.0
+9.3.1
 ```
 
 </details>
