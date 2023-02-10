@@ -8,20 +8,20 @@ JavaScript のライブラリである `React` の理解を深めるためにア
 | 環境 | バージョン | 備考 |
 | ---- | ---------- | ---- |
 | [React](https://ja.reactjs.org/)   | v18.2.0 | バージョンは `npm list --depth=0` で確認 |
-| [Node.js](https://nodejs.org/ja/) | v18.14.0 | バージョンは `node --version` で確認 |
-| [npm](https://www.npmjs.com/)  | v9.3.1 | バージョンは `npm --version` で確認 |
+| [Node.js](https://nodejs.org/ja/) | v19.6.0 | バージョンは `node --version` で確認 |
+| [npm](https://www.npmjs.com/)  | v9.4.0 | バージョンは `npm --version` で確認 |
 
 <details>
 <summary>React のバージョン確認</summary>
 
 ```bash
 % npm list --depth=0
-app@0.1.0 /Users/ksh-fthr/workspace/react-and-echo-work/webapp/app
+app@0.1.0 /path/to/react-and-echo-work/webapp/app
 ├── @testing-library/jest-dom@5.16.5
 ├── @testing-library/react@13.4.0
 ├── @testing-library/user-event@14.4.3
 ├── react-dom@18.2.0
-├── react-router-dom@6.8.0
+├── react-router-dom@6.8.1
 ├── react-scripts@5.0.1
 ├── react@18.2.0
 ├── use-http@1.0.27
@@ -34,7 +34,7 @@ app@0.1.0 /Users/ksh-fthr/workspace/react-and-echo-work/webapp/app
 
 ```bash
 % node --version
-v18.14.0
+v19.6.0
 ```
 
 </details>
@@ -44,7 +44,7 @@ v18.14.0
 
 ```bash
 % npm -v
-9.3.1
+9.4.0
 ```
 
 </details>
