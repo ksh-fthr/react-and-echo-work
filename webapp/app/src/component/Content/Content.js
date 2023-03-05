@@ -34,10 +34,10 @@ const Content = () => {
       setContents(contents);
     }
   },
-  [
-    get,
-    response
-  ]);
+    [
+      get,
+      response
+    ]);
 
   return (
     <div className="content-index">
