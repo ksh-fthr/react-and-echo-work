@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 import './css/Tab.css';
 import App from './component/App/App';
@@ -47,7 +47,7 @@ const Routing = () => {
           <Route path='/contents/create' element={<CreateContent />} />
         </Routes>
       </div>
-   </BrowserRouter>
+    </BrowserRouter>
   );
 };
 
