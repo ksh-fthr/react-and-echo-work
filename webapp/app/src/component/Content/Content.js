@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import useFetch from 'use-http'
-import CreateContent from './Create/CreateContent';
+import { Link } from 'react-router-dom';
 
 const Content = () => {
   const [
@@ -29,7 +29,7 @@ const Content = () => {
    * コンテンツ取得 API の呼び出し( ID 指定なし )
    */
   const getAllContents = useCallback(async () => {
-    const contents = await get('/testapi/all');
+    const contents = await get('/contents/all');
     if (response.ok) {
       setContents(contents);
     }
@@ -39,25 +39,20 @@ const Content = () => {
     response
   ]);
 
-
   return (
     <div className="content-index">
       <h2>Content</h2>
       <div>
         コンテンツ一覧
       </div>
-      <div>
-        // TODO: ボタンアクションで CreateContent を呼び出す
-        新規作成
-      </div>
-      <hr />
+      <Link to='/contents/create'>新規作成</Link>
       <div>
         {error && 'Error!'}
         {loading && 'Loading...'}
         {contents}
       </div>
     </div>
-   );
+  );
 };
 export default Content;
 

@@ -1,12 +1,14 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link, Switch } from 'react-router-dom';
 
-import './Routing.css';
+import './css/Tab.css';
 import App from './component/App/App';
 import Hello from './component/Hello/Hello';
 import DbConnect from './component/DbConnect/DbConnect';
 import TestApi from './component/TestApi/TestAPi';
 import Content from './component/Content/Content';
+import CreateContent from './component/Content/Create/CreateContent';
+
 
 const tabClassName = 'tab-item';
 const currentTabClassName = `${tabClassName} current`;
@@ -31,17 +33,18 @@ const Routing = () => {
       <div className='tab-area-base'>
         <ul className='tab-menu-base'>
           <li className={currentTabClassName} onClick={currentTab}><Link className='li-link' to='/'>React</Link></li>
-          <li className={tabClassName} onClick={currentTab}><Link className='li-link' to='/api/hello'>Hello</Link></li>
-          <li className={tabClassName} onClick={currentTab}><Link className='li-link' to='/api/connect'>DbConnect</Link></li>
-          <li className={tabClassName} onClick={currentTab}><Link className='li-link' to='/api/testapi'>TestApi</Link></li>
-          <li className={tabClassName} onClick={currentTab}><Link className='li-link' to='/api/contents'>Contents</Link></li>
+          <li className={tabClassName} onClick={currentTab}><Link className='li-link' to='/hello'>Hello</Link></li>
+          <li className={tabClassName} onClick={currentTab}><Link className='li-link' to='/connect'>DbConnect</Link></li>
+          <li className={tabClassName} onClick={currentTab}><Link className='li-link' to='/testapi'>TestApi</Link></li>
+          <li className={tabClassName} onClick={currentTab}><Link className='li-link' to='/contents'>Contents</Link></li>
         </ul>
         <Routes>
           <Route path='/' element={<App />} />
-          <Route path='/api/hello' element={<Hello />} />
-          <Route path='/api/connect' element={<DbConnect />} />
-          <Route path='/api/testapi' element={<TestApi />} />
-          <Route path='/api/contents' element={<Content />} />
+          <Route path='/hello' element={<Hello />} />
+          <Route path='/connect' element={<DbConnect />} />
+          <Route path='/testapi' element={<TestApi />} />
+          <Route path='/contents' element={<Content />} />
+          <Route path='/contents/create' element={<CreateContent />} />
         </Routes>
       </div>
    </BrowserRouter>
