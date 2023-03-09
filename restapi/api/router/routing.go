@@ -25,5 +25,5 @@ func Routing(e *echo.Echo) {
 
 	// contents API
 	e.GET("/contents/connect", contents.TryConnect)
-	e.GET("/contents/contents", contents.GetAllContents)
+	e.GET("/contents/all", contents.GetAllContents)
 }
