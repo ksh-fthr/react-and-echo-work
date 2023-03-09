@@ -6,8 +6,8 @@ import App from './component/App/App';
 import Hello from './component/Hello/Hello';
 import DbConnect from './component/DbConnect/DbConnect';
 import TestApi from './component/TestApi/TestAPi';
-import Content from './component/Content/Content';
-import CreateContent from './component/Content/Create/CreateContent';
+import Content from './component/Contents/Contents';
+import CreateContent from './component/Contents/Create/CreateContents';
 
 
 const tabClassName = 'tab-item';

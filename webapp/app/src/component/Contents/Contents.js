@@ -22,7 +22,7 @@ const Content = () => {
     loading,
     error
   } = useFetch(
-    'http://127.0.0.1:3000/api',
+    'http://127.0R0.1:3000/api',
   );
 
   /**
@@ -41,7 +41,7 @@ const Content = () => {
 
   return (
     <div className="content-index">
-      <h2>Content</h2>
+      <h2>Contents</h2>
       <div>
         コンテンツ一覧
       </div>

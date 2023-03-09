@@ -1,12 +1,12 @@
-const CreateContent = () => {
+const CreateContents = () => {
 
   return (
     <div className="content-index">
       <div>
-        新規作成
+        Create Contents
       </div>
     </div>
   );
 };
-export default CreateContent;
+export default CreateContents;
 
