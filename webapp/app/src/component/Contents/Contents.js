@@ -45,7 +45,12 @@ const Content = () => {
       <div>
         コンテンツ一覧
       </div>
-      <Link to='/contents/create'>新規作成</Link>
+      <ul>
+        <li><Link to='/contents/create'>新規作成</Link></li>
+        <li><Link to='/contents/view'>閲覧</Link></li>
+        <li><Link to='/contents/edit'>編集</Link></li>
+        <li><Link to='/contents/delete'>削除</Link></li>
+      </ul>
       <div>
         {error && 'Error!'}
         {loading && 'Loading...'}
