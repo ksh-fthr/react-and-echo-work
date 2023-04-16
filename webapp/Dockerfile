@@ -1,7 +1,7 @@
 # -----------------------------------------------------
 # React アプリをビルドするための環境を構築する
 # -----------------------------------------------------
-FROM node:18.15.0 as build-stage
+FROM node:18.16.0 as build-stage
 
 WORKDIR /app
 COPY ./app/package*.json /app/
