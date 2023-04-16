@@ -17,7 +17,7 @@ RUN npm run build
 # -----------------------------------------------------
 # Nginx の Docker 環境を構築する
 # -----------------------------------------------------
-FROM nginx:1.23
+FROM nginx:1.24
 
 # nginx に資産を置く
 COPY --from=build-stage /app/build/ /usr/share/nginx/html
