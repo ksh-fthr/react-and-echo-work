@@ -43,10 +43,12 @@ const Content = () => {
 
   return (
     <div className="content-wrapper">
-      <h2>Contents</h2>
-      <div>
-        <span>コンテンツ</span>
-        <span>TOP</span>
+      <h2 className="headline">Contents</h2>
+      <div className="breadcrumb-list">
+        <ol>
+          <li>コンテンツ</li>
+          <li>TOP</li>
+        </ol>
       </div>
       <div className="sidebar">
         <ul>

@@ -4,10 +4,12 @@ const EditContents = () => {
 
   return (
     <div className="content-wrapper">
-      <h2>Contents</h2>
-      <div>
-        <span>コンテンツ</span>
-        <span>編集</span>
+      <h2 className="headline">Contents</h2>
+      <div className="breadcrumb-list">
+        <ol>
+          <li>コンテンツ</li>
+          <li>編集</li>
+        </ol>
       </div>
       <div className="sidebar">
         <ul>

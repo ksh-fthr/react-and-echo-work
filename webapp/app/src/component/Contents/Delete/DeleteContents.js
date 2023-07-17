@@ -4,10 +4,12 @@ const DeleteContents = () => {
 
   return (
     <div className="content-wrapper">
-      <h2>Contents</h2>
-      <div>
-        <span>コンテンツ</span>
-        <span>削除</span>
+      <h2 className="headline">Contents</h2>
+      <div className="breadcrumb-list">
+        <ol>
+          <li>コンテンツ</li>
+          <li>削除</li>
+        </ol>
       </div>
       <div className="sidebar">
         <ul>

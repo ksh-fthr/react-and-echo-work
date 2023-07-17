@@ -27,3 +27,30 @@ body {
   color: #d3d3d3;
 }
 
+.headline {
+  text-align: center;
+}
+
+/**
+ * パンくずリストのスタイル
+ */
+
+.breadcrumb-list ol li {
+  display: inline;
+}
+
+.breadcrumb-list ol li::after {
+  content: ">";
+  padding: 7px;
+}
+
+.breadcrumb-list ol li:last-child::after {
+  content: none;
+}
+
+.breadcrumb-list ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
