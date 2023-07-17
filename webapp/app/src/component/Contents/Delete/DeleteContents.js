@@ -3,18 +3,22 @@ import { Link } from 'react-router-dom';
 const DeleteContents = () => {
 
   return (
-    <div className="content-index">
+    <div className="content-wrapper">
       <h2>Contents</h2>
       <div>
-        コンテンツ一覧
+        <span>コンテンツ</span>
+        <span>削除</span>
       </div>
-      <ul>
-        <li><Link to='/contents'>コンテンツ一覧</Link></li>
-        <li><Link to='/contents/create'>新規作成</Link></li>
-        <li><Link to='/contents/view'>閲覧</Link></li>
-        <li><Link to='/contents/edit'>編集</Link></li>
-      </ul>
-      <div>
+      <div className="sidebar">
+        <ul>
+          <li><Link to='/contents'>一覧</Link></li>
+          <li><Link to='/contents/create'>新規作成</Link></li>
+          <li><Link to='/contents/view'>閲覧</Link></li>
+          <li><Link to='/contents/edit'>編集</Link></li>
+          <li className="disable-link">削除</li>
+        </ul>
+      </div>
+      <div className="main">
         Delete Contents
       </div>
     </div>
