@@ -11,7 +11,8 @@ const EditContents = () => {
       </div>
       <div className="sidebar">
         <ul>
-          <li><Link to='/contents'>一覧</Link></li>
+          <li><Link to='/contents'>コンテンツTOP</Link></li>
+          <li><Link to='/contents/list'>一覧</Link></li>
           <li><Link to='/contents/create'>新規作成</Link></li>
           <li><Link to='/contents/view'>閲覧</Link></li>
           <li className="disable-link">編集</li>

@@ -46,11 +46,12 @@ const Content = () => {
       <h2>Contents</h2>
       <div>
         <span>コンテンツ</span>
-        <span>一覧</span>
+        <span>TOP</span>
       </div>
       <div className="sidebar">
         <ul>
-          <li className="disable-link">一覧</li>
+          <li className="disable-link">コンテンツTOP</li>
+          <li><Link to='/contents/list'>一覧</Link></li>
           <li><Link to='/contents/create'>新規作成</Link></li>
           <li><Link to='/contents/view'>閲覧</Link></li>
           <li><Link to='/contents/edit'>編集</Link></li>
@@ -58,7 +59,7 @@ const Content = () => {
         </ul>
       </div>
       <div className="main">
-        Contents List
+        Contents TOP
       </div>
       <div>
         {error && 'Error!'}
