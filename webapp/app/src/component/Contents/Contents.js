@@ -2,6 +2,8 @@ import React, { useState, useCallback } from 'react';
 import useFetch from 'use-http'
 import { Link } from 'react-router-dom';
 
+import '../../css/Contents.css';
+
 const Content = () => {
   const [
     contents,
@@ -40,17 +42,27 @@ const Content = () => {
     ]);
 
   return (
-    <div className="content-index">
-      <h2>Contents</h2>
-      <div>
-        コンテンツ一覧
+    <div className="content-wrapper">
+      <h2 className="headline">Contents</h2>
+      <div className="breadcrumb-list">
+        <ol>
+          <li>コンテンツ</li>
+          <li>TOP</li>
+        </ol>
       </div>
-      <ul>
-        <li><Link to='/contents/create'>新規作成</Link></li>
-        <li><Link to='/contents/view'>閲覧</Link></li>
-        <li><Link to='/contents/edit'>編集</Link></li>
-        <li><Link to='/contents/delete'>削除</Link></li>
-      </ul>
+      <div className="sidebar">
+        <ul>
+          <li className="disable-link">コンテンツTOP</li>
+          <li><Link to='/contents/list'>一覧</Link></li>
+          <li><Link to='/contents/create'>新規作成</Link></li>
+          <li><Link to='/contents/view'>閲覧</Link></li>
+          <li><Link to='/contents/edit'>編集</Link></li>
+          <li><Link to='/contents/delete'>削除</Link></li>
+        </ul>
+      </div>
+      <div className="main">
+        Contents TOP
+      </div>
       <div>
         {error && 'Error!'}
         {loading && 'Loading...'}

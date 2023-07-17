@@ -1,0 +1,50 @@
+.content-wrapper {
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.main {
+  float: right;
+  width: calc(100% - 220px);
+  height: 100%;
+}
+
+.sidebar {
+  float: left;
+  height: 750px;
+  width: 210px;
+  border-right: solid 1px #a9a9a9;
+}
+
+.disable-link{
+  pointer-events: none;
+  color: #d3d3d3;
+}
+
+.headline {
+  text-align: center;
+}
+
+/**
+ * パンくずリストのスタイル
+ */
+
+.breadcrumb-list ol li {
+  display: inline;
+}
+
+.breadcrumb-list ol li::after {
+  content: ">";
+  padding: 7px;
+}
+
+.breadcrumb-list ol li:last-child::after {
+  content: none;
+}
+
+.breadcrumb-list ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const ViewContents = () => {
+const ListContents = () => {
 
   return (
     <div className="content-wrapper">
@@ -8,24 +8,25 @@ const ViewContents = () => {
       <div className="breadcrumb-list">
         <ol>
           <li>コンテンツ</li>
-          <li>閲覧</li>
+          <li>一覧</li>
         </ol>
       </div>
       <div className="sidebar">
         <ul>
           <li><Link to='/contents'>コンテンツTOP</Link></li>
-          <li><Link to='/contents/list'>一覧</Link></li>
+          <li className="disable-link">一覧</li>
           <li><Link to='/contents/create'>新規作成</Link></li>
-          <li className="disable-link">閲覧</li>
+          <li><Link to='/contents/view'>閲覧</Link></li>
           <li><Link to='/contents/edit'>編集</Link></li>
           <li><Link to='/contents/delete'>削除</Link></li>
         </ul>
       </div>
       <div className="main">
-        View Contents
+        List Contents
       </div>
     </div>
   );
 };
-export default ViewContents;
+export default ListContents;
+
 

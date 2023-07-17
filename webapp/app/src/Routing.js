@@ -7,6 +7,7 @@ import Hello from './component/Hello/Hello';
 import DbConnect from './component/DbConnect/DbConnect';
 import TestApi from './component/TestApi/TestAPi';
 import Content from './component/Contents/Contents';
+import ListContents from './component/Contents/List/ListContents';
 import CreateContents from './component/Contents/Create/CreateContents';
 import ViewContents from './component/Contents/View/ViewContents';
 import EditContents from './component/Contents/Edit/EditContents';
@@ -47,6 +48,7 @@ const Routing = () => {
           <Route path='/connect' element={<DbConnect />} />
           <Route path='/testapi' element={<TestApi />} />
           <Route path='/contents' element={<Content />} />
+          <Route path='/contents/list' element={<ListContents />} />
           <Route path='/contents/create' element={<CreateContents />} />
           <Route path='/contents/view' element={<ViewContents />} />
           <Route path='/contents/edit' element={<EditContents />} />
