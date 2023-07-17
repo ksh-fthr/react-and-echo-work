@@ -1,17 +1,11 @@
-body {
-  height: 100px;
-  width: 100%;
-}
-
 .content-wrapper {
-  width: 1368px;
   margin: 0 auto;
   overflow: hidden;
 }
 
 .main {
   float: right;
-  width: calc(1368px - 220px);
+  width: calc(100% - 220px);
   height: 100%;
 }
 
