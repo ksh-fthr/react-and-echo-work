@@ -21,19 +21,30 @@
 
 - Content テーブル
 
-| 論理名 | 物理名 | Primary | Foreign | 型  |
-| ------ | ------ | ------- | ------- | --- |
-| id     | id     |    ◯    |         | INT |
+| 論理名     | 物理名     | 型      | Primary Key | Foreign Key | NOT NULL |
+|------------|------------|---------|:-----------:|:-----------:|:--------:|
+| id         | id         | INT     | ◯           |             | ◯        |
+| タイトル   | title      | VARCHAR |             |             | ◯        |
+| 執筆者     | author     | VARCHAR |             |             |          |
+| 要約       | summary    | TEXT    |             |             |          |
+| 削除フラグ | deleted    | BOOLEAN |             |             | ◯        |
+| 作成日時   | created_at | DATE    |             |             | ◯        |
+| 更新日時   | updated_at | DATE    |             |             | ◯        |
 
 
 ### 子テーブル
 
 - Article テーブル
 
-| 論理名     | 物理名       | Primary | Foreign | 型  |
-| ---------- | ------------ | ------- | ------- | --- |
-| id         | id           |    ◯    |         | INT |
-| content_id | コンテンツID |         |    ◯    | INT |
-
+| 論理名       | 物理名       | 型      | Primary Key | Foreign Key | NOT NULL |
+|--------------|--------------|---------|:-----------:|:-----------:|:--------:|
+| id           | id           | INT     | ◯           |             | ◯        |
+| コンテンツID | content_id   | INT     | ◯           |             | ◯        |
+| サブタイトル | subtitle     | VARCHAR |             |             | ◯        |
+| 記事内容     | content_body | TEXT    |             |             | ◯        |
+| 備考         | remarks      | TEXT    |             |             |          |
+| 削除フラグ   | deleted      | BOOLEAN |             |             | ◯        |
+| 作成日時     | created_at   | DATE    |             |             | ◯        |
+| 更新日時     | updated_at   | DATE    |             |             | ◯        |
 
 
