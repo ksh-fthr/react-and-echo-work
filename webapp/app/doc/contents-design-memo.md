@@ -47,4 +47,135 @@
 | 作成日時     | created_at   | DATE    |             |             | ◯        |
 | 更新日時     | updated_at   | DATE    |             |             | ◯        |
 
+## API
+### 作成
+**コンテンツ作成**
+
+- HTTP METHOD
+    - `POST`
+- URL
+    - `/content`
+- HTTP Body
+    ```json
+    {
+        "title": string,
+        "author": string | null,
+        "summary": text | null
+    }
+    ```
+
+**記事作成**
+- HTTP METHOD
+    - `POST`
+- URL
+    - `/content/{content_id}/article`
+- HTTP Body
+    ```json
+    {
+        "substile": string,
+        "content_body": text,
+        "remarks": text | null
+    }
+    ```
+
+### 更新
+**コンテンツ更新**
+
+- HTTP METHOD
+    - `PATCH`
+- URL
+    - `/content/{content_id}`
+- HTTP Body
+    ```json
+    {
+        "title": string,
+        "author": string | null,
+        "summary": text | null
+    }
+    ```
+
+**記事更新**
+- HTTP METHOD
+    - `PATCH`
+- URL
+    - `/content/{content_id}/article/{article_id}`
+- HTTP Body
+    ```json
+    {
+        "substile": string,
+        "content_body": text,
+        "remarks": text | null
+    }
+    ```
+
+### 閲覧
+**コンテンツリスト取得**
+- HTTP METHOD
+    - `GET`
+- URL
+    - `/contents`
+- HTTP Response
+    ```json
+    {
+      "contents": [
+        {
+          "id": number,
+          "title": string,
+          "author": string | null,
+          "summary": text | null,
+          "deleted": boolean,
+          "created_at": string,
+          "updated_at": string
+        }
+      ]
+    }
+    ```
+
+**記事リスト取得**
+- HTTP METHOD
+    - `GET`
+- URL
+    - `/content/{content_id}/articles`
+- HTTP Response
+    ```json
+    {
+      "contentt_id": number,
+      "articles_ids": number[]
+    }
+    ```
+
+**記事取得**
+- HTTP METHOD
+    - `GET`
+- URL
+    - `/content/{content_id}/article/{article_id}`
+- HTTP Response
+    ```json
+    {
+      "content_id": number,
+      "article": {
+        "id": number,
+        "substile": string,
+        "content_body": text,
+        "remarks": text | null,
+        "deleted": boolean,
+        "created_at": string,
+        "updated_at": string
+      }
+    }
+    ```
+
+### 削除
+**コンテンツ削除**
+- HTTP METHOD
+    - `DELETE`
+- URL
+    - `/content/{content_id}`
+
+
+**記事削除**
+- HTTP METHOD
+    - `delete`
+- URL
+    - `/content/{content_id}/article/{article_id}`
 
