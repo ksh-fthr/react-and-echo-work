@@ -41,7 +41,7 @@
 | id           | id           | INT     | ◯           |             | ◯        |
 | コンテンツID | content_id   | INT     | ◯           |             | ◯        |
 | サブタイトル | subtitle     | VARCHAR |             |             | ◯        |
-| 記事内容     | content_body | TEXT    |             |             | ◯        |
+| 記事内容     | article      | TEXT    |             |             | ◯        |
 | 備考         | remarks      | TEXT    |             |             |          |
 | 削除フラグ   | deleted      | BOOLEAN |             |             | ◯        |
 | 作成日時     | created_at   | DATE    |             |             | ◯        |
@@ -68,12 +68,12 @@
 - HTTP METHOD
     - `POST`
 - URL
-    - `/content/{content_id}/article`
+    - `/content/{contentId}/article`
 - HTTP Body
     ```json
     {
         "substile": string,
-        "content_body": text,
+        "article": text,
         "remarks": text | null
     }
     ```
@@ -84,7 +84,7 @@
 - HTTP METHOD
     - `PATCH`
 - URL
-    - `/content/{content_id}`
+    - `/content/{contentId}`
 - HTTP Body
     ```json
     {
@@ -98,12 +98,12 @@
 - HTTP METHOD
     - `PATCH`
 - URL
-    - `/content/{content_id}/article/{article_id}`
+    - `/content/{contentId}/article/{articleId}`
 - HTTP Body
     ```json
     {
         "substile": string,
-        "content_body": text,
+        "article": text,
         "remarks": text | null
     }
     ```
@@ -124,8 +124,8 @@
           "author": string | null,
           "summary": text | null,
           "deleted": boolean,
-          "created_at": string,
-          "updated_at": string
+          "createdAt": string,
+          "updatedAt": string
         }
       ]
     }
@@ -135,12 +135,12 @@
 - HTTP METHOD
     - `GET`
 - URL
-    - `/content/{content_id}/articles`
+    - `/content/{contentId}/articles`
 - HTTP Response
     ```json
     {
-      "contentt_id": number,
-      "articles_ids": number[]
+      "contenttId": number,
+      "articlesIds": number[]
     }
     ```
 
@@ -148,19 +148,19 @@
 - HTTP METHOD
     - `GET`
 - URL
-    - `/content/{content_id}/article/{article_id}`
+    - `/content/{contentId}/article/{articleId}`
 - HTTP Response
     ```json
     {
-      "content_id": number,
+      "contentId": number,
       "article": {
         "id": number,
         "substile": string,
-        "content_body": text,
+        "article": text,
         "remarks": text | null,
         "deleted": boolean,
-        "created_at": string,
-        "updated_at": string
+        "createdAt": string,
+        "updatedAt": string
       }
     }
     ```
@@ -170,12 +170,12 @@
 - HTTP METHOD
     - `DELETE`
 - URL
-    - `/content/{content_id}`
+    - `/content/{contentId}`
 
 
 **記事削除**
 - HTTP METHOD
     - `delete`
 - URL
-    - `/content/{content_id}/article/{article_id}`
+    - `/content/{content_id}/article/{articleId}`
 
