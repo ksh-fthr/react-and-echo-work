@@ -1,9 +1,9 @@
 {
-  "contentId": 1,
   "article": {
     "id": 1,
+    "contentId": 1,
     "substile": "",
-    "content_body": "",
+    "body": "",
     "remarks": "",
     "deleted": false,
     "createdAt": "2023-07-22",

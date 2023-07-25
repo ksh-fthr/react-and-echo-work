@@ -41,7 +41,7 @@
 | id           | id           | INT     | ◯           |             | ◯        |
 | コンテンツID | content_id   | INT     | ◯           |             | ◯        |
 | サブタイトル | subtitle     | VARCHAR |             |             | ◯        |
-| 記事内容     | article      | TEXT    |             |             | ◯        |
+| 記事内容     | body         | TEXT    |             |             | ◯        |
 | 備考         | remarks      | TEXT    |             |             |          |
 | 削除フラグ   | deleted      | BOOLEAN |             |             | ◯        |
 | 作成日時     | created_at   | DATE    |             |             | ◯        |
@@ -73,7 +73,7 @@
     ```json
     {
         "substile": string,
-        "article": text,
+        "body": text,
         "remarks": text | null
     }
     ```
@@ -103,7 +103,7 @@
     ```json
     {
         "substile": string,
-        "article": text,
+        "body": text,
         "remarks": text | null
     }
     ```
@@ -152,11 +152,11 @@
 - HTTP Response
     ```json
     {
-      "contentId": number,
       "article": {
         "id": number,
+        "contentId": number,
         "substile": string,
-        "article": text,
+        "body": text,
         "remarks": text | null,
         "deleted": boolean,
         "createdAt": string,
