@@ -1,4 +1,4 @@
-{
+export const MockArticle = {
   "article": {
     "id": 1,
     "contentId": 1,
