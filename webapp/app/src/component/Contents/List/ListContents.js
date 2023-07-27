@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
+import { MockContents } from '../../../mock/MockContents';
 
 const ListContents = () => {
+
+  const contents = MockContents.contents;
 
   return (
     <div className="content-wrapper">
@@ -22,7 +25,30 @@ const ListContents = () => {
         </ul>
       </div>
       <div className="main">
-        List Contents
+        <table>
+          <tr>
+            <th>コンテンツID</th>
+            <th>タイトル</th>
+            <th>サマリ</th>
+            <th>著者</th>
+            <th>作成日</th>
+            <th>更新日</th>
+          </tr>
+            {
+              contents.map((content) => {
+                return (
+                  <tr>
+                    <td>{content.id}</td>
+                    <td>{content.title}</td>
+                    <td>{content.summary}</td>
+                    <td>{content.author}</td>
+                    <td>{content.createdAt}</td>
+                    <td>{content.updatedAt}</td>
+                  </tr>
+                )
+              })
+            }
+        </table>
       </div>
     </div>
   );
