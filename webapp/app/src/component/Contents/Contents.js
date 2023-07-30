@@ -55,9 +55,6 @@ const Content = () => {
           <li className="disable-link">コンテンツTOP</li>
           <li><Link to='/contents/list'>一覧</Link></li>
           <li><Link to='/contents/create'>新規作成</Link></li>
-          <li><Link to='/contents/view'>閲覧</Link></li>
-          <li><Link to='/contents/edit'>編集</Link></li>
-          <li><Link to='/contents/delete'>削除</Link></li>
         </ul>
       </div>
       <div className="main">

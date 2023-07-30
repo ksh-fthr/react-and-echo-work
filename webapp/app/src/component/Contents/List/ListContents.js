@@ -19,9 +19,6 @@ const ListContents = () => {
           <li><Link to='/contents'>コンテンツTOP</Link></li>
           <li className="disable-link">一覧</li>
           <li><Link to='/contents/create'>新規作成</Link></li>
-          <li><Link to='/contents/view'>閲覧</Link></li>
-          <li><Link to='/contents/edit'>編集</Link></li>
-          <li><Link to='/contents/delete'>削除</Link></li>
         </ul>
       </div>
       <div className="main">
@@ -33,24 +30,28 @@ const ListContents = () => {
             <th>著者</th>
             <th>作成日</th>
             <th>更新日</th>
+            <th>編集</th>
+            <th>削除</th>
           </tr>
-            {
-              contents.map((content) => {
-                return (
-                  <tr>
-                    <td>{content.id}</td>
-                    <td>{content.title}</td>
-                    <td>{content.summary}</td>
-                    <td>{content.author}</td>
-                    <td>{content.createdAt}</td>
-                    <td>{content.updatedAt}</td>
-                  </tr>
-                )
-              })
-            }
-        </table>
-      </div>
+          {
+            contents.map((content) => {
+              return (
+                <tr>
+                  <td>{content.id}</td>
+                  <td><Link to='/contents/view'>{content.title}</Link></td>
+                  <td>{content.summary}</td>
+                  <td>{content.author}</td>
+                  <td>{content.createdAt}</td>
+                  <td>{content.updatedAt}</td>
+                  <td><Link to='/contents/edit'>編集</Link></td>
+                  <td><Link to='/contents/delete'>削除</Link></td>
+                </tr>
+        )
+            })
+          }
+      </table>
     </div>
+    </div >
   );
 };
 export default ListContents;
