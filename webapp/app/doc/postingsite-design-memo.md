@@ -119,7 +119,7 @@
 - HTTP Body
     ```json
     {
-        "substile": string,
+        "subtitle": string,
         "body": text,
         "remarks": text | null
     }
@@ -149,7 +149,7 @@
 - HTTP Body
     ```json
     {
-        "substile": string,
+        "subtitle": string,
         "body": text,
         "remarks": text | null
     }
@@ -189,7 +189,7 @@
       "contenttId": number,
       "articles": {
         "id": number,
-        "substile": string,
+        "subtitle": string,
         "deleted": boolean,
         "createdAt": string,
         "updatedAt": string
@@ -229,7 +229,7 @@
       "article": {
         "id": number,
         "contentId": number,
-        "substile": string,
+        "subtitle": string,
         "body": text,
         "remarks": text | null,
         "deleted": boolean,
