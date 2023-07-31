@@ -17,6 +17,7 @@ import EditContents from './component/PostingSite/Contents/Edit/EditContents';
 import DeleteContents from './component/PostingSite/Contents/Delete/DeleteContents';
 // PostingSite > Articels
 import ListArticles from './component/PostingSite/Articles/List/ListArticles';
+import ViewArticle from './component/PostingSite/Articles/View/ViewArticle';
 
 
 const tabClassName = 'tab-item';
@@ -58,6 +59,7 @@ const Routing = () => {
           <Route path='/postingsite/contents/edit' element={<EditContents />} />
           <Route path='/postingsite/contents/delete' element={<DeleteContents />} />
           <Route path='/postingsite/contents/article/list' element={<ListArticles />} />
+          <Route path='/postingsite/contents/article/view' element={<ViewArticle />} />
         </Routes>
       </div>
     </BrowserRouter>
