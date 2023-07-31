@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { MockArticles } from '../../../mock/MockArticles';
+import { MockArticles } from '../../../../mock/MockArticles';
 
 const contentId = MockArticles.contenttId;
 const articles = MockArticles.articles;
@@ -17,9 +17,9 @@ const ViewContents = () => {
       </div>
       <div className="sidebar">
         <ul>
-          <li><Link to='/contents'>コンテンツTOP</Link></li>
-          <li><Link to='/contents/list'>一覧</Link></li>
-          <li><Link to='/contents/create'>新規作成</Link></li>
+          <li><Link to='/postingsite'>TOP</Link></li>
+          <li><Link to='/postingsite/contents/list'>コンテンツ一覧</Link></li>
+          <li><Link to='/postingsite/contents/create'>コンテンツ新規作成</Link></li>
         </ul>
       </div>
       <div className="main">
@@ -40,11 +40,11 @@ const ViewContents = () => {
                 <tr>
                   <td>{contentId}</td>
                   <td>{article.id}</td>
-                  <td><Link to='/article/view'>{article.subtitle}</Link></td>
+                  <td><Link to='/postingsite/contents/article/view'>{article.subtitle}</Link></td>
                   <td>{article.createdAt}</td>
                   <td>{article.updatedAt}</td>
-                  <td><Link to='/article/edit'>編集</Link></td>
-                  <td><Link to='/article/delete'>削除</Link></td>
+                  <td><Link to='/postingsite/contents/article/edit'>編集</Link></td>
+                  <td><Link to='/postingsite/contents/article/delete'>削除</Link></td>
                 </tr>
               )
             })

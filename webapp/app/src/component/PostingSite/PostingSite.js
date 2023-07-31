@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import '../../css/Contents.css';
 
-const Content = () => {
+const PostingSite = () => {
   const [
     contents,
     setContents
@@ -27,38 +27,24 @@ const Content = () => {
     'http://127.0R0.1:3000/api',
   );
 
-  /**
-   * コンテンツ取得 API の呼び出し( ID 指定なし )
-   */
-  const getAllContents = useCallback(async () => {
-    const contents = await get('/contents/all');
-    if (response.ok) {
-      setContents(contents);
-    }
-  },
-    [
-      get,
-      response
-    ]);
-
   return (
     <div className="content-wrapper">
-      <h2 className="headline">Contents</h2>
+      <h2 className="headline">PostingSite</h2>
       <div className="breadcrumb-list">
         <ol>
-          <li>コンテンツ</li>
+          <li>ポスティングサイト</li>
           <li>TOP</li>
         </ol>
       </div>
       <div className="sidebar">
         <ul>
-          <li className="disable-link">コンテンツTOP</li>
-          <li><Link to='/contents/list'>一覧</Link></li>
-          <li><Link to='/contents/create'>新規作成</Link></li>
+          <li className="disable-link">TOP</li>
+          <li><Link to='/postingsite/contents/list'>コンテンツ一覧</Link></li>
+          <li><Link to='/postingsite/contents/create'>コンテンツ新規作成</Link></li>
         </ul>
       </div>
       <div className="main">
-        Contents TOP
+        Posting Site TOP
       </div>
       <div>
         {error && 'Error!'}
@@ -68,5 +54,5 @@ const Content = () => {
     </div>
   );
 };
-export default Content;
+export default PostingSite;
 

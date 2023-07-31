@@ -6,12 +6,12 @@ import App from './component/App/App';
 import Hello from './component/Hello/Hello';
 import DbConnect from './component/DbConnect/DbConnect';
 import TestApi from './component/TestApi/TestAPi';
-import Content from './component/Contents/Contents';
-import ListContents from './component/Contents/List/ListContents';
-import CreateContents from './component/Contents/Create/CreateContents';
-import ViewContents from './component/Contents/View/ViewContents';
-import EditContents from './component/Contents/Edit/EditContents';
-import DeleteContents from './component/Contents/Delete/DeleteContents';
+import PostingSite from './component/PostingSite/PostingSite';
+import ListContents from './component/PostingSite/Contents/List/ListContents';
+import CreateContents from './component/PostingSite/Contents/Create/CreateContents';
+import ViewContents from './component/PostingSite/Contents/View/ViewContents';
+import EditContents from './component/PostingSite/Contents/Edit/EditContents';
+import DeleteContents from './component/PostingSite/Contents/Delete/DeleteContents';
 
 
 const tabClassName = 'tab-item';
@@ -40,19 +40,19 @@ const Routing = () => {
           <li className={tabClassName} onClick={currentTab}><Link className='li-link' to='/hello'>Hello</Link></li>
           <li className={tabClassName} onClick={currentTab}><Link className='li-link' to='/connect'>DbConnect</Link></li>
           <li className={tabClassName} onClick={currentTab}><Link className='li-link' to='/testapi'>TestApi</Link></li>
-          <li className={tabClassName} onClick={currentTab}><Link className='li-link' to='/contents'>Contents</Link></li>
+          <li className={tabClassName} onClick={currentTab}><Link className='li-link' to='/postingsite'>PostingSite</Link></li>
         </ul>
         <Routes>
           <Route path='/' element={<App />} />
           <Route path='/hello' element={<Hello />} />
           <Route path='/connect' element={<DbConnect />} />
           <Route path='/testapi' element={<TestApi />} />
-          <Route path='/contents' element={<Content />} />
-          <Route path='/contents/list' element={<ListContents />} />
-          <Route path='/contents/create' element={<CreateContents />} />
-          <Route path='/contents/view' element={<ViewContents />} />
-          <Route path='/contents/edit' element={<EditContents />} />
-          <Route path='/contents/delete' element={<DeleteContents />} />
+          <Route path='/postingsite' element={<PostingSite />} />
+          <Route path='/postingsite/contents/list' element={<ListContents />} />
+          <Route path='/postingsite/contents/create' element={<CreateContents />} />
+          <Route path='/postingsite/contents/view' element={<ViewContents />} />
+          <Route path='/postingsite/contents/edit' element={<EditContents />} />
+          <Route path='/postingsite/contents/delete' element={<DeleteContents />} />
         </Routes>
       </div>
     </BrowserRouter>
