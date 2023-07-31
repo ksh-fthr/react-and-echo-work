@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const EditContents = () => {
+const DeleteContents = () => {
 
   return (
     <div className="content-wrapper">
@@ -8,21 +8,23 @@ const EditContents = () => {
       <div className="breadcrumb-list">
         <ol>
           <li>コンテンツ</li>
-          <li>編集</li>
+          <li>削除</li>
         </ol>
       </div>
       <div className="sidebar">
         <ul>
-          <li><Link to='/contents'>コンテンツTOP</Link></li>
-          <li><Link to='/contents/list'>一覧</Link></li>
-          <li><Link to='/contents/create'>新規作成</Link></li>
+          <li><Link to='/postingsite'>TOP</Link></li>
+          <li><Link to='/postingsite/contents/list'>コンテンツ一覧</Link></li>
+          <li><Link to='/postingsite/contents/create'>コンテンツ新規作成</Link></li>
         </ul>
       </div>
       <div className="main">
-        Edit Contents
+        Delete Contents
       </div>
     </div>
   );
 };
-export default EditContents;
+export default DeleteContents;
+
+
 

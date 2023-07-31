@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const DeleteContents = () => {
+const CreateContents = () => {
 
   return (
     <div className="content-wrapper">
@@ -8,23 +8,21 @@ const DeleteContents = () => {
       <div className="breadcrumb-list">
         <ol>
           <li>コンテンツ</li>
-          <li>削除</li>
+          <li>新規作成</li>
         </ol>
       </div>
       <div className="sidebar">
         <ul>
-          <li><Link to='/contents'>コンテンツTOP</Link></li>
-          <li><Link to='/contents/list'>一覧</Link></li>
-          <li><Link to='/contents/create'>新規作成</Link></li>
+          <li><Link to='/postingsite'>TOP</Link></li>
+          <li><Link to='/postingsite/contents/list'>コンテンツ一覧</Link></li>
+          <li className="disable-link">コンテンツ新規作成</li>
         </ul>
       </div>
       <div className="main">
-        Delete Contents
+        Create Contents
       </div>
     </div>
   );
 };
-export default DeleteContents;
-
-
+export default CreateContents;
 
