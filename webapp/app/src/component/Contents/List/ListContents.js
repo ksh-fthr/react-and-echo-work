@@ -46,11 +46,11 @@ const ListContents = () => {
                   <td><Link to='/contents/edit'>編集</Link></td>
                   <td><Link to='/contents/delete'>削除</Link></td>
                 </tr>
-        )
+              )
             })
           }
-      </table>
-    </div>
+        </table>
+      </div>
     </div >
   );
 };
