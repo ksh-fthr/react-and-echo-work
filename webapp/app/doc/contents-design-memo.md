@@ -175,7 +175,13 @@
     ```json
     {
       "contenttId": number,
-      "articlesIds": number[]
+      "articles": {
+        "id": number,
+        "substile": string,
+        "deleted": boolean,
+        "createdAt": string,
+        "updatedAt": string
+      }
     }
     ```
 
