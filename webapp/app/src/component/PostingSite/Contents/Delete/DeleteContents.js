@@ -7,6 +7,7 @@ const DeleteContents = () => {
       <h2 className="headline">Contents</h2>
       <div className="breadcrumb-list">
         <ol>
+          <li>ポスティングサイト</li>
           <li>コンテンツ</li>
           <li>削除</li>
         </ol>

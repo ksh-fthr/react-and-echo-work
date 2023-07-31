@@ -6,12 +6,15 @@ import App from './component/App/App';
 import Hello from './component/Hello/Hello';
 import DbConnect from './component/DbConnect/DbConnect';
 import TestApi from './component/TestApi/TestAPi';
+// PostingSite
 import PostingSite from './component/PostingSite/PostingSite';
+// PostingSite > Contents
 import ListContents from './component/PostingSite/Contents/List/ListContents';
 import CreateContents from './component/PostingSite/Contents/Create/CreateContents';
-import ViewContents from './component/PostingSite/Contents/View/ViewContents';
 import EditContents from './component/PostingSite/Contents/Edit/EditContents';
 import DeleteContents from './component/PostingSite/Contents/Delete/DeleteContents';
+// PostingSite > Articels
+import ListArticles from './component/PostingSite/Articles/List/ListArticles';
 
 
 const tabClassName = 'tab-item';
@@ -50,9 +53,9 @@ const Routing = () => {
           <Route path='/postingsite' element={<PostingSite />} />
           <Route path='/postingsite/contents/list' element={<ListContents />} />
           <Route path='/postingsite/contents/create' element={<CreateContents />} />
-          <Route path='/postingsite/contents/view' element={<ViewContents />} />
           <Route path='/postingsite/contents/edit' element={<EditContents />} />
           <Route path='/postingsite/contents/delete' element={<DeleteContents />} />
+          <Route path='/postingsite/contents/article/list' element={<ListArticles />} />
         </Routes>
       </div>
     </BrowserRouter>

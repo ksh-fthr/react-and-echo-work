@@ -49,6 +49,7 @@ const ListContents = () => {
       <h2 className="headline">Contents</h2>
       <div className="breadcrumb-list">
         <ol>
+          <li>ポスティングサイト</li>
           <li>コンテンツ</li>
           <li>一覧</li>
         </ol>
@@ -77,7 +78,7 @@ const ListContents = () => {
               return (
                 <tr>
                   <td>{content.id}</td>
-                  <td><Link to='/postingsite/contents/view'>{content.title}</Link></td>
+                  <td><Link to='/postingsite/contents/article/list'>{content.title}</Link></td>
                   <td>{content.summary}</td>
                   <td>{content.author}</td>
                   <td>{content.createdAt}</td>

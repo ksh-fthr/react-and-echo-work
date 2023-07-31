@@ -4,15 +4,17 @@ import { MockArticles } from '../../../../mock/MockArticles';
 const contentId = MockArticles.contenttId;
 const articles = MockArticles.articles;
 
-const ViewContents = () => {
+const ListArticles = () => {
 
   return (
     <div className="content-wrapper">
-      <h2 className="headline">Contents</h2>
+      <h2 className="headline">Articles</h2>
       <div className="breadcrumb-list">
         <ol>
+          <li>ポスティングサイト</li>
           <li>コンテンツ</li>
-          <li>閲覧</li>
+          <li>記事</li>
+          <li>一覧</li>
         </ol>
       </div>
       <div className="sidebar">
@@ -54,5 +56,5 @@ const ViewContents = () => {
     </div>
   );
 };
-export default ViewContents;
+export default ListArticles;
 
