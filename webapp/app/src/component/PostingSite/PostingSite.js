@@ -2,8 +2,6 @@ import React, { useState, useCallback } from 'react';
 import useFetch from 'use-http'
 import { Link } from 'react-router-dom';
 
-import '../../css/Contents.css';
-
 const PostingSite = () => {
   const [
     contents,
