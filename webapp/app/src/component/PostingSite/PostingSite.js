@@ -1,29 +1,50 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from "react";
 import useFetch from 'use-http'
 import { Link } from 'react-router-dom';
 
 const PostingSite = () => {
   const [
-    contents,
-    setContents
-  ] = useState('');
-
-  const [
-    id,
-    setId
-  ] = useState('');
+    message,
+    setTopAnnounce
+  ] = useState([]);
 
   const {
     get,
-    post,
-    put,
-    del,
     response,
     loading,
     error
   } = useFetch(
-    'http://127.0R0.1:3000/api',
+    "http://127.0.0.1:3000/api",
   );
+
+  const initialize = useCallback(
+    async () => {
+      const initialMessage = await get("/announce");
+      if (response.ok) {
+        setTopAnnounce(initialMessage);
+      }
+    },
+    [
+      // 依存配列
+      // get, response に変化があった場合に setTopAnnounce が再実行される
+      get,
+      response
+    ]
+  );
+
+  //
+  // useEffectの実行されるタイミング
+  // 1. 第二引数を指定しない場合、副作用は全レンダリング後に実行
+  // 2. 第二引数を指定した場合、配列に格納された値が変更された場合のみ実行
+  //
+  //
+  useEffect(() => {
+    // 副作用として実行される処理
+    initialize();
+  },
+    [
+      initialize
+    ]);
 
   return (
     <div className="content-wrapper">
@@ -47,7 +68,7 @@ const PostingSite = () => {
       <div>
         {error && 'Error!'}
         {loading && 'Loading...'}
-        {contents}
+        {message}
       </div>
     </div>
   );
