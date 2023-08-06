@@ -43,7 +43,7 @@ const TestApi = () => {
    */
   const postContents = useCallback(async () => {
     const postData = {
-      contents: 'post contents data',
+      contents: 'post contents data'
     }
     const contents = await post('/testapi', postData)
     if (response.ok) {
@@ -56,7 +56,7 @@ const TestApi = () => {
    */
   const putContents = useCallback(async () => {
     const putData = {
-      contents: 'put contents data',
+      contents: 'put contents data'
     }
     const contents = await put(`/testapi/${id}`, putData)
     if (response.ok) {

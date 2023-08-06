@@ -17,7 +17,7 @@ const Hello = () => {
     // 依存配列
     // get, response に変化があった場合に setMessage が再実行される
     get,
-    response,
+    response
   ])
 
   //

@@ -7,7 +7,7 @@ module.exports = function (app) {
       target: 'http://127.0.0.1:8080',
       changeOrigin: true,
       pathRewrite: {
-        '^/api': '/', // ここでターゲットへの path の書き換え
+        '^/api': '/' // ここでターゲットへの path の書き換え
       },
       onProxyRes: function (proxyRes, req, res) {
         // 少なとも `Access-Control-Allow-Origin` を設定しないと CORS エラーが発生する
@@ -17,7 +17,7 @@ module.exports = function (app) {
         proxyRes.headers['Access-Control-Allow-Headers'] =
           'Origin, Authorization, Accept, Content-Type'
         proxyRes.headers['Access-Control-Allow-Credentials'] = true
-      },
+      }
     })
   )
 }
