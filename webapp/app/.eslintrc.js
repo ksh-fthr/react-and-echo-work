@@ -20,5 +20,9 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: ['react'],
-  rules: {}
+  rules: {
+    // See: https://zenn.dev/ryuu/scraps/583dad79532879
+    'react/jsx-uses-react': 'off',
+    'react/react-in-jsx-scope': 'off'
+  }
 }
