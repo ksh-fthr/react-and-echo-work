@@ -2,6 +2,12 @@ import React, { useState, useEffect, useCallback } from "react";
 import useFetch from 'use-http'
 import { Link } from 'react-router-dom';
 
+// TODO: API 疎通ができたらこのメッセージは削除する.
+const initialMessage = `
+ようこそ。ここは任意のコンテンツや記事を投稿できるポスティングサイトです。
+ご自身の TODO 管理や備忘録等、ご自由にお使いください。
+`;
+
 const PostingSite = () => {
   const [
     message,
@@ -19,10 +25,12 @@ const PostingSite = () => {
 
   const initialize = useCallback(
     async () => {
-      const initialMessage = await get("/announce");
-      if (response.ok) {
-        setTopAnnounce(initialMessage);
-      }
+      // TODO: API 疎通ができたらこの部分を有効化する.
+      // const initialMessage = await get("/announce");
+      // if (response.ok) {
+      //   setTopAnnounce(initialMessage);
+      // }
+      setTopAnnounce(initialMessage);
     },
     [
       // 依存配列
@@ -63,9 +71,7 @@ const PostingSite = () => {
         </ul>
       </div>
       <div className="main">
-        Posting Site TOP
-      </div>
-      <div>
+        <h3>Posting Site へようこそ</h3>
         {error && 'Error!'}
         {loading && 'Loading...'}
         {message}
