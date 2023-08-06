@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react'
+import { useState, useCallback } from 'react'
 import useFetch from 'use-http'
 
 const TestApi = () => {
