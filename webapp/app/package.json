@@ -9,7 +9,14 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint:prettier": "prettier --check .",
+    "fix:prettier": "prettier --write .",
+    "lint:eslint": "eslint --ext \".js,.ts\" --ignore-path .gitignore .",
+    "fix:eslint": "npm run lint:eslint --fix",
+    "lint": "npm run lint:prettier && npm run lint:eslint",
+    "fix": "npm run fix:prettier && npm run fix:eslint"
+
   },
   "dependencies": {
     "@testing-library/jest-dom": "5.17.0",
@@ -22,12 +29,6 @@
     "react-scripts": "^5.0.1",
     "use-http": "1.0.28",
     "web-vitals": "2.1.4"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
