@@ -10,7 +10,7 @@ export class ArticleModel {
   createdAt = null
   updatedAt = null
 
-  constructor(article) {
+  constructor (article) {
     this.id = article.id
     this.contentId = article.contentId
     this.substile = article.subtitle

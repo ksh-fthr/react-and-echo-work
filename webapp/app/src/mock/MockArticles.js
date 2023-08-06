@@ -6,7 +6,7 @@ export const MockArticles = {
       subtitle: 'なにかのサブタイトル',
       deleted: false,
       createdAt: '2023-07-31',
-      updatedAt: '2023-07-31',
-    },
-  ],
+      updatedAt: '2023-07-31'
+    }
+  ]
 }

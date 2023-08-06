@@ -8,10 +8,10 @@ export const MockArticle = {
     id: 1,
     contentId: 1,
     subtitle: '副題はここです',
-    body: body,
+    body,
     remarks: '',
     deleted: false,
     createdAt: '2023-07-22',
-    updatedAt: '2023-07-22',
-  },
+    updatedAt: '2023-07-22'
+  }
 }
