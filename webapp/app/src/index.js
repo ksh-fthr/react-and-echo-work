@@ -1,15 +1,15 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
 import './css/index.css'
-import Routing from './Routing'
 import reportWebVitals from './reportWebVitals'
+import { createRoot } from 'react-dom/client'
+import Routing from './Routing'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Routing />
-  </React.StrictMode>,
-  document.getElementById('root')
-)
+// 下記が発生していたので対応.
+// ReactDOM.render is deprecated since React 18.0.0, use createRoot instead, see https://reactjs.org/link/switch-to-createroot
+//
+// See: https://zenn.dev/kohski/articles/create-react-app-error-v18
+const container = document.getElementById('root')
+const root = createRoot(container)
+root.render(<Routing />)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

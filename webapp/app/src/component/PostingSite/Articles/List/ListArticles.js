@@ -46,7 +46,8 @@ const ListArticles = () => {
           </tr>
           {articles.map((article) => {
             return (
-              <tr>
+              // See: https://bobbyhadz.com/blog/react-missing-key-prop-for-element-in-iterator
+              <tr key={article.id}>
                 <td>{contentId}</td>
                 <td>{article.id}</td>
                 <td>

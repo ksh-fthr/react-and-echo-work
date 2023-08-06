@@ -70,7 +70,8 @@ const ListContents = () => {
           </tr>
           {contents.map((content) => {
             return (
-              <tr>
+              // See: https://bobbyhadz.com/blog/react-missing-key-prop-for-element-in-iterator
+              <tr key={content.id}>
                 <td>{content.id}</td>
                 <td>
                   <Link to="/postingsite/contents/article/list">
