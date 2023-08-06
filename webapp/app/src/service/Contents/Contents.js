@@ -9,7 +9,7 @@ export class ContentModel {
   created_at = null
   updated_at = null
 
-  constructor (content) {
+  constructor(content) {
     this.id = content.id
     this.title = content.title
     this.author = content.author ?? ''
@@ -22,7 +22,7 @@ export class ContentModel {
 
 export class ContentsModel {
   contents = []
-  constructor (contents) {
+  constructor(contents) {
     this.contents = contents
   }
 }
