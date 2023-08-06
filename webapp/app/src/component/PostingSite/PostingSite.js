@@ -23,15 +23,14 @@ const PostingSite = () => {
     "http://127.0.0.1:3000/api",
   );
 
-  const initialize = useCallback(
-    async () => {
-      // TODO: API 疎通ができたらこの部分を有効化する.
-      // const initialMessage = await get("/announce");
-      // if (response.ok) {
-      //   setTopAnnounce(initialMessage);
-      // }
-      setTopAnnounce(initialMessage);
-    },
+  const initialize = useCallback(async () => {
+    // TODO: API 疎通ができたらこの部分を有効化する.
+    // const initialMessage = await get("/announce");
+    // if (response.ok) {
+    //   setTopAnnounce(initialMessage);
+    // }
+    setTopAnnounce(initialMessage);
+  },
     [
       // 依存配列
       // get, response に変化があった場合に setTopAnnounce が再実行される
