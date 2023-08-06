@@ -1,11 +1,10 @@
-import { Link } from 'react-router-dom';
-import { MockArticles } from '../../../../mock/MockArticles';
+import { Link } from 'react-router-dom'
+import { MockArticles } from '../../../../mock/MockArticles'
 
-const contentId = MockArticles.contenttId;
-const articles = MockArticles.articles;
+const contentId = MockArticles.contenttId
+const articles = MockArticles.articles
 
 const ListArticles = () => {
-
   return (
     <div className="content-wrapper">
       <h2 className="headline">Articles</h2>
@@ -19,14 +18,23 @@ const ListArticles = () => {
       </div>
       <div className="sidebar">
         <ul>
-          <li><Link to='/postingsite'>TOP</Link></li>
-          <li><Link to='/postingsite/contents/list'>コンテンツ一覧</Link></li>
-          <li><Link to='/postingsite/contents/create'>コンテンツ新規作成</Link></li>
+          <li>
+            <Link to="/postingsite">TOP</Link>
+          </li>
+          <li>
+            <Link to="/postingsite/contents/list">コンテンツ一覧</Link>
+          </li>
+          <li>
+            <Link to="/postingsite/contents/create">コンテンツ新規作成</Link>
+          </li>
         </ul>
       </div>
       <div className="main">
         <table>
-          <caption>コンテンツのキャプション( content/:id で取得した summary をここに出す )</caption>
+          <caption>
+            コンテンツのキャプション( content/:id で取得した summary
+            をここに出す )
+          </caption>
           <tr>
             <th>コンテンツID</th>
             <th>記事ID</th>
@@ -36,25 +44,30 @@ const ListArticles = () => {
             <th>編集</th>
             <th>削除</th>
           </tr>
-          {
-            articles.map((article) => {
-              return (
-                <tr>
-                  <td>{contentId}</td>
-                  <td>{article.id}</td>
-                  <td><Link to='/postingsite/contents/article/view'>{article.subtitle}</Link></td>
-                  <td>{article.createdAt}</td>
-                  <td>{article.updatedAt}</td>
-                  <td><Link to='/postingsite/contents/article/edit'>編集</Link></td>
-                  <td><Link to='/postingsite/contents/article/delete'>削除</Link></td>
-                </tr>
-              )
-            })
-          }
+          {articles.map((article) => {
+            return (
+              <tr>
+                <td>{contentId}</td>
+                <td>{article.id}</td>
+                <td>
+                  <Link to="/postingsite/contents/article/view">
+                    {article.subtitle}
+                  </Link>
+                </td>
+                <td>{article.createdAt}</td>
+                <td>{article.updatedAt}</td>
+                <td>
+                  <Link to="/postingsite/contents/article/edit">編集</Link>
+                </td>
+                <td>
+                  <Link to="/postingsite/contents/article/delete">削除</Link>
+                </td>
+              </tr>
+            )
+          })}
         </table>
       </div>
     </div>
-  );
-};
-export default ListArticles;
-
+  )
+}
+export default ListArticles
