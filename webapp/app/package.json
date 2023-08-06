@@ -16,7 +16,6 @@
     "fix:eslint": "npm run lint:eslint --fix",
     "lint": "npm run lint:prettier && npm run lint:eslint",
     "fix": "npm run fix:prettier && npm run fix:eslint"
-
   },
   "dependencies": {
     "@testing-library/jest-dom": "5.17.0",

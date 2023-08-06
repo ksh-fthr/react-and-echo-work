@@ -1,23 +1,14 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from 'react'
 import useFetch from 'use-http'
-import { Link } from 'react-router-dom';
-import { MockContents } from '../../../../mock/MockContents';
+import { Link } from 'react-router-dom'
+import { MockContents } from '../../../../mock/MockContents'
 
 const ListContents = () => {
+  const [contents, setContents] = useState([])
 
-  const [
-    contents,
-    setContents
-  ] = useState([]);
-
-  const {
-    get,
-    response,
-    loading,
-    error
-  } = useFetch(
-    'http://127.0R0.1:3000/api',
-  );
+  const { get, response, loading, error } = useFetch(
+    'http://127.0R0.1:3000/api'
+  )
 
   /**
    * コンテンツ取得 API の呼び出し( ID 指定なし )
@@ -28,12 +19,8 @@ const ListContents = () => {
     // if (response.ok) {
     //   setContents(contents);
     // }
-    setContents(MockContents.contents);
-  },
-    [
-      get,
-      response
-    ]);
+    setContents(MockContents.contents)
+  }, [get, response])
 
   //
   // useEffectの実行されるタイミング
@@ -43,11 +30,8 @@ const ListContents = () => {
   //
   useEffect(() => {
     // 副作用として実行される処理
-    getAllContents();
-  },
-    [
-      getAllContents
-    ]);
+    getAllContents()
+  }, [getAllContents])
 
   return (
     <div className="content-wrapper">
@@ -61,9 +45,13 @@ const ListContents = () => {
       </div>
       <div className="sidebar">
         <ul>
-          <li><Link to='/postingsite'>TOP</Link></li>
+          <li>
+            <Link to="/postingsite">TOP</Link>
+          </li>
           <li className="disable-link">コンテンツ一覧</li>
-          <li><Link to='/postingsite/contents/create'>コンテンツ新規作成</Link></li>
+          <li>
+            <Link to="/postingsite/contents/create">コンテンツ新規作成</Link>
+          </li>
         </ul>
       </div>
       <div className="main">
@@ -80,27 +68,31 @@ const ListContents = () => {
             <th>編集</th>
             <th>削除</th>
           </tr>
-          {
-            contents.map((content) => {
-              return (
-                <tr>
-                  <td>{content.id}</td>
-                  <td><Link to='/postingsite/contents/article/list'>{content.title}</Link></td>
-                  <td>{content.summary}</td>
-                  <td>{content.author}</td>
-                  <td>{content.createdAt}</td>
-                  <td>{content.updatedAt}</td>
-                  <td><Link to='/postingsite/contents/edit'>編集</Link></td>
-                  <td><Link to='/postingsite/contents/delete'>削除</Link></td>
-                </tr>
-              )
-            })
-          }
+          {contents.map((content) => {
+            return (
+              <tr>
+                <td>{content.id}</td>
+                <td>
+                  <Link to="/postingsite/contents/article/list">
+                    {content.title}
+                  </Link>
+                </td>
+                <td>{content.summary}</td>
+                <td>{content.author}</td>
+                <td>{content.createdAt}</td>
+                <td>{content.updatedAt}</td>
+                <td>
+                  <Link to="/postingsite/contents/edit">編集</Link>
+                </td>
+                <td>
+                  <Link to="/postingsite/contents/delete">削除</Link>
+                </td>
+              </tr>
+            )
+          })}
         </table>
       </div>
-    </div >
-  );
-};
-export default ListContents;
-
-
+    </div>
+  )
+}
+export default ListContents

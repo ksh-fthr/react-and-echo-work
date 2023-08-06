@@ -16,7 +16,7 @@
   border-right: solid 1px #a9a9a9;
 }
 
-.disable-link{
+.disable-link {
   pointer-events: none;
   color: #d3d3d3;
 }
@@ -34,7 +34,7 @@
 }
 
 .breadcrumb-list ol li::after {
-  content: ">";
+  content: '>';
   padding: 7px;
 }
 
@@ -47,4 +47,3 @@
   margin: 0;
   padding: 0;
 }
-

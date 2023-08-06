@@ -1,7 +1,6 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 const CreateContents = () => {
-
   return (
     <div className="content-wrapper">
       <h2 className="headline">Contents</h2>
@@ -14,16 +13,17 @@ const CreateContents = () => {
       </div>
       <div className="sidebar">
         <ul>
-          <li><Link to='/postingsite'>TOP</Link></li>
-          <li><Link to='/postingsite/contents/list'>コンテンツ一覧</Link></li>
+          <li>
+            <Link to="/postingsite">TOP</Link>
+          </li>
+          <li>
+            <Link to="/postingsite/contents/list">コンテンツ一覧</Link>
+          </li>
           <li className="disable-link">コンテンツ新規作成</li>
         </ul>
       </div>
-      <div className="main">
-        Create Contents
-      </div>
+      <div className="main">Create Contents</div>
     </div>
-  );
-};
-export default CreateContents;
-
+  )
+}
+export default CreateContents
