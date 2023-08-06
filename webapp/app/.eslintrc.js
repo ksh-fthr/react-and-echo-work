@@ -23,6 +23,15 @@ module.exports = {
   rules: {
     // See: https://zenn.dev/ryuu/scraps/583dad79532879
     'react/jsx-uses-react': 'off',
-    'react/react-in-jsx-scope': 'off'
+    'react/react-in-jsx-scope': 'off',
+    // 'space-before-function-paren': ['error', 'never']
+    'space-before-function-paren': [
+      'error',
+      {
+        anonymous: 'always',
+        named: 'never',
+        asyncArrow: 'always'
+      }
+    ]
   }
 }

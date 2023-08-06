@@ -1,7 +1,7 @@
 export class ArticlesModel {
   contentId = null
   articleIds = []
-  constructor (contentId, articleIds) {
+  constructor(contentId, articleIds) {
     this.contentId = contentId
     this.articleIds = articleIds
   }
