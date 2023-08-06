@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from "react";
 import useFetch from 'use-http'
 import { Link } from 'react-router-dom';
 import { MockContents } from '../../../../mock/MockContents';
@@ -8,18 +8,10 @@ const ListContents = () => {
   const [
     contents,
     setContents
-  ] = useState('');
-
-  const [
-    id,
-    setId
-  ] = useState('');
+  ] = useState([]);
 
   const {
     get,
-    post,
-    put,
-    del,
     response,
     loading,
     error
@@ -31,18 +23,31 @@ const ListContents = () => {
    * コンテンツ取得 API の呼び出し( ID 指定なし )
    */
   const getAllContents = useCallback(async () => {
-    const contents = await get('/contents/all');
-    if (response.ok) {
-      setContents(contents);
-    }
+    // TODO: API 疎通ができたらこの部分は有効化する.
+    // const contents = await get('/contents/all');
+    // if (response.ok) {
+    //   setContents(contents);
+    // }
+    setContents(MockContents.contents);
   },
     [
       get,
       response
     ]);
 
-
-  const mockContents = MockContents.contents;
+  //
+  // useEffectの実行されるタイミング
+  // 1. 第二引数を指定しない場合、副作用は全レンダリング後に実行
+  // 2. 第二引数を指定した場合、配列に格納された値が変更された場合のみ実行
+  //
+  //
+  useEffect(() => {
+    // 副作用として実行される処理
+    getAllContents();
+  },
+    [
+      getAllContents
+    ]);
 
   return (
     <div className="content-wrapper">
@@ -62,6 +67,8 @@ const ListContents = () => {
         </ul>
       </div>
       <div className="main">
+        {error && 'Error!'}
+        {loading && 'Loading...'}
         <table>
           <tr>
             <th>コンテンツID</th>
@@ -74,7 +81,7 @@ const ListContents = () => {
             <th>削除</th>
           </tr>
           {
-            mockContents.map((content) => {
+            contents.map((content) => {
               return (
                 <tr>
                   <td>{content.id}</td>
