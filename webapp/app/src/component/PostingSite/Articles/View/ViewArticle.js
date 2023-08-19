@@ -31,7 +31,7 @@ const ViewArticle = () => {
       </div>
       <div className="main">
         <h3>{subtitle}</h3>
-        <article className="article"> {`${article}`} </article>
+        <article className="article"> {article} </article>
       </div>
     </div>
   )

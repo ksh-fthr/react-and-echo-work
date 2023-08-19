@@ -62,9 +62,11 @@ const PostingSite = () => {
       </div>
       <div className="main">
         <h3>Posting Site へようこそ</h3>
-        {error && 'Error!'}
-        {loading && 'Loading...'}
-        {message}
+        <p className="article">
+          {error && 'Error!'}
+          {loading && 'Loading...'}
+          {message}
+        </p>
       </div>
     </div>
   )
