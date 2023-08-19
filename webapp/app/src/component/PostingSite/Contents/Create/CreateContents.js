@@ -22,7 +22,9 @@ const CreateContents = () => {
           <li className="disable-link">コンテンツ新規作成</li>
         </ul>
       </div>
-      <div className="main">Create Contents</div>
+      <div className="main">
+        <h3>コンテンツ新規作成</h3>
+      </div>
     </div>
   )
 }

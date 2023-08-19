@@ -30,6 +30,7 @@ const ListArticles = () => {
         </ul>
       </div>
       <div className="main">
+        <h3>記事一覧</h3>
         <table>
           <caption>
             コンテンツのキャプション( content/:id で取得した summary
