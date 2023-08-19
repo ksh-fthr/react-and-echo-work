@@ -24,7 +24,9 @@ const EditContents = () => {
           </li>
         </ul>
       </div>
-      <div className="main">Edit Contents</div>
+      <div className="main">
+        <h3>コンテンツ編集</h3>
+      </div>
     </div>
   )
 }

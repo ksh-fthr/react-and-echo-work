@@ -55,6 +55,7 @@ const ListContents = () => {
         </ul>
       </div>
       <div className="main">
+        <h3>コンテンツ一覧</h3>
         {error && 'Error!'}
         {loading && 'Loading...'}
         <table>

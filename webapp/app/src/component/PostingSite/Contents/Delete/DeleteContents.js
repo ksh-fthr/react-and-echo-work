@@ -24,7 +24,9 @@ const DeleteContents = () => {
           </li>
         </ul>
       </div>
-      <div className="main">Delete Contents</div>
+      <div className="main">
+        <h3>コンテンツ削除</h3>
+      </div>
     </div>
   )
 }

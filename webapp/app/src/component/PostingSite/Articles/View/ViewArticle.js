@@ -30,7 +30,7 @@ const ViewArticle = () => {
         </ul>
       </div>
       <div className="main">
-        <h2>{subtitle}</h2>
+        <h3>{subtitle}</h3>
         <article className="article"> {`${article}`} </article>
       </div>
     </div>
