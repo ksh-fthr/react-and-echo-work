@@ -4,6 +4,7 @@
 }
 
 .main {
+  position: relative;
   float: right;
   width: calc(100% - 220px);
   height: calc(100vh - 160px);
@@ -53,5 +54,32 @@
  */
 .article {
   white-space: pre-wrap;
+}
+
+/**
+ * form 関連のスタイル
+ */
+.form-label {
+  display: block;
+}
+
+.contents-title > #title {
+  width: 450px;
+}
+
+.contents-author > #author {
+  width: 450px;
+}
+
+.contents-summary > #summary {
+  width: 450px;
+  min-width: 450px;
+  max-width: 450px;
+  height: 200px;
+}
+
+.contents-footer {
+  position: absolute;
+  bottom: 0;
 }
 

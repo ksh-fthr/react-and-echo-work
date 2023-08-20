@@ -1,6 +1,26 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
 const CreateContents = () => {
+  const [form, setForm] = useState({
+    title: '',
+    author: '',
+    summary: ''
+  })
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const show = () => {
+    console.log(`title: ${form.title}`)
+    console.log(`author: ${form.author}`)
+    console.log(`summary: ${form.summary}`)
+  }
+
   return (
     <div className="content-wrapper">
       <h2 className="headline">Contents</h2>
@@ -23,7 +43,50 @@ const CreateContents = () => {
         </ul>
       </div>
       <div className="main">
-        <h3>コンテンツ新規作成</h3>
+        <div className="contents-header">
+          <h3>コンテンツ新規作成</h3>
+        </div>
+        <div className="contents-body">
+          <form className="create-contents">
+            <div className="contents-title">
+              <label className="form-label">タイトル:</label>
+              <input
+                id="title"
+                name="title"
+                type="text"
+                onChange={handleChange}
+                value={form.title}
+              />
+            </div>
+            <div className="contents-author">
+              <label className="form-label">作者:</label>
+              <input
+                id="author"
+                name="author"
+                type="text"
+                onChange={handleChange}
+                value={form.author}
+              />
+            </div>
+            <div className="contents-summary">
+              <label className="form-label">要約:</label>
+              <textarea
+                id="summary"
+                name="summary"
+                onChange={handleChange}
+                value={form.summary}
+              />
+            </div>
+          </form>
+        </div>
+        <div className="contents-footer">
+          <button
+            type="button"
+            onClick={show}
+          >
+          送信
+          </button>
+        </div>
       </div>
     </div>
   )
