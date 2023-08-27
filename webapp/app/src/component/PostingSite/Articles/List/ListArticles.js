@@ -52,17 +52,23 @@ const ListArticles = () => {
                 <td>{contentId}</td>
                 <td>{article.id}</td>
                 <td>
-                  <Link to="/postingsite/contents/article/view">
+                  <Link to={`/postingsite/contents/article/view/${article.id}`}>
                     {article.subtitle}
                   </Link>
                 </td>
                 <td>{article.createdAt}</td>
                 <td>{article.updatedAt}</td>
                 <td>
-                  <Link to="/postingsite/contents/article/edit">編集</Link>
+                  <Link to={`/postingsite/contents/article/edit/${article.id}`}>
+                    編集
+                  </Link>
                 </td>
                 <td>
-                  <Link to="/postingsite/contents/article/delete">削除</Link>
+                  <Link
+                    to={`/postingsite/contents/article/delete/${article.id}`}
+                  >
+                    削除
+                  </Link>
                 </td>
               </tr>
             )
