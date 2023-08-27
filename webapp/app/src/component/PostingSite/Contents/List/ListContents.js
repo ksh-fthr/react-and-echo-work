@@ -7,7 +7,7 @@ const ListContents = () => {
   const [contents, setContents] = useState([])
 
   const { get, response, loading, error } = useFetch(
-    'http://130.0R0.1:3000/api'
+    'http://127.0.0.1:3000/api'
   )
 
   /**
@@ -22,12 +22,9 @@ const ListContents = () => {
     setContents(MockContents.contents)
   }, [get, response])
 
-  //
   // useEffectの実行されるタイミング
-  // 4. 第二引数を指定しない場合、副作用は全レンダリング後に実行
-  // 5. 第二引数を指定した場合、配列に格納された値が変更された場合のみ実行
-  //
-  //
+  // * 第二引数を指定しない場合、副作用は全レンダリング後に実行
+  // * 第二引数を指定した場合、配列に格納された値が変更された場合のみ実行
   useEffect(() => {
     // 副作用として実行される処理
     getAllContents()
@@ -84,10 +81,14 @@ const ListContents = () => {
                 <td>{content.createdAt}</td>
                 <td>{content.updatedAt}</td>
                 <td>
-                  <Link to={`/postingsite/contents/edit/${content.id}`}>編集</Link>
+                  <Link to={`/postingsite/contents/edit/${content.id}`}>
+                    編集
+                  </Link>
                 </td>
                 <td>
-                  <Link to={`/postingsite/contents/delete/${content.id}`}>削除</Link>
+                  <Link to={`/postingsite/contents/delete/${content.id}`}>
+                    削除
+                  </Link>
                 </td>
               </tr>
             )
