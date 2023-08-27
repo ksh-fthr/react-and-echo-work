@@ -125,7 +125,7 @@
 - HTTP METHOD
   - `POST`
 - URL
-  - `/content/{contentId}/article`
+  - `/contents/:contentId/article`
 - HTTP Body
   ```json
   {
@@ -142,7 +142,7 @@
 - HTTP METHOD
   - `PATCH`
 - URL
-  - `/content/{contentId}`
+  - `/contents/:contentId`
 - HTTP Body
   ```json
   {
@@ -157,7 +157,7 @@
 - HTTP METHOD
   - `PATCH`
 - URL
-  - `/content/{contentId}/article/{articleId}`
+  - `/contents/:contentId/article/:articleId`
 - HTTP Body
   ```json
   {
@@ -197,7 +197,7 @@
 - HTTP METHOD
   - `GET`
 - URL
-  - `/content/{contentId}/articles`
+  - `/contents/:contentId/articles`
 - HTTP Response
   ```json
   {
@@ -219,7 +219,7 @@
 - HTTP METHOD
   - `GET`
 - URL
-  - `/content/{contentId}}`
+  - `/contents/:contentId`
 - HTTP Response
   ```json
   {
@@ -240,7 +240,7 @@
 - HTTP METHOD
   - `GET`
 - URL
-  - `/content/{contentId}/article/{articleId}`
+  - `/contents/:contentId/article/:articleId`
 - HTTP Response
   ```json
   {
@@ -264,11 +264,11 @@
 - HTTP METHOD
   - `DELETE`
 - URL
-  - `/content/{contentId}`
+  - `/contents/:contentId`
 
 **記事削除**
 
 - HTTP METHOD
   - `delete`
 - URL
-  - `/content/{content_id}/article/{articleId}`
+  - `/contents/:contentId}/article/:articleId`
