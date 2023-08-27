@@ -76,17 +76,20 @@ const Routing = () => {
             path="/postingsite/contents/create"
             element={<CreateContents />}
           />
-          <Route path="/postingsite/contents/edit" element={<EditContents />} />
           <Route
-            path="/postingsite/contents/delete"
+            path="/postingsite/contents/edit/:id"
+            element={<EditContents />}
+          />
+          <Route
+            path="/postingsite/contents/delete/:id"
             element={<DeleteContents />}
           />
           <Route
-            path="/postingsite/contents/article/list"
+            path="/postingsite/contents/article/list/:id"
             element={<ListArticles />}
           />
           <Route
-            path="/postingsite/contents/article/view"
+            path="/postingsite/contents/article/view/:id"
             element={<ViewArticle />}
           />
         </Routes>
