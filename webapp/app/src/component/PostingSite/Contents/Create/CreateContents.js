@@ -16,9 +16,11 @@ const CreateContents = () => {
   }
 
   const show = () => {
-    console.log(`title: ${form.title}`)
-    console.log(`author: ${form.author}`)
-    console.log(`summary: ${form.summary}`)
+    console.dir({
+      title: form.title,
+      author: form.author,
+      summary: form.summary
+    })
   }
 
   return (
@@ -80,11 +82,8 @@ const CreateContents = () => {
           </form>
         </div>
         <div className="contents-footer">
-          <button
-            type="button"
-            onClick={show}
-          >
-          送信
+          <button type="button" onClick={show}>
+            送信
           </button>
         </div>
       </div>
