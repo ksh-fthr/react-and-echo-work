@@ -15,7 +15,7 @@ const CreateContents = () => {
     })
   }
 
-  const show = () => {
+  const createContents = () => {
     console.dir({
       title: form.title,
       author: form.author,
@@ -82,7 +82,7 @@ const CreateContents = () => {
           </form>
         </div>
         <div className="contents-footer">
-          <button type="button" onClick={show}>
+          <button type="button" onClick={createContents}>
             送信
           </button>
         </div>
