@@ -1,6 +1,16 @@
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 const DeleteContents = () => {
+  // これだけで URL パラメータから値を取得できる
+  const params = useParams()
+
+  const deleteContents = () => {
+    console.dir({
+      id: params.id,
+      title: params.title
+    })
+  }
+
   return (
     <div className="content-wrapper">
       <h2 className="headline">Contents</h2>
@@ -25,7 +35,17 @@ const DeleteContents = () => {
         </ul>
       </div>
       <div className="main">
-        <h3>コンテンツ削除</h3>
+        <div className="contents-header">
+          <h3>コンテンツ削除</h3>
+        </div>
+        <div className="contents-body">
+          ID: {params.id}, タイトル: {params.title} を削除します
+        </div>
+        <div className="contents-footer">
+          <button type="button" onClick={deleteContents}>
+            送信
+          </button>
+        </div>
       </div>
     </div>
   )
