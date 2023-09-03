@@ -8,7 +8,7 @@ const EditContents = () => {
   // これだけで URL パラメータから値を取得できる
   const params = useParams()
 
-  // コンテンツを取得する一連の処理
+  // API コール
   const { get, response, loading, error } = useFetch(
     'http://127.0.0.1:3000/api'
   )
@@ -54,7 +54,7 @@ const EditContents = () => {
     })
   }
 
-  const show = () => {
+  const editContents = () => {
     console.dir({
       title: form.title,
       author: form.author,
@@ -92,7 +92,7 @@ const EditContents = () => {
         {error && 'Error!'}
         {loading && 'Loading...'}
         <div className="contents-body">
-          <form className="create-contents">
+          <form className="edit-contents">
             <div className="contents-title">
               <label className="form-label">タイトル:</label>
               <input
@@ -126,7 +126,7 @@ const EditContents = () => {
           </form>
         </div>
         <div className="contents-footer">
-          <button type="button" onClick={show}>
+          <button type="button" onClick={editContents}>
             送信
           </button>
         </div>

@@ -86,7 +86,9 @@ const ListContents = () => {
                   </Link>
                 </td>
                 <td>
-                  <Link to={`/postingsite/contents/delete/${content.id}`}>
+                  <Link
+                    to={`/postingsite/contents/delete/${content.id}/${content.title}`}
+                  >
                     削除
                   </Link>
                 </td>

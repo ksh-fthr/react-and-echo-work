@@ -81,7 +81,7 @@ const Routing = () => {
             element={<EditContents />}
           />
           <Route
-            path="/postingsite/contents/delete/:id"
+            path="/postingsite/contents/delete/:id/:title"
             element={<DeleteContents />}
           />
           <Route
