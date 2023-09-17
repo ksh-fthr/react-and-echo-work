@@ -265,4 +265,4 @@
 - HTTP METHOD
   - `delete`
 - URL
-  - `/contents/:contentId}/article/:articleId`
+  - `/contents/:contentId/article/:articleId`
