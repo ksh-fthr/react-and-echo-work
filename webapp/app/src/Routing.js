@@ -92,6 +92,10 @@ const Routing = () => {
             path="/postingsite/contents/article/view/:id"
             element={<ViewArticle />}
           />
+          <Route
+            path="/postingsite/contents/article/delete/:id/:subtitle"
+            element={<DeleteContents />}
+          />
         </Routes>
       </div>
     </BrowserRouter>

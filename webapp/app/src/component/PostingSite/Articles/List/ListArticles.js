@@ -65,7 +65,7 @@ const ListArticles = () => {
                 </td>
                 <td>
                   <Link
-                    to={`/postingsite/contents/article/delete/${article.id}`}
+                    to={`/postingsite/contents/delete/${article.id}/${article.subtitle}`}
                   >
                     削除
                   </Link>
