@@ -103,7 +103,7 @@
 
 ## API
 
-### 作成
+### コンテンツ
 
 **コンテンツ作成**
 
@@ -120,23 +120,6 @@
   }
   ```
 
-**記事作成**
-
-- HTTP METHOD
-  - `POST`
-- URL
-  - `/contents/:contentId/article`
-- HTTP Body
-  ```json
-  {
-      "subtitle": string,
-      "body": text,
-      "remarks": text | null
-  }
-  ```
-
-### 更新
-
 **コンテンツ更新**
 
 - HTTP METHOD
@@ -151,23 +134,6 @@
       "summary": text | null
   }
   ```
-
-**記事更新**
-
-- HTTP METHOD
-  - `PATCH`
-- URL
-  - `/contents/:contentId/article/:articleId`
-- HTTP Body
-  ```json
-  {
-      "subtitle": string,
-      "body": text,
-      "remarks": text | null
-  }
-  ```
-
-### 閲覧-リスト取得
 
 **コンテンツリスト取得**
 
@@ -192,28 +158,6 @@
   }
   ```
 
-**記事リスト取得**
-
-- HTTP METHOD
-  - `GET`
-- URL
-  - `/contents/:contentId/articles`
-- HTTP Response
-  ```json
-  {
-    "contenttId": number,
-    "articles": {
-      "id": number,
-      "subtitle": string,
-      "deleted": boolean,
-      "createdAt": string,
-      "updatedAt": string
-    }
-  }
-  ```
-
-### 閲覧-単体取得
-
 **コンテンツ取得**
 
 - HTTP METHOD
@@ -228,6 +172,65 @@
       "title": string,
       "author": string | null,
       "summary": text | null,
+      "deleted": boolean,
+      "createdAt": string,
+      "updatedAt": string
+    }
+  }
+  ```
+
+**コンテンツ削除**
+
+- HTTP METHOD
+  - `DELETE`
+- URL
+  - `/contents/:contentId`
+
+### 記事
+
+**記事作成**
+
+- HTTP METHOD
+  - `POST`
+- URL
+  - `/contents/:contentId/article`
+- HTTP Body
+  ```json
+  {
+      "subtitle": string,
+      "body": text,
+      "remarks": text | null
+  }
+  ```
+
+**記事更新**
+
+- HTTP METHOD
+  - `PATCH`
+- URL
+  - `/contents/:contentId/article/:articleId`
+- HTTP Body
+  ```json
+  {
+      "subtitle": string,
+      "body": text,
+      "remarks": text | null
+  }
+  ```
+
+**記事リスト取得**
+
+- HTTP METHOD
+  - `GET`
+- URL
+  - `/contents/:contentId/articles`
+- HTTP Response
+  ```json
+  {
+    "contenttId": number,
+    "articles": {
+      "id": number,
+      "subtitle": string,
       "deleted": boolean,
       "createdAt": string,
       "updatedAt": string
@@ -256,15 +259,6 @@
     }
   }
   ```
-
-### 削除
-
-**コンテンツ削除**
-
-- HTTP METHOD
-  - `DELETE`
-- URL
-  - `/contents/:contentId`
 
 **記事削除**
 
