@@ -58,45 +58,51 @@ const ListContents = () => {
         {error && 'Error!'}
         {loading && 'Loading...'}
         <table>
-          <tr>
-            <th>コンテンツID</th>
-            <th>タイトル</th>
-            <th>サマリ</th>
-            <th>著者</th>
-            <th>作成日</th>
-            <th>更新日</th>
-            <th>編集</th>
-            <th>削除</th>
-          </tr>
-          {contents.map((content) => {
-            return (
-              // See: https://bobbyhadz.com/blog/react-missing-key-prop-for-element-in-iterator
-              <tr key={content.id}>
-                <td>{content.id}</td>
-                <td>
-                  <Link to={`/postingsite/contents/${content.id}/article/list`}>
-                    {content.title}
-                  </Link>
-                </td>
-                <td>{content.summary}</td>
-                <td>{content.author}</td>
-                <td>{content.createdAt}</td>
-                <td>{content.updatedAt}</td>
-                <td>
-                  <Link to={`/postingsite/contents/${content.id}/edit`}>
-                    編集
-                  </Link>
-                </td>
-                <td>
-                  <Link
-                    to={`/postingsite/contents/${content.id}/${content.title}/delete`}
-                  >
-                    削除
-                  </Link>
-                </td>
-              </tr>
-            )
-          })}
+          <thead>
+            <tr>
+              <th>コンテンツID</th>
+              <th>タイトル</th>
+              <th>サマリ</th>
+              <th>著者</th>
+              <th>作成日</th>
+              <th>更新日</th>
+              <th>編集</th>
+              <th>削除</th>
+            </tr>
+          </thead>
+          <tbody>
+            {contents.map((content) => {
+              return (
+                // See: https://bobbyhadz.com/blog/react-missing-key-prop-for-element-in-iterator
+                <tr key={content.id}>
+                  <td>{content.id}</td>
+                  <td>
+                    <Link
+                      to={`/postingsite/contents/${content.id}/article/list`}
+                    >
+                      {content.title}
+                    </Link>
+                  </td>
+                  <td>{content.summary}</td>
+                  <td>{content.author}</td>
+                  <td>{content.createdAt}</td>
+                  <td>{content.updatedAt}</td>
+                  <td>
+                    <Link to={`/postingsite/contents/${content.id}/edit`}>
+                      編集
+                    </Link>
+                  </td>
+                  <td>
+                    <Link
+                      to={`/postingsite/contents/${content.id}/${content.title}/delete`}
+                    >
+                      削除
+                    </Link>
+                  </td>
+                </tr>
+              )
+            })}
+          </tbody>
         </table>
       </div>
     </div>
