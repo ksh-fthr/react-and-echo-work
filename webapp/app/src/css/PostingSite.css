@@ -81,7 +81,8 @@
   height: 200px;
 }
 
-.contents-footer {
+.contents-footer,
+.article-footer {
   position: absolute;
   bottom: 0;
 }
