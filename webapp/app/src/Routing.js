@@ -18,6 +18,7 @@ import DeleteContents from './component/PostingSite/Contents/Delete/DeleteConten
 import ListArticles from './component/PostingSite/Articles/List/ListArticles'
 import ViewArticle from './component/PostingSite/Articles/View/ViewArticle'
 import DeleteArticle from './component/PostingSite/Articles/Delete/DeleteArticle'
+import EditArticle from './component/PostingSite/Articles/Edit/EditArticle'
 
 const tabClassName = 'tab-item'
 const currentTabClassName = `${tabClassName} current`
@@ -92,6 +93,10 @@ const Routing = () => {
           <Route
             path="/postingsite/contents/:contentId/article/:articleId/view"
             element={<ViewArticle />}
+          />
+          <Route
+            path="/postingsite/contents/:contentId/article/:articleId/edit"
+            element={<EditArticle />}
           />
           <Route
             path="/postingsite/contents/:contentId/article/:articleId/:subtitle/delete"

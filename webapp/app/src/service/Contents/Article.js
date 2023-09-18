@@ -3,7 +3,7 @@ import { cdate } from 'cdate'
 export class ArticleModel {
   id = null
   contentId = null
-  substile = null
+  subtitle = null
   body = null
   remarks = null
   deleted = null
@@ -13,7 +13,7 @@ export class ArticleModel {
   constructor(article) {
     this.id = article.id
     this.contentId = article.contentId
-    this.substile = article.subtitle
+    this.subtitle = article.subtitle
     this.body = article.body
     this.remarks = article.remarks ?? ''
     this.deleted = article.deleted
