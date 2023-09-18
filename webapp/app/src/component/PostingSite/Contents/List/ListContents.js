@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react'
 import useFetch from 'use-http'
 import { Link } from 'react-router-dom'
 import { MockContents } from '../../../../mock/MockContents'
+import { ContentsModel } from '../../../../service/Contents/Contents'
 
 const ListContents = () => {
   const [contents, setContents] = useState([])
@@ -19,7 +20,8 @@ const ListContents = () => {
     // if (response.ok) {
     //   setContents(contents);
     // }
-    setContents(MockContents.contents)
+    const contentsModel = new ContentsModel(MockContents.contents)
+    setContents(contentsModel.contents)
   }, [get, response])
 
   // useEffectの実行されるタイミング
