@@ -35,6 +35,9 @@ const ListArticles = () => {
           <caption>
             コンテンツのキャプション( content/:id で取得した summary
             をここに出す )
+            <Link to={`/postingsite/contents/${contentId}/article/create`}>
+              新規作成
+            </Link>
           </caption>
           <tr>
             <th>コンテンツID</th>
@@ -52,14 +55,18 @@ const ListArticles = () => {
                 <td>{contentId}</td>
                 <td>{article.id}</td>
                 <td>
-                  <Link to={`/postingsite/contents/${contentId}/article/${article.id}/view`}>
+                  <Link
+                    to={`/postingsite/contents/${contentId}/article/${article.id}/view`}
+                  >
                     {article.subtitle}
                   </Link>
                 </td>
                 <td>{article.createdAt}</td>
                 <td>{article.updatedAt}</td>
                 <td>
-                  <Link to={`/postingsite/contents/${contentId}/article/${article.id}/edit`}>
+                  <Link
+                    to={`/postingsite/contents/${contentId}/article/${article.id}/edit`}
+                  >
                     編集
                   </Link>
                 </td>

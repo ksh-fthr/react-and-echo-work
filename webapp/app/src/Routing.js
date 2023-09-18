@@ -16,6 +16,7 @@ import EditContents from './component/PostingSite/Contents/Edit/EditContents'
 import DeleteContents from './component/PostingSite/Contents/Delete/DeleteContents'
 // PostingSite > Articels
 import ListArticles from './component/PostingSite/Articles/List/ListArticles'
+import CreateArticle from './component/PostingSite/Articles/Create/CreateArticle'
 import ViewArticle from './component/PostingSite/Articles/View/ViewArticle'
 import DeleteArticle from './component/PostingSite/Articles/Delete/DeleteArticle'
 import EditArticle from './component/PostingSite/Articles/Edit/EditArticle'
@@ -89,6 +90,10 @@ const Routing = () => {
           <Route
             path="/postingsite/contents/:contentId/article/list"
             element={<ListArticles />}
+          />
+          <Route
+            path="/postingsite/contents/:contentId/article/create"
+            element={<CreateArticle />}
           />
           <Route
             path="/postingsite/contents/:contentId/article/:articleId/view"
