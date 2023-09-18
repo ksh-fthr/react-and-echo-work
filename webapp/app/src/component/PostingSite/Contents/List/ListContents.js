@@ -72,7 +72,7 @@ const ListContents = () => {
               <tr key={content.id}>
                 <td>{content.id}</td>
                 <td>
-                  <Link to={`/postingsite/contents/article/list/${content.id}`}>
+                  <Link to={`/postingsite/contents/${content.id}/article/list`}>
                     {content.title}
                   </Link>
                 </td>
@@ -81,13 +81,13 @@ const ListContents = () => {
                 <td>{content.createdAt}</td>
                 <td>{content.updatedAt}</td>
                 <td>
-                  <Link to={`/postingsite/contents/edit/${content.id}`}>
+                  <Link to={`/postingsite/contents/${content.id}/edit`}>
                     編集
                   </Link>
                 </td>
                 <td>
                   <Link
-                    to={`/postingsite/contents/delete/${content.id}/${content.title}`}
+                    to={`/postingsite/contents/${content.id}/${content.title}/delete`}
                   >
                     削除
                   </Link>

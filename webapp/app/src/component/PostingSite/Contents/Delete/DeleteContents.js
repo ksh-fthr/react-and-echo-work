@@ -6,7 +6,7 @@ const DeleteContents = () => {
 
   const deleteContents = () => {
     console.dir({
-      id: params.id,
+      contentId: params.contentId,
       title: params.title
     })
   }
@@ -39,7 +39,7 @@ const DeleteContents = () => {
           <h3>コンテンツ削除</h3>
         </div>
         <div className="contents-body">
-          ID: {params.id}, タイトル: {params.title} を削除します
+          ID: {params.contentId}, タイトル: {params.title} を削除します
         </div>
         <div className="contents-footer">
           <button type="button" onClick={deleteContents}>

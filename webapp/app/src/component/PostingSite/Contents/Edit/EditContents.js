@@ -22,7 +22,7 @@ const EditContents = () => {
     //   setContent(content);
     // }
     const content = MockContents.contents.find((_content) => {
-      return _content.id === Number(params.id)
+      return _content.id === Number(params.contentId)
     })
 
     // setForm を介して既存情報をフォーム上に設定する
@@ -56,6 +56,7 @@ const EditContents = () => {
 
   const editContents = () => {
     console.dir({
+      contentId: params.contentId,
       title: form.title,
       author: form.author,
       summary: form.summary
