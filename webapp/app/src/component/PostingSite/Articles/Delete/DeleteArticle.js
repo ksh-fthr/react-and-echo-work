@@ -6,6 +6,7 @@ const DeleteArticle = () => {
 
   const deleteArticle = () => {
     console.dir({
+      contentId: params.contentId,
       articleId: params.articleId,
       subtitle: params.subtitle
     })
@@ -36,13 +37,13 @@ const DeleteArticle = () => {
         </ul>
       </div>
       <div className="main">
-        <div className="contents-header">
+        <div className="article-header">
           <h3>記事削除</h3>
         </div>
-        <div className="contents-body">
+        <div className="article-body">
           ID: {params.articleId}, サブタイトル: {params.subtitle} を削除します
         </div>
-        <div className="contents-footer">
+        <div className="article-footer">
           <button type="button" onClick={deleteArticle}>
             送信
           </button>
