@@ -41,7 +41,7 @@ const PostingSite = () => {
   }, [initialize])
 
   return (
-    <div className="content-wrapper">
+    <div className="contents-wrapper">
       <h2 className="headline">PostingSite</h2>
       <div className="breadcrumb-list">
         <ol>

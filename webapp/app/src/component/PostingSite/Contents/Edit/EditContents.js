@@ -64,7 +64,7 @@ const EditContents = () => {
   }
 
   return (
-    <div className="content-wrapper">
+    <div className="contents-wrapper">
       <h2 className="headline">Contents</h2>
       <div className="breadcrumb-list">
         <ol>

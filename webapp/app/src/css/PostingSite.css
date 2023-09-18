@@ -1,4 +1,4 @@
-.content-wrapper,
+.contents-wrapper,
 .article-wrapper {
   margin: 0 auto;
   overflow: hidden;
@@ -80,6 +80,23 @@
   min-width: 450px;
   max-width: 450px;
   height: 200px;
+}
+
+.article-caption {
+  margin:  20px 0;
+  padding: 0;
+}
+
+.articel-caption-text {
+  margin:  0;
+  padding: 0;
+
+}
+
+.article-new-create {
+  margin:  0;
+  padding: 0 16px 0 0;
+  float: right;
 }
 
 .contents-footer,

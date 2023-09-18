@@ -6,7 +6,7 @@ const articles = MockArticles.articles
 
 const ListArticles = () => {
   return (
-    <div className="content-wrapper">
+    <div className="article-wrapper">
       <h2 className="headline">Articles</h2>
       <div className="breadcrumb-list">
         <ol>
@@ -32,10 +32,15 @@ const ListArticles = () => {
       <div className="main">
         <h3>記事一覧</h3>
         <table>
-          <caption>
-            コンテンツのキャプション( content/:id で取得した summary
-            をここに出す )
-            <Link to={`/postingsite/contents/${contentId}/article/create`}>
+          <caption className="article-caption">
+            <span className="article-caption-text">
+              コンテンツのキャプション( content/:id で取得した summary
+              をここに出す )
+            </span>
+            <Link
+              className="article-new-create"
+              to={`/postingsite/contents/${contentId}/article/create`}
+            >
               新規作成
             </Link>
           </caption>
