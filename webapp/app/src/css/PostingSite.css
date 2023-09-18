@@ -63,7 +63,8 @@
   display: block;
 }
 
-.contents-title > #title {
+.contents-title > #title,
+.article-subtitle > #subtitle {
   width: 450px;
 }
 
@@ -71,7 +72,9 @@
   width: 450px;
 }
 
-.contents-summary > #summary {
+.contents-summary > #summary,
+.article-body > #body,
+.article-remarks > #remarks {
   width: 450px;
   min-width: 450px;
   max-width: 450px;
