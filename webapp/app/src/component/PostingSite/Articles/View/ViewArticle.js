@@ -6,7 +6,7 @@ const article = MockArticle.article.body
 
 const ViewArticle = () => {
   return (
-    <div className="content-wrapper">
+    <div className="article-wrapper">
       <h2 className="headline">Articles</h2>
       <div className="breadcrumb-list">
         <ol>

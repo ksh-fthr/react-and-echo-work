@@ -13,7 +13,7 @@ const DeleteArticle = () => {
   }
 
   return (
-    <div className="content-wrapper">
+    <div className="article-wrapper">
       <h2 className="headline">Article</h2>
       <div className="breadcrumb-list">
         <ol>
