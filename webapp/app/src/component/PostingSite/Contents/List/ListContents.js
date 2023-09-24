@@ -1,12 +1,15 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useReducer } from 'react'
 import useFetch from 'use-http'
 import { Link } from 'react-router-dom'
 import { MockContents } from '../../../../mock/MockContents'
 import { ContentsModel } from '../../../../service/Contents/Contents'
+import { contentsReducer, initialContentsState } from '../../../../reducer/PostingSite/ContentsReducer'
 
 const ListContents = () => {
   const [contents, setContents] = useState([])
 
+  // Reducerを呼び出す
+  const [state, dispatch] = useReducer(contentsReducer, initialContentsState)
   const { get, response, loading, error } = useFetch(
     'http://127.0.0.1:3000/api'
   )
@@ -21,7 +24,9 @@ const ListContents = () => {
     //   setContents(contents);
     // }
     const contentsModel = new ContentsModel(MockContents.contents)
-    setContents(contentsModel.contents)
+    const contents = contentsModel.contents
+    setContents(contents)
+    dispatch({ state, type: 'add_contents', payload: contents })
   }, [get, response])
 
   // useEffectの実行されるタイミング
