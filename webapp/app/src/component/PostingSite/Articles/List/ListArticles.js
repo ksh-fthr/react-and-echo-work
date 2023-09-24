@@ -1,10 +1,26 @@
-import { Link } from 'react-router-dom'
+import { useEffect, useReducer, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
 import { MockArticles } from '../../../../mock/MockArticles'
+import { contentsReducer, currentContentsState } from '../../../../reducer/PostingSite/ContentsReducer'
 
-const contentId = MockArticles.contenttId
 const articles = MockArticles.articles
 
 const ListArticles = () => {
+  // これだけで URL パラメータから値を取得できる
+  const params = useParams()
+  const contentId = params.contentId
+
+  // Reducerを呼び出す
+  const [state] = useReducer(contentsReducer, currentContentsState)
+
+  const [summary, setSummary] = useState('')
+
+  useEffect(() => {
+    // TODO: reducer から取得した値をうまく扱えていないのであとで見直す
+    console.dir(state.contents)
+    setSummary('hoghoge')
+  }, [state])
+
   return (
     <div className="article-wrapper">
       <h2 className="headline">Articles</h2>
@@ -34,8 +50,7 @@ const ListArticles = () => {
         <table>
           <caption className="article-caption">
             <span className="article-caption-text">
-              コンテンツのキャプション( content/:id で取得した summary
-              をここに出す )
+              { summary }
             </span>
             <Link
               className="article-new-create"
