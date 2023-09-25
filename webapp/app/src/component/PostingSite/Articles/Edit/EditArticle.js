@@ -22,23 +22,15 @@ const EditArticle = () => {
     // if (response.ok) {
     //   setContent(content);
     // }
-    console.dir(params)
-    console.dir(MockArticle.article)
     let article = null
     if (
       MockArticle.article.id !== Number(params.articleId) ||
       MockArticle.article.contentId !== Number(params.contentId)
     ) {
-      console.dir({
-        matchArticleId: MockArticle.article.id === Number(params.articleId),
-        matchContentId:
-          MockArticle.article.contentId === Number(params.contentId)
-      })
       throw new Error('編集対象のデータがありません')
     }
 
     article = new ArticleModel(MockArticle.article)
-    console.dir(article)
 
     // setForm を介して既存情報をフォーム上に設定する
     setForm({
