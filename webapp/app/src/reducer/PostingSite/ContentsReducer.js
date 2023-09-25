@@ -7,10 +7,7 @@ export const currentContentsState = initialContentsState
 export const contentsReducer = (state, action) => {
   switch (action.type) {
     case 'add_contents':
-      currentContentsState.contents = {
-        ...state,
-        contents: action.payload
-      }
+      currentContentsState.contents = action.payload
       break
     default:
       throw new Error()
