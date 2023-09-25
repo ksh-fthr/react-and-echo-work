@@ -3,7 +3,10 @@ import useFetch from 'use-http'
 import { Link } from 'react-router-dom'
 import { MockContents } from '../../../../mock/MockContents'
 import { ContentsModel } from '../../../../service/Contents/Contents'
-import { contentsReducer, initialContentsState } from '../../../../reducer/PostingSite/ContentsReducer'
+import {
+  contentsReducer,
+  initialContentsState
+} from '../../../../reducer/PostingSite/ContentsReducer'
 
 const ListContents = () => {
   const [contents, setContents] = useState([])

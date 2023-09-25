@@ -1,7 +1,10 @@
 import { useEffect, useReducer, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { MockArticles } from '../../../../mock/MockArticles'
-import { contentsReducer, currentContentsState } from '../../../../reducer/PostingSite/ContentsReducer'
+import {
+  contentsReducer,
+  currentContentsState
+} from '../../../../reducer/PostingSite/ContentsReducer'
 
 const articles = MockArticles.articles
 
@@ -16,9 +19,10 @@ const ListArticles = () => {
   const [summary, setSummary] = useState('')
 
   useEffect(() => {
-    // TODO: reducer から取得した値をうまく扱えていないのであとで見直す
-    console.dir(state.contents)
-    setSummary('hoghoge')
+    const content = state.contents.find((content) => {
+      return content.id === Number(contentId)
+    })
+    setSummary(content.summary)
   }, [state])
 
   return (
@@ -49,9 +53,7 @@ const ListArticles = () => {
         <h3>記事一覧</h3>
         <table>
           <caption className="article-caption">
-            <span className="article-caption-text">
-              { summary }
-            </span>
+            <span className="article-caption-text">{summary}</span>
             <Link
               className="article-new-create"
               to={`/postingsite/contents/${contentId}/article/create`}
