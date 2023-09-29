@@ -74,12 +74,22 @@
 }
 
 .contents-summary > #summary,
-.article-body > #body,
+.article-body > #body {
+  width: 450px;
+  min-width: 450px;
+  max-width: 450px;
+  height: 400px;
+  min-height: 400px;
+  max-height: 400px;
+}
+
 .article-remarks > #remarks {
   width: 450px;
   min-width: 450px;
   max-width: 450px;
-  height: 200px;
+  height: 150px;
+  min-height: 150px;
+  max-height: 150px;
 }
 
 .article-caption {
