@@ -46,7 +46,9 @@ const CreateArticle = () => {
           <li>
             <Link to="/postingsite/contents/list">コンテンツ一覧</Link>
           </li>
-          <li className="disable-link">コンテンツ新規作成</li>
+          <li>
+            <Link to="/postingsite/contents/create">コンテンツ新規作成</Link>
+          </li>
         </ul>
       </div>
       <div className="main">
