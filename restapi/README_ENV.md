@@ -23,7 +23,7 @@ export PATH="$GOROOT/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
 ```
 
-### 3. シェルの再起動 
+### 3. シェルの再起動
 ```zsh
 % exec $SHELL
 ```
@@ -64,6 +64,6 @@ go version go1.19 darwin/amd64
 
 ```zsh
 % cd ${REPOSITORY_ROOT}/restapi/api
-% go get -u github.com/cosmtrek/air
+% go install github.com/cosmtrek/air@latest
 ```
 
