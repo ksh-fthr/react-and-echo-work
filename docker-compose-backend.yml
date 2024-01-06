@@ -43,4 +43,3 @@ services:
     networks: 
       backend-work-net:
         ipv4_address: 172.30.10.100
- 
