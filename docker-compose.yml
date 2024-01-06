@@ -24,8 +24,14 @@ services:
       # これを指定しておかないと air でホットリロードが有効にならない
       - ./restapi/api:/api 
       #
+      # 2024/01/06
+      # 下記エラーが出るようになったので go_path の設定をコメントアウト
+      # ---
+      # Error:
+      #   ERROR: for restapi  Cannot start service api: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: exec: "air": executable file not found in $PATH: unknown
+      # ---
       # パッケージやバイナリファイルのインストール先（$GOPATH）を永続化
-      - go_path:/go
+      # - go_path:/go
 
   mysql:
     build: ./storage/
