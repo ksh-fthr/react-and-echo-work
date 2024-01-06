@@ -20,9 +20,6 @@ services:
       # ローカルとコンテナのディレクトリをバインドマウント（同期）
       # これを指定しておかないと air でホットリロードが有効にならない
       - ./restapi/api:/api 
-      #
-      # パッケージやバイナリファイルのインストール先（$GOPATH）を永続化
-      - go_path:/go
     hostname: restapi
     networks: 
       backend-work-net:
@@ -46,7 +43,3 @@ services:
     networks: 
       backend-work-net:
         ipv4_address: 172.30.10.100
- 
-volumes:
-  go_path:
-
