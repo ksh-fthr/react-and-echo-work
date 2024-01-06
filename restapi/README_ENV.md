@@ -31,11 +31,11 @@ export PATH="$PATH:$GOPATH/bin"
 ### 4. go のインストール
 
 ```zsh
-% goenv install 1.19.0  # 本 PJ で使用するバージョンを指定してインストール
-% goenv global 1.19.0   # global に対しても使用するバージョンを指定する
+% goenv install 1.21.5  # 本 PJ で使用するバージョンを指定してインストール
+% goenv global 1.21.5   # global に対しても使用するバージョンを指定する
 % goenv rehash          # 指定したバージョンを適用させる
 % go version            # バージョン確認, 目的のバージョンがインストール & 適用されていることがわかる
-go version go1.19 darwin/amd64
+go version go1.21.5 darwin/amd64
 ```
 
 ## 5. プラグインのインストール
