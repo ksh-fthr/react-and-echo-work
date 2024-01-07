@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "npm": "10.2.5"
+    "node": "18.19.0",
+    "npm": "10.2.3"
   },
   "scripts": {
     "start": "react-scripts start",
