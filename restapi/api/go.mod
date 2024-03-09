@@ -3,11 +3,12 @@ module restapi
 go 1.21
 
 require (
-	github.com/go-sql-driver/mysql v1.7.1
+	github.com/go-sql-driver/mysql v1.8.0
 	github.com/labstack/echo/v4 v4.11.4
 )
 
 require (
+	filippo.io/edwards25519 v1.1.0 // indirect
 	github.com/cosmtrek/air v1.40.4 // indirect
 	github.com/creack/pty v1.1.18 // indirect
 	github.com/fatih/color v1.13.0 // indirect
