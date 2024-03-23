@@ -41,8 +41,8 @@ CONTAINER ID   IMAGE                       COMMAND                  CREATED     
 次のコマンドで `CONTAINER ID` を指定してコンテナに入ります。
 
 ```bash
-% docker exec -it 0033e5a73c92
-root@storage:/# 
+% docker exec -it 0033e5a73c92 bash
+bash-4.4#
 ```
 
 これで mysql のコンテナに入りました｡以降は コンテナ上での作業になります。
@@ -54,7 +54,7 @@ root@storage:/#
 
 ```bash
 root@storage:/# mysql -umysql -p
-Enter password: 
+Enter password:
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 8
 Server version: 8.0.28 MySQL Community Server - GPL
@@ -67,7 +67,7 @@ owners.
 
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
-mysql> 
+mysql>
 ```
 
 以降は mysql クライアント 上での作業になります。
