@@ -24,6 +24,7 @@ export PATH="$PATH:$GOPATH/bin"
 ```
 
 ### 3. シェルの再起動
+
 ```zsh
 % exec $SHELL
 ```
@@ -31,11 +32,11 @@ export PATH="$PATH:$GOPATH/bin"
 ### 4. go のインストール
 
 ```zsh
-% goenv install 1.21.5  # 本 PJ で使用するバージョンを指定してインストール
-% goenv global 1.21.5   # global に対しても使用するバージョンを指定する
+% goenv install 1.22.1  # 本 PJ で使用するバージョンを指定してインストール
+% goenv global 1.22.1   # global に対しても使用するバージョンを指定する
 % goenv rehash          # 指定したバージョンを適用させる
 % go version            # バージョン確認, 目的のバージョンがインストール & 適用されていることがわかる
-go version go1.21.5 darwin/amd64
+go version go1.22.1 darwin/amd64
 ```
 
 ## 5. プラグインのインストール
@@ -65,5 +66,13 @@ go version go1.21.5 darwin/amd64
 ```zsh
 % cd ${REPOSITORY_ROOT}/restapi/api
 % go install github.com/cosmtrek/air@latest
+```
+
+## 7. shell の再起動(2回目)
+
+( これをやらないと `air` が PATH に読み込まれない )
+
+```zsh
+% exec $SHELL
 ```
 
