@@ -1,5 +1,5 @@
 # このアプリについて
-Go 言語のフレームワークである `Echo` の理解を深めるためにアレコレすることを目的としたものです。 
+Go 言語のフレームワークである `Echo` の理解を深めるためにアレコレすることを目的としたものです。
 
 
 # 環境について
@@ -7,16 +7,16 @@ Go 言語のフレームワークである `Echo` の理解を深めるために
 
 | 環境 | バージョン | 備考 |
 | ---- | ---------- | ---- |
-| [Go](https://go.dev/)   | v1.19 linux/amd64 | `go version` で確認 |
-| [Echo](https://echo.labstack.com/) | v4.7.2     | Go の Web フレームワーク. バージョンは起動時に表示されるロゴで確認 |
-| [Air](https://github.com/cosmtrek/air)  | ??? | ホットリロードを実現するライブラリ<br /> バージョンは `built with Go` と出るだけで不明 |
+| [Go](https://go.dev/)   | go version go1.22.1 linux/amd64 | `go version` で確認 |
+| [Echo](https://echo.labstack.com/) | v4.11.4     | Go の Web フレームワーク. バージョンは起動時に表示されるロゴで確認 |
+| [Air](https://github.com/cosmtrek/air)  | v1.51.0 | ホットリロードを実現するライブラリ<br /> バージョンは`air -v` で確認 |
 
 <details>
 <summary>Go のバージョン確認</summary>
 
 ```bash
 % go version
-go version go1.19 darwin/amd64
+go version go1.22.1 linux/amd64
 ```
 </details>
 
@@ -32,7 +32,7 @@ Go 言語の環境構築については [こちら](./README_ENV.md) を参照�
    ____    __
   / __/___/ /  ___
  / _// __/ _ \/ _ \
-/___/\__/_//_/\___/ v4.7.2
+/___/\__/_//_/\___/ v4.11.4
 High performance, minimalist Go web framework
 https://echo.labstack.com
 ____________________________________O/_______
@@ -48,9 +48,9 @@ ____________________________________O/_______
 ```bash
 % air -v
 
-  __    _   ___  
- / /\  | | | |_) 
-/_/--\ |_| |_| \_ , built with Go 
+  __    _   ___
+ / /\  | | | |_)
+/_/--\ |_| |_| \_ v1.51.0, built with Go go1.22.1
 
 ```
 </details>
@@ -59,7 +59,7 @@ ____________________________________O/_______
 [リポジトリ直下の README](../README.md) を参照
 
 # API の確認
-動作検証用に `testapi` API として次の 5つ のメソッドを用意しています。 
+動作検証用に `testapi` API として次の 5つ のメソッドを用意しています。
 POST, PUT メソッドにおける body の解釈は未実装なので、実行例の body 部は無視してください
 
 ## 取得( 全取得 )
@@ -76,7 +76,7 @@ All testapi
   - http://localhost:8080/testapi/:id
 - 実行例
 ```bash
-$ curl http://localhost:8080/testapi/asdasdasd # asdasdasd は任意の文字列 
+$ curl http://localhost:8080/testapi/asdasdasd # asdasdasd は任意の文字列
 Contens, id=asdasdasd
 ```
 
