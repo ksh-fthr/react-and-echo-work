@@ -18,9 +18,10 @@ mysql の Docker コンテナに入って DB 操作するときは以下の手�
 を実行することで `./mysql/init/initialize.sql` が実行され、mysql のコンテナには `mydb` DB が作成されます。
 DB の情報は以下のとおりです。
 
-| DB名 | テーブル | ユーザ名 | パスワード |
-| ---- | -------- | -------- | ---------- |
-| mydb | contnets | mysql    | mysqladmin |
+| DB名 | ユーザ名 | パスワード | テーブル |
+| ---- | -------- | ---------- | -------- |
+| mydb | mysql    | mysqladmin | Article  |
+|      |          |            | Contents |
 
 
 ## ホスト側での操作
@@ -106,25 +107,47 @@ mysql> show tables;
 +----------------+
 | Tables_in_mydb |
 +----------------+
-| contents       |
+| Article        |
+| Contents       |
 +----------------+
-1 row in set (0.00 sec)
+2 rows in set (0.00 sec)
 ```
 
 #### テーブル定義
 
+**Article**
+
 ```mysql
-mysql> desc contents;
+mysql> desc Article;
++------------+-----------------+------+-----+---------+----------------+
+| Field      | Type            | Null | Key | Default | Extra          |
++------------+-----------------+------+-----+---------+----------------+
+| id         | bigint unsigned | NO   | PRI | NULL    | auto_increment |
+| content_id | bigint unsigned | NO   | MUL | NULL    |                |
+| subtitle   | varchar(10245)  | NO   |     | NULL    |                |
+| body       | text            | NO   |     | NULL    |                |
+| remarks    | text            | YES  |     | NULL    |                |
+| deleted    | tinyint(1)      | NO   |     | NULL    |                |
+| created_at | datetime        | YES  |     | NULL    |                |
+| updated_at | datetime        | YES  |     | NULL    |                |
++------------+-----------------+------+-----+---------+----------------+
+8 rows in set (0.00 sec)
+```
+
+**Contents**
+
+```mysql
 +------------+-----------------+------+-----+---------+----------------+
 | Field      | Type            | Null | Key | Default | Extra          |
 +------------+-----------------+------+-----+---------+----------------+
 | id         | bigint unsigned | NO   | PRI | NULL    | auto_increment |
 | title      | varchar(255)    | NO   |     | NULL    |                |
-| contents   | text            | NO   |     | NULL    |                |
-| remarks    | varchar(1024)   | NO   |     | NULL    |                |
+| author     | varchar(255)    | YES  |     | NULL    |                |
+| summary    | text            | YES  |     | NULL    |                |
+| deleted    | tinyint(1)      | NO   |     | NULL    |                |
 | created_at | datetime        | YES  |     | NULL    |                |
 | updated_at | datetime        | YES  |     | NULL    |                |
 +------------+-----------------+------+-----+---------+----------------+
-6 rows in set (0.01 sec)
+7 rows in set (0.00 sec)
 ```
 
