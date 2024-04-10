@@ -20,7 +20,7 @@ DB の情報は以下のとおりです。
 
 | DB名 | ユーザ名 | パスワード | テーブル |
 | ---- | -------- | ---------- | -------- |
-| mydb | mysql    | mysqladmin | Article  |
+| mydb | mysql    | mysqladmin | Articles |
 |      |          |            | Contents |
 
 
@@ -107,7 +107,7 @@ mysql> show tables;
 +----------------+
 | Tables_in_mydb |
 +----------------+
-| Article        |
+| Articles       |
 | Contents       |
 +----------------+
 2 rows in set (0.00 sec)
@@ -115,10 +115,10 @@ mysql> show tables;
 
 #### テーブル定義
 
-**Article**
+**Articles**
 
 ```mysql
-mysql> desc Article;
+mysql> desc Articles;
 +------------+-----------------+------+-----+---------+----------------+
 | Field      | Type            | Null | Key | Default | Extra          |
 +------------+-----------------+------+-----+---------+----------------+
