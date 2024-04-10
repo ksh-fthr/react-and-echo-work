@@ -16,8 +16,8 @@ create table if not exists Contents (
     primary key(id)
 );
 
-drop table if exists Article;
-create table if not exists Article (
+drop table if exists Articles;
+create table if not exists Articles (
     id serial,
     content_id bigint unsigned not null,
     subtitle varchar(10245) not null,
