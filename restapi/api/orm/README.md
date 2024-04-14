@@ -45,5 +45,5 @@ ${repository_root}/restapi/api/orm
 本ディレクトリに関する記事を下記で公開しています。
 よろしければご参照ください。
 
-TBD...
+- [[GO言語] GORM と Gen を導入した話](https://qiita.com/ksh-fthr/items/9032289925ed8da4ffb9)
 
