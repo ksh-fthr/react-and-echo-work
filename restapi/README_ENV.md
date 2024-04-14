@@ -26,7 +26,7 @@ export PATH="$PATH:$GOPATH/bin"
 ### 3. シェルの再起動
 
 ```zsh
-% exec $SHELL
+% exec $SHELL -l
 ```
 
 ### 4. go のインストール
@@ -43,22 +43,7 @@ go version go1.22.1 darwin/amd64
 
 ```zsh
 % cd ${REPOSITORY_ROOT}/restapi/api
-% go install github.com/motemen/gore/cmd/gore
-% go install github.com/motemen/gore/cmd/gore@latest
-% go install github.com/x-motemen/gore/cmd/gore@latest
-% go install github.com/mdempsky/gocode@latest
-% go install github.com/k0kubun/pp@latest
-% go install golang.org/x/tools/cmd/goimports
-% go install golang.org/x/tools/cmd/goimports@latest
-% go install golang.org/x/lint/golint@latest
-% go install golang.org/x/tools/cmd/godoc
-% go install golang.org/x/tools/cmd/godoc@latest
-% go install golang.org/x/tools/cmd/gorename@latest
-% go install golang.org/x/tools/cmd/guru@latest
-% go install golang.org/x/tools/cmd/gopls
-% go install golang.org/x/tools/cmd/gopls@latest
-% go install github.com/mdempsky/gocode@latest
-% go install github.com/rogpeppe/godef@latest
+% go get -u . # go.mod をベースにプラグインがインストールされる
 ```
 
 ## 6. air のインストール
@@ -73,6 +58,6 @@ go version go1.22.1 darwin/amd64
 ( これをやらないと `air` が PATH に読み込まれない )
 
 ```zsh
-% exec $SHELL
+% exec $SHELL -l
 ```
 

@@ -16,7 +16,7 @@ import (
 
 	"gorm.io/plugin/dbresolver"
 
-	"restapi/db/gen/model"
+	"restapi/orm/gen/model"
 )
 
 func newArticle(db *gorm.DB, opts ...gen.DOOption) article {

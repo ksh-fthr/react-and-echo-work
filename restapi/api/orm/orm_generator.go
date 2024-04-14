@@ -1,13 +1,11 @@
 package main
 
 import (
-	// ご自身の環境にあわせてドライバを変更してください
+  // ご自身の環境にあわせてドライバを変更してください
 	"gorm.io/driver/mysql"
 	"gorm.io/gen"
 	"gorm.io/gen/field"
 	"gorm.io/gorm"
-
-	_ "github.com/go-sql-driver/mysql"
 )
 
 func main() {
