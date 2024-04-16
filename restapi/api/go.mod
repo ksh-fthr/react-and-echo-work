@@ -4,7 +4,7 @@ go 1.21
 
 require (
 	github.com/go-sql-driver/mysql v1.8.1
-	github.com/labstack/echo/v4 v4.11.4
+	github.com/labstack/echo/v4 v4.12.0
 	gorm.io/driver/mysql v1.5.6
 	gorm.io/gen v0.3.26
 	gorm.io/gorm v1.25.9
