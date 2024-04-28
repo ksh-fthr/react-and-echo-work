@@ -2,7 +2,6 @@ package contents
 
 import (
 	"context"
-	"database/sql"
 	"log"
 	"net/http"
 
@@ -35,9 +34,6 @@ func TryConnect(c echo.Context) error {
 func GetAllContents(c echo.Context) error {
 	log.Println("exec contents::GetAllContents.")
 
-	// db := dbconnect.Connect()
-	// defer dbconnect.DisConnect(db)
-
 	dbconf := "mysql:mysqladmin@tcp(172.30.10.100:3306)/mydb?charset=utf8mb4"
 	gormdb, _ := gorm.Open(mysql.Open(dbconf))
 
@@ -52,19 +48,4 @@ func GetAllContents(c echo.Context) error {
 	}
 
 	return c.String(http.StatusOK, "Success: DB Execute Query.\n")
-}
-
-func checkCount(rows *sql.Rows) (count int) {
-	for rows.Next() {
-		err := rows.Scan(&count)
-		checkErr(err)
-	}
-	return count
-}
-
-func checkErr(err error) {
-	if err != nil {
-		log.Fatal(err)
-		panic(err)
-	}
 }
