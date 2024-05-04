@@ -24,6 +24,9 @@ func Routing(e *echo.Echo) {
 	e.DELETE("/testapi/:id", testapi.Delete)
 
 	// contents API
-	e.GET("/contents/connect", contents.TryConnect)
-	e.GET("/contents/all", contents.GetAllContents)
+	e.GET("/contents", contents.GetAllContents)
+	e.GET("/contents/:id", contents.GetContents)
+	e.POST("/contents", contents.RegisterContents)
+	e.PUT("/contents/:id", contents.UpdateContents)
+	e.DELETE("/contents/:id", contents.DeleteContents)
 }

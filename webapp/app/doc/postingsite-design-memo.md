@@ -110,7 +110,7 @@
 - HTTP METHOD
   - `POST`
 - URL
-  - `/content`
+  - `/contents`
 - HTTP Body
   ```json
   {

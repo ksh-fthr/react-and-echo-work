@@ -1,13 +1,16 @@
 package contents
 
 import (
-	"database/sql"
+	"context"
 	"log"
 	"net/http"
 
+	"restapi/orm/gen/query"
 	"restapi/service/dbconnect"
 
 	"github.com/labstack/echo/v4"
+	"gorm.io/driver/mysql"
+	"gorm.io/gorm"
 )
 
 func TryConnect(c echo.Context) error {
@@ -31,43 +34,37 @@ func TryConnect(c echo.Context) error {
 func GetAllContents(c echo.Context) error {
 	log.Println("exec contents::GetAllContents.")
 
-	var (
-		id       int
-		title    string
-		contents string
-		remarks  string
-	)
+	dbconf := "mysql:mysqladmin@tcp(172.30.10.100:3306)/mydb?charset=utf8mb4"
+	gormdb, _ := gorm.Open(mysql.Open(dbconf))
 
-	db := dbconnect.Connect()
-	defer dbconnect.DisConnect(db)
+	qu := query.Use(gormdb)
+	ctx := context.Background()
+	contentsQuery := qu.Content
 
-	rows, err := db.Query("select id, title, contents, remarks from contents")
-	checkErr(err)
-	defer rows.Close()
-
-	log.Println("Total count:", checkCount(rows))
-	for rows.Next() {
-		err := rows.Scan(&id, &title, &contents, &remarks)
-		checkErr(err)
-		log.Println(id, title, contents, remarks)
-	}
-	err = rows.Err()
-	checkErr(err)
-
-	return c.String(http.StatusOK, "Success: DB Exec Query.\n")
-}
-
-func checkCount(rows *sql.Rows) (count int) {
-	for rows.Next() {
-		err := rows.Scan(&count)
-		checkErr(err)
-	}
-	return count
-}
-
-func checkErr(err error) {
+	_, err := contentsQuery.WithContext(ctx).Order(contentsQuery.ID.Desc()).Find()
 	if err != nil {
-		log.Fatal(err)
-		panic(err)
+		return c.String(http.StatusOK, "ERROR: Get All Contents.\n")
 	}
+
+	return c.String(http.StatusOK, "Success: DB Get All Contents.\n")
+}
+
+func GetContents(c echo.Context) error {
+	log.Println("exec contents::GetContent.")
+	return c.String(http.StatusOK, "Success: DB Get Content.\n")
+}
+
+func RegisterContents(c echo.Context) error {
+	log.Println("exec contents::RegisterContent.")
+	return c.String(http.StatusOK, "Success: DB Register Content.\n")
+}
+
+func UpdateContents(c echo.Context) error {
+	log.Println("exec contents::UpdateContent")
+	return c.String(http.StatusOK, "Success: DB Update Content.\n")
+}
+
+func DeleteContents(c echo.Context) error {
+	log.Println("exec contents::DeleteContent")
+	return c.String(http.StatusOK, "Success: DB Delete Content.\n")
 }
