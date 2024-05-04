@@ -43,9 +43,28 @@ func GetAllContents(c echo.Context) error {
 
 	_, err := contentsQuery.WithContext(ctx).Order(contentsQuery.ID.Desc()).Find()
 	if err != nil {
-		log.Println("クエリ実行失敗")
-		return c.String(http.StatusOK, "ERROR: Execute Query.\n")
+		return c.String(http.StatusOK, "ERROR: Get All Contents.\n")
 	}
 
-	return c.String(http.StatusOK, "Success: DB Execute Query.\n")
+	return c.String(http.StatusOK, "Success: DB Get All Contents.\n")
+}
+
+func GetContents(c echo.Context) error {
+	log.Println("exec contents::GetContent.")
+	return c.String(http.StatusOK, "Success: DB Get Content.\n")
+}
+
+func RegisterContents(c echo.Context) error {
+	log.Println("exec contents::RegisterContent.")
+	return c.String(http.StatusOK, "Success: DB Register Content.\n")
+}
+
+func UpdateContents(c echo.Context) error {
+	log.Println("exec contents::UpdateContent")
+	return c.String(http.StatusOK, "Success: DB Update Content.\n")
+}
+
+func DeleteContents(c echo.Context) error {
+	log.Println("exec contents::DeleteContent")
+	return c.String(http.StatusOK, "Success: DB Delete Content.\n")
 }
