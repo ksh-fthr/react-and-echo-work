@@ -27,6 +27,7 @@ require (
 	github.com/muff1225/gorm-gen-sample/app v0.0.0-20231219014403-c18d4034eaa4 // indirect
 	github.com/pelletier/go-toml v1.9.5 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
+	github.com/tdewolff/parse/v2 v2.7.13 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasttemplate v1.2.2 // indirect
 	golang.org/x/crypto v0.22.0 // indirect
