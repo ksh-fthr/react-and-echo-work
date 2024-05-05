@@ -6,30 +6,11 @@ import (
 	"net/http"
 
 	"restapi/orm/gen/query"
-	"restapi/service/dbconnect"
 
 	"github.com/labstack/echo/v4"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
-
-func TryConnect(c echo.Context) error {
-	log.Println("exec contents::TryConnect.")
-
-	db := dbconnect.Connect()
-	defer dbconnect.DisConnect(db)
-
-	// 疎通確認
-	err := db.Ping()
-
-	if err != nil {
-		log.Println("データベース接続失敗")
-		return c.String(http.StatusOK, "ERROR: DB Connection.\n")
-	} else {
-		log.Println("データベース接続成功")
-		return c.String(http.StatusOK, "SUCCESS: DB Connection.\n")
-	}
-}
 
 func GetAllContents(c echo.Context) error {
 	log.Println("exec contents::GetAllContents.")
