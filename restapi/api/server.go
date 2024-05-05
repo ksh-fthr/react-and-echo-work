@@ -1,7 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
+	"os"
 	"restapi/router"
 
 	"github.com/labstack/echo/v4"
@@ -43,6 +45,9 @@ func main() {
 			MaxAge: 86400,
 		}),
 	)
+	e.Use(middleware.BodyDump(func(c echo.Context, reqBody, resBody []byte) {
+		fmt.Fprintf(os.Stderr, "Request: %v\n", string(reqBody))
+	}))
 
 	router.Routing(e)
 	e.Logger.Fatal(e.Start(":8080"))
