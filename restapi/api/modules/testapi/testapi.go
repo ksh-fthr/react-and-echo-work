@@ -11,6 +11,8 @@ import (
  * 全件取得
  */
 func All(c echo.Context) error {
+	log.Println("exec get::contnets.All.")
+
 	// 全件取得できたという体でレスポンスを返却する
 	return c.String(http.StatusOK, "All Contents\n")
 }
@@ -20,6 +22,7 @@ func All(c echo.Context) error {
  */
 func Content(c echo.Context) error {
 	id := c.Param("id")
+	log.Println("exec get::contnets.Content. id=" + id)
 
 	// 指定されたデータを取得できたという体でレスポンスを返却する
 	return c.String(http.StatusOK, "Contens, id="+id+"\n")
