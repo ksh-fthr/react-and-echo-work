@@ -8,10 +8,9 @@ import (
 
 	"restapi/orm/gen/model"
 	"restapi/orm/gen/query"
+	"restapi/service/dbconnect"
 
 	"github.com/labstack/echo/v4"
-	"gorm.io/driver/mysql"
-	"gorm.io/gorm"
 )
 
 type ContentData struct {
@@ -23,19 +22,18 @@ type ContentData struct {
 func GetAllContents(c echo.Context) error {
 	log.Println("exec contents::GetAllContents.")
 
-	dbconf := "mysql:mysqladmin@tcp(172.30.10.100:3306)/mydb?charset=utf8mb4"
-	gormdb, _ := gorm.Open(mysql.Open(dbconf))
-
-	qu := query.Use(gormdb)
+	// テーブル接続準備
+	qu := queryInstanc()
+	content := qu.Content
 	ctx := context.Background()
-	contentsQuery := qu.Content
 
-	_, err := contentsQuery.WithContext(ctx).Order(contentsQuery.ID.Desc()).Find()
+	// クエリの実行とエラー処理
+	contents, err := content.WithContext(ctx).Order(content.ID.Asc()).Find()
 	if err != nil {
-		return c.String(http.StatusOK, "ERROR: Get All Contents.\n")
+		return c.String(http.StatusInternalServerError, "ERROR: Get All Contents.\n")
 	}
 
-	return c.String(http.StatusOK, "Success: DB Get All Contents.\n")
+	return c.JSON(http.StatusOK, contents)
 }
 
 func GetContents(c echo.Context) error {
@@ -45,27 +43,28 @@ func GetContents(c echo.Context) error {
 
 func RegisterContents(c echo.Context) error {
 	log.Println("exec contents::RegisterContent.")
-	data := new(ContentData)
 
+	// RequestBody の情報を読み取る
+	data := new(ContentData)
 	if err := c.Bind(data); err != nil {
 		return err
 	}
 
-	dbconf := "mysql:mysqladmin@tcp(172.30.10.100:3306)/mydb?charset=utf8mb4"
-	gormdb, _ := gorm.Open(mysql.Open(dbconf))
-
-	qu := query.Use(gormdb)
-	ctx := context.Background()
-	contentsQuery := qu.Content
-
+	// データ登録用のインスタンスを作る
 	contents := &model.Content{
 		Title:   data.Title,
 		Author:  data.Author,
 		Summary: data.Summary,
 	}
 
+	// テーブル接続準備
+	qu := queryInstanc()
+	content := qu.Content
+	ctx := context.Background()
+
+	// INSERT の実行とエラー処理
 	err := qu.Transaction(func(tx *query.Query) error {
-		if err := contentsQuery.WithContext(ctx).Create(contents); err != nil {
+		if err := content.WithContext(ctx).Create(contents); err != nil {
 			return err
 		}
 
@@ -74,10 +73,10 @@ func RegisterContents(c echo.Context) error {
 
 	if err != nil {
 		fmt.Println(err)
-		return c.String(http.StatusOK, "Error: DB Register Content.\n")
+		return c.String(http.StatusInternalServerError, "Error: DB Register Content.\n")
 	}
 
-	return c.String(http.StatusOK, "Success: DB Register Content.\n")
+	return c.JSON(http.StatusCreated, contents)
 }
 
 func UpdateContents(c echo.Context) error {
@@ -88,4 +87,11 @@ func UpdateContents(c echo.Context) error {
 func DeleteContents(c echo.Context) error {
 	log.Println("exec contents::DeleteContent")
 	return c.String(http.StatusOK, "Success: DB Delete Content.\n")
+}
+
+func queryInstanc() *query.Query {
+	gormdb := dbconnect.Connect()
+	qu := query.Use(gormdb)
+
+	return qu
 }
