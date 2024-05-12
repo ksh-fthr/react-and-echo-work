@@ -23,8 +23,8 @@ func GetAllContents(c echo.Context) error {
 	log.Println("exec contents::GetAllContents.")
 
 	// テーブル接続準備
-	qu := queryInstanc()
-	content := qu.Content
+	queryInstance := queryInstanc()
+	content := queryInstance.Content
 	ctx := context.Background()
 
 	// クエリの実行とエラー処理
@@ -58,12 +58,12 @@ func RegisterContents(c echo.Context) error {
 	}
 
 	// テーブル接続準備
-	qu := queryInstanc()
-	content := qu.Content
+	queryInstance := queryInstanc()
+	content := queryInstance.Content
 	ctx := context.Background()
 
 	// INSERT の実行とエラー処理
-	err := qu.Transaction(func(tx *query.Query) error {
+	err := queryInstance.Transaction(func(tx *query.Query) error {
 		if err := content.WithContext(ctx).Create(contents); err != nil {
 			return err
 		}
@@ -91,7 +91,7 @@ func DeleteContents(c echo.Context) error {
 
 func queryInstanc() *query.Query {
 	gormdb := dbconnect.Connect()
-	qu := query.Use(gormdb)
+	queryInstance := query.Use(gormdb)
 
-	return qu
+	return queryInstance
 }
