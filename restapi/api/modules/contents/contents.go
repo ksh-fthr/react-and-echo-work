@@ -23,7 +23,7 @@ func GetAllContents(c echo.Context) error {
 	log.Println("exec contents::GetAllContents.")
 
 	// テーブル接続準備
-	queryInstance := queryInstanc()
+	queryInstance := dbconnect.QueryInstanc()
 	content := queryInstance.Content
 	ctx := context.Background()
 
@@ -58,7 +58,7 @@ func RegisterContents(c echo.Context) error {
 	}
 
 	// テーブル接続準備
-	queryInstance := queryInstanc()
+	queryInstance := dbconnect.QueryInstanc()
 	content := queryInstance.Content
 	ctx := context.Background()
 
@@ -87,11 +87,4 @@ func UpdateContents(c echo.Context) error {
 func DeleteContents(c echo.Context) error {
 	log.Println("exec contents::DeleteContent")
 	return c.String(http.StatusOK, "Success: DB Delete Content.\n")
-}
-
-func queryInstanc() *query.Query {
-	gormdb := dbconnect.Connect()
-	queryInstance := query.Use(gormdb)
-
-	return queryInstance
 }
