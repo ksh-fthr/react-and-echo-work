@@ -2,12 +2,16 @@ package dbconnect
 
 import (
 	"log"
+	"restapi/orm/gen/query"
 
 	_ "github.com/go-sql-driver/mysql"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
 
+/**
+ * DB 接続
+ */
 func Connect() *gorm.DB {
 	log.Println("exec dbconnect::Connect.")
 
@@ -22,4 +26,14 @@ func Connect() *gorm.DB {
 	}
 
 	return gormdb
+}
+
+/**
+ * GORM 使ったクエリインスタンス
+ */
+func QueryInstanc() *query.Query {
+	gormdb := Connect()
+	queryInstance := query.Use(gormdb)
+
+	return queryInstance
 }
