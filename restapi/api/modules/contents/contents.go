@@ -103,5 +103,30 @@ func UpdateContents(c echo.Context) error {
 
 func DeleteContents(c echo.Context) error {
 	log.Println("exec contents::DeleteContent")
-	return c.String(http.StatusOK, "Success: DB Delete Content.\n")
+
+	id, _ := strconv.ParseInt(c.Param("id"), 10, 64)
+
+	// テーブル接続準備
+	queryInstance := dbconnect.QueryInstanc()
+	content := queryInstance.Content
+	ctx := context.Background()
+
+	// DELETE( 削除フラグを立てる ) の実行とエラー処理
+	// ※ 物理削除は行わずフラグを立てることによる論理削除を行う
+	err := queryInstance.Transaction(func(tx *query.Query) error {
+		if _, err := content.WithContext(ctx).Where(content.ID.Eq(id)).Update(content.Deleted, true); err != nil {
+			return err
+		}
+
+		return nil
+	})
+
+	if err != nil {
+		fmt.Println(err)
+		return c.String(http.StatusInternalServerError, "Error: DB Register Content.\n")
+	}
+
+	// 削除したデータを返却したい
+	deletedContents, _ := content.WithContext(ctx).Where(content.ID.Eq(id)).First()
+	return c.JSON(http.StatusOK, deletedContents)
 }
