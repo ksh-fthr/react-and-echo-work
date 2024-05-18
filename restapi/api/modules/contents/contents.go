@@ -14,12 +14,6 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-type ContentData struct {
-	Title   string `json:"title"`
-	Author  string `json:"author"`
-	Summary string `json:"summary"`
-}
-
 func GetAllContents(c echo.Context) error {
 	log.Println("exec contents::GetAllContents.")
 
@@ -46,16 +40,9 @@ func RegisterContents(c echo.Context) error {
 	log.Println("exec contents::RegisterContent.")
 
 	// RequestBody の情報を読み取る
-	data := new(ContentData)
+	data := new(model.Content)
 	if err := c.Bind(data); err != nil {
 		return err
-	}
-
-	// データ登録用のインスタンスを作る
-	contents := &model.Content{
-		Title:   data.Title,
-		Author:  data.Author,
-		Summary: data.Summary,
 	}
 
 	// テーブル接続準備
@@ -65,7 +52,7 @@ func RegisterContents(c echo.Context) error {
 
 	// INSERT の実行とエラー処理
 	err := queryInstance.Transaction(func(tx *query.Query) error {
-		if err := content.WithContext(ctx).Create(contents); err != nil {
+		if err := content.WithContext(ctx).Create(data); err != nil {
 			return err
 		}
 
@@ -77,7 +64,7 @@ func RegisterContents(c echo.Context) error {
 		return c.String(http.StatusInternalServerError, "Error: DB Register Content.\n")
 	}
 
-	return c.JSON(http.StatusCreated, contents)
+	return c.JSON(http.StatusCreated, data)
 }
 
 func UpdateContents(c echo.Context) error {
