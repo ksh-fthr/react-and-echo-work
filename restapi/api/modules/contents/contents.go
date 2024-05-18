@@ -25,7 +25,7 @@ func GetAllContents(c echo.Context) error {
 	ctx := context.Background()
 
 	// クエリの実行とエラー処理
-	contents, err := content.WithContext(ctx).Order(content.ID.Asc()).Find()
+	contents, err := content.WithContext(ctx).Where(content.Deleted.Is(false)).Order(content.ID.Asc()).Find()
 	if err != nil {
 		return c.String(http.StatusInternalServerError, "ERROR: Get All Contents.\n")
 	}
