@@ -25,7 +25,7 @@ func Routing(e *echo.Echo) {
 
 	// contents API
 	e.GET("/contents", contents.GetAllContents)
-	e.GET("/contents/:id", contents.GetContents)
+	e.GET("/contents/:id", contents.GetOneContents)
 	e.POST("/contents", contents.RegisterContents)
 	e.PUT("/contents/:id", contents.UpdateContents)
 	e.DELETE("/contents/:id", contents.DeleteContents)

@@ -2,6 +2,7 @@ package contents
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"log"
 	"net/http"
@@ -12,6 +13,7 @@ import (
 	"restapi/service/dbconnect"
 
 	"github.com/labstack/echo/v4"
+	"gorm.io/gorm"
 )
 
 func GetAllContents(c echo.Context) error {
@@ -31,9 +33,26 @@ func GetAllContents(c echo.Context) error {
 	return c.JSON(http.StatusOK, contents)
 }
 
-func GetContents(c echo.Context) error {
+func GetOneContents(c echo.Context) error {
 	log.Println("exec contents::GetContent.")
-	return c.String(http.StatusOK, "Success: DB Get Content.\n")
+
+	id, _ := strconv.ParseInt(c.Param("id"), 10, 64)
+
+	// テーブル接続準備
+	queryInstance := dbconnect.QueryInstanc()
+	content := queryInstance.Content
+	ctx := context.Background()
+
+	row, err := content.WithContext(ctx).Where(content.ID.Eq(id), content.Deleted.Is(false)).First()
+	if errors.Is(err, gorm.ErrRecordNotFound) {
+		return c.String(http.StatusNotFound, "ERROR: Not Found.\n")
+	}
+
+	if err != nil {
+		return c.String(http.StatusInternalServerError, "ERROR: Get One Contents.\n")
+	}
+
+	return c.JSON(http.StatusOK, row)
 }
 
 func RegisterContents(c echo.Context) error {
