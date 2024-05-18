@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"strconv"
 
 	"restapi/orm/gen/model"
 	"restapi/orm/gen/query"
@@ -81,7 +82,36 @@ func RegisterContents(c echo.Context) error {
 
 func UpdateContents(c echo.Context) error {
 	log.Println("exec contents::UpdateContent")
-	return c.String(http.StatusOK, "Success: DB Update Content.\n")
+
+	id, _ := strconv.ParseInt(c.Param("id"), 10, 64)
+
+	// RequestBody の情報を読み取る
+	data := new(model.Content)
+	if err := c.Bind(data); err != nil {
+		return err
+	}
+
+	// テーブル接続準備
+	queryInstance := dbconnect.QueryInstanc()
+	content := queryInstance.Content
+	ctx := context.Background()
+
+	// UPDATE の実行とエラー処理
+	err := queryInstance.Transaction(func(tx *query.Query) error {
+		if _, err := content.WithContext(ctx).Where(content.ID.Eq(id)).Updates(data); err != nil {
+			return err
+		}
+
+		return nil
+	})
+
+	if err != nil {
+		fmt.Println(err)
+		return c.String(http.StatusInternalServerError, "Error: DB Register Content.\n")
+	}
+
+	data.ID = id
+	return c.JSON(http.StatusOK, data)
 }
 
 func DeleteContents(c echo.Context) error {
