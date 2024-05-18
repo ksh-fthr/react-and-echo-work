@@ -16,16 +16,39 @@ import (
 	"gorm.io/gorm"
 )
 
+/**
+ * DB接続情報
+ */
+type DBConnection struct {
+	query   query.Query
+	context context.Context
+}
+
+/**
+ * DB接続準備
+ */
+func PrepareDBConnect() DBConnection {
+	query := dbconnect.QueryInstance()
+	context := context.Background()
+
+	return DBConnection{
+		query:   *query,
+		context: context,
+	}
+}
+
+/**
+ * 全件取得(GET: "/contents")
+ */
 func GetAllContents(c echo.Context) error {
 	log.Println("exec contents::GetAllContents.")
 
 	// テーブル接続準備
-	queryInstance := dbconnect.QueryInstanc()
-	content := queryInstance.Content
-	ctx := context.Background()
+	connection := PrepareDBConnect()
+	content := connection.query.Content
 
 	// クエリの実行とエラー処理
-	contents, err := content.WithContext(ctx).Where(content.Deleted.Is(false)).Order(content.ID.Asc()).Find()
+	contents, err := content.WithContext(connection.context).Where(content.Deleted.Is(false)).Order(content.ID.Asc()).Find()
 	if err != nil {
 		return c.String(http.StatusInternalServerError, "ERROR: Get All Contents.\n")
 	}
@@ -33,17 +56,19 @@ func GetAllContents(c echo.Context) error {
 	return c.JSON(http.StatusOK, contents)
 }
 
+/**
+ * 一件件取得(GET: "/contents/:id")
+ */
 func GetOneContents(c echo.Context) error {
 	log.Println("exec contents::GetContent.")
 
 	id, _ := strconv.ParseInt(c.Param("id"), 10, 64)
 
 	// テーブル接続準備
-	queryInstance := dbconnect.QueryInstanc()
-	content := queryInstance.Content
-	ctx := context.Background()
+	connection := PrepareDBConnect()
+	content := connection.query.Content
 
-	row, err := content.WithContext(ctx).Where(content.ID.Eq(id), content.Deleted.Is(false)).First()
+	row, err := content.WithContext(connection.context).Where(content.ID.Eq(id), content.Deleted.Is(false)).First()
 	if errors.Is(err, gorm.ErrRecordNotFound) {
 		return c.String(http.StatusNotFound, "ERROR: Not Found.\n")
 	}
@@ -55,6 +80,9 @@ func GetOneContents(c echo.Context) error {
 	return c.JSON(http.StatusOK, row)
 }
 
+/**
+ * 登録(POST: "/contents")
+ */
 func RegisterContents(c echo.Context) error {
 	log.Println("exec contents::RegisterContent.")
 
@@ -65,13 +93,12 @@ func RegisterContents(c echo.Context) error {
 	}
 
 	// テーブル接続準備
-	queryInstance := dbconnect.QueryInstanc()
-	content := queryInstance.Content
-	ctx := context.Background()
+	connection := PrepareDBConnect()
+	content := connection.query.Content
 
 	// INSERT の実行とエラー処理
-	err := queryInstance.Transaction(func(tx *query.Query) error {
-		if err := content.WithContext(ctx).Create(data); err != nil {
+	err := connection.query.Transaction(func(tx *query.Query) error {
+		if err := content.WithContext(connection.context).Create(data); err != nil {
 			return err
 		}
 
@@ -86,6 +113,9 @@ func RegisterContents(c echo.Context) error {
 	return c.JSON(http.StatusCreated, data)
 }
 
+/**
+ * 一件件更新(PUT: "/contents/:id")
+ */
 func UpdateContents(c echo.Context) error {
 	log.Println("exec contents::UpdateContent")
 
@@ -98,13 +128,12 @@ func UpdateContents(c echo.Context) error {
 	}
 
 	// テーブル接続準備
-	queryInstance := dbconnect.QueryInstanc()
-	content := queryInstance.Content
-	ctx := context.Background()
+	connection := PrepareDBConnect()
+	content := connection.query.Content
 
 	// UPDATE の実行とエラー処理
-	err := queryInstance.Transaction(func(tx *query.Query) error {
-		if _, err := content.WithContext(ctx).Where(content.ID.Eq(id)).Updates(data); err != nil {
+	err := connection.query.Transaction(func(tx *query.Query) error {
+		if _, err := content.WithContext(connection.context).Where(content.ID.Eq(id)).Updates(data); err != nil {
 			return err
 		}
 
@@ -120,20 +149,22 @@ func UpdateContents(c echo.Context) error {
 	return c.JSON(http.StatusOK, data)
 }
 
+/**
+ * 一件件削除(DELETE: "/contents/:id")
+ */
 func DeleteContents(c echo.Context) error {
 	log.Println("exec contents::DeleteContent")
 
 	id, _ := strconv.ParseInt(c.Param("id"), 10, 64)
 
 	// テーブル接続準備
-	queryInstance := dbconnect.QueryInstanc()
-	content := queryInstance.Content
-	ctx := context.Background()
+	connection := PrepareDBConnect()
+	content := connection.query.Content
 
 	// DELETE( 削除フラグを立てる ) の実行とエラー処理
 	// ※ 物理削除は行わずフラグを立てることによる論理削除を行う
-	err := queryInstance.Transaction(func(tx *query.Query) error {
-		if _, err := content.WithContext(ctx).Where(content.ID.Eq(id)).Update(content.Deleted, true); err != nil {
+	err := connection.query.Transaction(func(tx *query.Query) error {
+		if _, err := content.WithContext(connection.context).Where(content.ID.Eq(id)).Update(content.Deleted, true); err != nil {
 			return err
 		}
 
@@ -146,6 +177,6 @@ func DeleteContents(c echo.Context) error {
 	}
 
 	// 削除したデータを返却したい
-	deletedContents, _ := content.WithContext(ctx).Where(content.ID.Eq(id)).First()
+	deletedContents, _ := content.WithContext(connection.context).Where(content.ID.Eq(id)).First()
 	return c.JSON(http.StatusOK, deletedContents)
 }

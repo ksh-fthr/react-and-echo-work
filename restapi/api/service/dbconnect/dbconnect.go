@@ -31,7 +31,7 @@ func Connect() *gorm.DB {
 /**
  * GORM 使ったクエリインスタンス
  */
-func QueryInstanc() *query.Query {
+func QueryInstance() *query.Query {
 	gormdb := Connect()
 	queryInstance := query.Use(gormdb)
 
