@@ -1,8 +1,6 @@
 import { useState, useEffect, useCallback, useReducer } from 'react'
 import useFetch from 'use-http'
 import { Link } from 'react-router-dom'
-import { MockContents } from '../../../../mock/MockContents'
-import { ContentsModel } from '../../../../service/Contents/Contents'
 import {
   contentsReducer,
   initialContentsState
@@ -21,13 +19,10 @@ const ListContents = () => {
    * コンテンツ取得 API の呼び出し( ID 指定なし )
    */
   const getAllContents = useCallback(async () => {
-    // TODO: API 疎通ができたらこの部分は有効化する.
-    // const contents = await get('/contents/all');
-    // if (response.ok) {
-    //   setContents(contents);
-    // }
-    const contentsModel = new ContentsModel(MockContents.contents)
-    const contents = contentsModel.contents
+    const contents = await get('/contents')
+    if (response.ok) {
+      setContents(contents)
+    }
     setContents(contents)
     dispatch({ state, type: 'add_contents', payload: contents })
   }, [get, response])
