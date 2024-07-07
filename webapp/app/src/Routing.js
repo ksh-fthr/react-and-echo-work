@@ -5,7 +5,6 @@ import './css/PostingSite.css'
 
 import App from './component/App/App'
 import Hello from './component/Hello/Hello'
-import DbConnect from './component/DbConnect/DbConnect'
 import TestApi from './component/TestApi/TestAPi'
 // PostingSite
 import PostingSite from './component/PostingSite/PostingSite'
@@ -53,11 +52,6 @@ const Routing = () => {
             </Link>
           </li>
           <li className={tabClassName} onClick={currentTab}>
-            <Link className="li-link" to="/connect">
-              DbConnect
-            </Link>
-          </li>
-          <li className={tabClassName} onClick={currentTab}>
             <Link className="li-link" to="/testapi">
               TestApi
             </Link>
@@ -71,7 +65,6 @@ const Routing = () => {
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/hello" element={<Hello />} />
-          <Route path="/connect" element={<DbConnect />} />
           <Route path="/testapi" element={<TestApi />} />
           <Route path="/postingsite" element={<PostingSite />} />
           <Route path="/postingsite/contents/list" element={<ListContents />} />
