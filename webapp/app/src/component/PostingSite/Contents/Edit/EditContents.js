@@ -2,35 +2,34 @@ import { Link, useParams } from 'react-router-dom'
 import { useState, useEffect, useCallback } from 'react'
 import useFetch from 'use-http'
 
-import { MockContents } from '../../../../mock/MockContents'
-
 const EditContents = () => {
   // これだけで URL パラメータから値を取得できる
   const params = useParams()
 
   // API コール
-  const { get, response, loading, error } = useFetch(
+  const { get, put, response, loading, error } = useFetch(
     'http://127.0.0.1:3000/api'
   )
-  /**
-   * コンテンツ取得 API の呼び出し( ID 指定あり )
-   */
-  const getContentById = useCallback(async () => {
-    // TODO: API 疎通ができたらこの部分は有効化する.
-    // const content = await get('/contents/:id');
-    // if (response.ok) {
-    //   setContent(content);
-    // }
-    const content = MockContents.contents.find((_content) => {
-      return _content.id === Number(params.contentId)
-    })
 
-    // setForm を介して既存情報をフォーム上に設定する
+  /**
+   * API の戻り値で取得したデータを setForm を介して既存情報をフォーム上に設定す
+   */
+  const setFormData = (content) => {
     setForm({
       title: content.title,
       author: content.author,
       summary: content.summary
     })
+  }
+
+  /**
+   * コンテンツ取得 API の呼び出し( ID 指定あり )
+   */
+  const getContentById = useCallback(async () => {
+    const content = await get(`/contents/${params.contentId}`)
+    if (response.ok) {
+      setFormData(content)
+    }
   }, [get, response])
 
   // useEffectの実行されるタイミング
@@ -41,26 +40,39 @@ const EditContents = () => {
     getContentById()
   }, [getContentById])
 
+  /**
+   * React Hook によるフォームの管理.
+   */
   const [form, setForm] = useState({
     title: '',
     author: '',
     summary: ''
   })
 
+  /**
+   * 入力フォームの変更を検知して form の値を更新する.
+   */
   const handleChange = (e) => {
     setForm({
-      ...form,
-      [e.target.name]: e.target.value
+      ...form, // スプレッド構文でコピー
+      [e.target.name]: e.target.value // 差分を設定する際、プロパティ変数を使用する
     })
   }
 
-  const editContents = () => {
-    console.dir({
-      contentId: params.contentId,
+  /**
+   * 入力フォームの情報をバックエンドに送って更新する.
+   */
+  const putContents = async () => {
+    const putData = {
       title: form.title,
       author: form.author,
       summary: form.summary
-    })
+    }
+
+    const content = await put(`/contents/${params.contentId}`, putData)
+    if (response.ok) {
+      setFormData(content)
+    }
   }
 
   return (
@@ -107,7 +119,6 @@ const EditContents = () => {
             <div className="contents-author">
               <label className="form-label">作者:</label>
               <input
-                readOnly
                 id="author"
                 name="author"
                 type="text"
@@ -127,7 +138,7 @@ const EditContents = () => {
           </form>
         </div>
         <div className="contents-footer">
-          <button type="button" onClick={editContents}>
+          <button type="button" onClick={putContents}>
             送信
           </button>
         </div>
