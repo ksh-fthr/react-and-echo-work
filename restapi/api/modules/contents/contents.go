@@ -117,7 +117,7 @@ func RegisterContents(c echo.Context) error {
  * 一件件更新(PUT: "/contents/:id")
  */
 func UpdateContents(c echo.Context) error {
-	log.Println("exec contents::UpdateContent")
+	log.Println("exec contents::UpdateContents")
 
 	id, _ := strconv.ParseInt(c.Param("id"), 10, 64)
 
