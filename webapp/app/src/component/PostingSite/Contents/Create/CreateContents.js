@@ -1,26 +1,57 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import useFetch from 'use-http'
 
 const CreateContents = () => {
+  // API コール
+  const { post, response } = useFetch(
+    'http://127.0.0.1:3000/api'
+  )
+
+  /**
+   * API の戻り値で取得したデータを setForm を介して既存情報をフォーム上に設定す
+   */
+  const setFormData = (content) => {
+    setForm({
+      title: content.title,
+      author: content.author,
+      summary: content.summary
+    })
+  }
+
+  /**
+   * React Hook によるフォームの管理.
+   */
   const [form, setForm] = useState({
     title: '',
     author: '',
     summary: ''
   })
 
+  /**
+   * 入力フォームの変更を検知して form の値を更新する.
+   */
   const handleChange = (e) => {
     setForm({
-      ...form,
-      [e.target.name]: e.target.value
+      ...form, // スプレッド構文でコピー
+      [e.target.name]: e.target.value // 差分を設定する際、プロパティ変数を使用する
     })
   }
 
-  const createContents = () => {
-    console.dir({
+  /**
+   * 入力フォームの情報をバックエンドに送って更新する.
+   */
+  const postContents = async () => {
+    const postData = {
       title: form.title,
       author: form.author,
       summary: form.summary
-    })
+    }
+
+    const content = await post('/contents', postData)
+    if (response.ok) {
+      setFormData(content)
+    }
   }
 
   return (
@@ -82,7 +113,7 @@ const CreateContents = () => {
           </form>
         </div>
         <div className="contents-footer">
-          <button type="button" onClick={createContents}>
+          <button type="button" onClick={postContents}>
             送信
           </button>
         </div>
