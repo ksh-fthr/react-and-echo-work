@@ -17,6 +17,8 @@ const DeleteContents = () => {
    * ContentId は一覧画面で選択されたときに URL パラメータに設定されて渡ってくる
    */
   const deleteContents = useCallback(async () => {
+
+    // TODO: 確認モーダルは別途実装する
     const contents = await del(`/contents/${params.contentId}`)
     if (response.ok) {
       setContents(contents)
