@@ -1,15 +1,27 @@
 import { Link, useParams } from 'react-router-dom'
+import { useState, useCallback } from 'react'
+import useFetch from 'use-http'
 
 const DeleteContents = () => {
   // これだけで URL パラメータから値を取得できる
   const params = useParams()
 
-  const deleteContents = () => {
-    console.dir({
-      contentId: params.contentId,
-      title: params.title
-    })
-  }
+  const [contents, setContents] = useState('')
+
+  const { del, response } = useFetch(
+    'http://127.0.0.1:3000/api'
+  )
+
+  /**
+   * ContentId ハックエンドに送ってコンテンツを削除する
+   * ContentId は一覧画面で選択されたときに URL パラメータに設定されて渡ってくる
+   */
+  const deleteContents = useCallback(async () => {
+    const contents = await del(`/contents/${params.contentId}`)
+    if (response.ok) {
+      setContents(contents)
+    }
+  }, [contents, del, response])
 
   return (
     <div className="contents-wrapper">
