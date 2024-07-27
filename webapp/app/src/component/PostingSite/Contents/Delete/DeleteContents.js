@@ -21,6 +21,9 @@ const DeleteContents = () => {
 
   /**
    * ダイアログオープン
+   * ------------------------------------------
+   * material-ui での alert-dialog の実装
+   * https://mui.com/material-ui/react-dialog/
    */
   const handleClickOpen = () => {
     setOpen(true)
@@ -29,6 +32,9 @@ const DeleteContents = () => {
 
   /**
    * ダイアログクローズ
+   * ------------------------------------------
+   * material-ui での alert-dialog の実装
+   * https://mui.com/material-ui/react-dialog/
    */
   const handleClose = () => {
     setOpen(false)
@@ -39,8 +45,6 @@ const DeleteContents = () => {
    * ContentId は一覧画面で選択されたときに URL パラメータに設定されて渡ってくる
    */
   const deleteContents = useCallback(async () => {
-    // material-ui での alert-dialog の実装
-    // https://mui.com/material-ui/react-dialog/
     const contents = await del(`/contents/${params.contentId}`)
     if (response.ok) {
       setContents(contents)
