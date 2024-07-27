@@ -1,23 +1,46 @@
 import { Link, useParams } from 'react-router-dom'
 import { useState, useCallback } from 'react'
 import useFetch from 'use-http'
+import Button from '@mui/material/Button'
+import Dialog from '@mui/material/Dialog'
+import DialogActions from '@mui/material/DialogActions'
+import DialogContent from '@mui/material/DialogContent'
+import DialogContentText from '@mui/material/DialogContentText'
+import DialogTitle from '@mui/material/DialogTitle'
 
 const DeleteContents = () => {
   // これだけで URL パラメータから値を取得できる
   const params = useParams()
 
   const [contents, setContents] = useState('')
+  const [open, setOpen] = useState(false)
 
   const { del, response } = useFetch(
     'http://127.0.0.1:3000/api'
   )
 
   /**
+   * ダイアログオープン
+   */
+  const handleClickOpen = () => {
+    setOpen(true)
+    deleteContents()
+  }
+
+  /**
+   * ダイアログクローズ
+   */
+  const handleClose = () => {
+    setOpen(false)
+  }
+
+  /**
    * ContentId ハックエンドに送ってコンテンツを削除する
    * ContentId は一覧画面で選択されたときに URL パラメータに設定されて渡ってくる
    */
   const deleteContents = useCallback(async () => {
-    // TODO: 確認モーダルは別途実装する
+    // material-ui での alert-dialog の実装
+    // https://mui.com/material-ui/react-dialog/
     const contents = await del(`/contents/${params.contentId}`)
     if (response.ok) {
       setContents(contents)
@@ -55,10 +78,29 @@ const DeleteContents = () => {
           ID: {params.contentId}, タイトル: {params.title} を削除します
         </div>
         <div className="contents-footer">
-          <button type="button" onClick={deleteContents}>
+          <Button type="button" variant="outlined" onClick={handleClickOpen}>
             送信
-          </button>
+          </Button>
         </div>
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title">
+            {'指定したコンテンツを削除します'}
+          </DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+              削除すると元には戻せません。よろしいですか？
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose}>いいえ。削除しません</Button>
+            <Button onClick={handleClose} autoFocus>はい。削除します</Button>
+          </DialogActions>
+        </Dialog>
       </div>
     </div>
   )
