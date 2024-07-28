@@ -6,6 +6,14 @@ import {
   initialContentsState
 } from '../../../../reducer/PostingSite/ContentsReducer'
 
+import Table from '@mui/material/Table'
+import TableBody from '@mui/material/TableBody'
+import TableCell from '@mui/material/TableCell'
+import TableContainer from '@mui/material/TableContainer'
+import TableHead from '@mui/material/TableHead'
+import TableRow from '@mui/material/TableRow'
+import Paper from '@mui/material/Paper'
+
 const ListContents = () => {
   const [contents, setContents] = useState([])
 
@@ -60,53 +68,57 @@ const ListContents = () => {
         <h3>コンテンツ一覧</h3>
         {error && 'Error!'}
         {loading && 'Loading...'}
-        <table>
-          <thead>
-            <tr>
-              <th>コンテンツID</th>
-              <th>タイトル</th>
-              <th>サマリ</th>
-              <th>著者</th>
-              <th>作成日</th>
-              <th>更新日</th>
-              <th>編集</th>
-              <th>削除</th>
-            </tr>
-          </thead>
-          <tbody>
-            {contents.map((content) => {
-              return (
-                // See: https://bobbyhadz.com/blog/react-missing-key-prop-for-element-in-iterator
-                <tr key={content.id}>
-                  <td>{content.id}</td>
-                  <td>
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell align="right">コンテンツID</TableCell>
+                <TableCell align="left">タイトル</TableCell>
+                <TableCell align="left">サマリ</TableCell>
+                <TableCell align="left">著者</TableCell>
+                <TableCell align="left">作成日</TableCell>
+                <TableCell align="left">更新日</TableCell>
+                <TableCell align="center">編集</TableCell>
+                <TableCell align="center">削除</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {contents.map((content) => (
+                <TableRow
+                  key={content.d}
+                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row" align="right">
+                    {content.id}
+                  </TableCell>
+                  <TableCell align="left">
                     <Link
                       to={`/postingsite/contents/${content.id}/article/list`}
                     >
                       {content.title}
                     </Link>
-                  </td>
-                  <td>{content.summary}</td>
-                  <td>{content.author}</td>
-                  <td>{content.createdAt}</td>
-                  <td>{content.updatedAt}</td>
-                  <td>
+                  </TableCell>
+                  <TableCell align="left">{content.summary}</TableCell>
+                  <TableCell align="left">{content.author}</TableCell>
+                  <TableCell align="left">{content.createdAt}</TableCell>
+                  <TableCell align="left">{content.updatedAt}</TableCell>
+                  <TableCell align="center">
                     <Link to={`/postingsite/contents/${content.id}/edit`}>
                       編集
                     </Link>
-                  </td>
-                  <td>
+                  </TableCell>
+                  <TableCell align="center">
                     <Link
                       to={`/postingsite/contents/${content.id}/${content.title}/delete`}
                     >
                       削除
                     </Link>
-                  </td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </div>
     </div>
   )
