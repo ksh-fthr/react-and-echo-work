@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import { useState, useEffect, useCallback } from 'react'
 import useFetch from 'use-http'
+import Button from '@mui/material/Button'
 
 const EditContents = () => {
   // これだけで URL パラメータから値を取得できる
@@ -138,9 +139,7 @@ const EditContents = () => {
           </form>
         </div>
         <div className="contents-footer">
-          <button type="button" onClick={putContents}>
-            送信
-          </button>
+          <Button variant="outlined" onClick={putContents}>送信</Button>
         </div>
       </div>
     </div>
