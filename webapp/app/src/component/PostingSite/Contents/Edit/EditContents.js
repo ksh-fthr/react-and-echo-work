@@ -1,10 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
-import { useState, useEffect, useCallback, Fragment } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import useFetch from 'use-http'
-import Button from '@mui/material/Button'
-import TextField from '@mui/material/TextField'
-import CssBaseline from '@mui/material/CssBaseline'
-import Container from '@mui/material/Container'
 
 const EditContents = () => {
   // これだけで URL パラメータから値を取得できる
@@ -12,7 +8,7 @@ const EditContents = () => {
 
   // API コール
   const { get, put, response, loading, error } = useFetch(
-    'http://128.0.0.1:3000/api'
+    'http://127.0.0.1:3000/api'
   )
 
   /**
@@ -80,82 +76,74 @@ const EditContents = () => {
   }
 
   return (
-    <Fragment>
-      <CssBaseline />
-      <Container maxWidth="lg">
-        <div className="contents-wrapper">
-          <h3 className="headline">Contents</h2>
-          <div className="breadcrumb-list">
-            <ol>
-              <li>ポスティングサイト</li>
-              <li>コンテンツ</li>
-              <li>編集</li>
-            </ol>
-          </div>
-          <div className="sidebar">
-            <ul>
-              <li>
-                <Link to="/postingsite">TOP</Link>
-              </li>
-              <li>
-                <Link to="/postingsite/contents/list">コンテンツ一覧</Link>
-              </li>
-              <li>
-                <Link to="/postingsite/contents/create">コンテンツ新規作成</Link>
-              </li>
-            </ul>
-          </div>
-          <div className="main">
-            <div className="contents-header">
-              <h4>コンテンツ編集</h3>
-            </div>
-            {error && 'Error!'}
-            {loading && 'Loading...'}
-            <div className="contents-body">
-              <form className="edit-contents">
-                <div className="contents-title">
-                  <TextField
-                    label="タイトル"
-                    variant="standard"
-                    id="title"
-                    name="title"
-                    fullWidth="true"
-                    onChange={handleChange}
-                    value={form.title}
-                  />
-                </div>
-                <div className="contents-author">
-                  <TextField
-                    label="作者"
-                    variant="standard"
-                    id="author"
-                    name="author"
-                    fullWidth="true"
-                    onChange={handleChange}
-                    value={form.author}
-                  />
-                </div>
-                <div className="contents-summary">
-                  <TextField
-                    label="要約"
-                    variant="standard"
-                    id="summary"
-                    name="summary"
-                    fullWidth="true"
-                    onChange={handleChange}
-                    value={form.summary}
-                    multiline
-                  />
-                </div>
-              </form>
-            </div>
-            <div className="contents-footer">
-              <Button variant="outlined" onClick={putContents}>送信</Button>
-            </div>
-          </div>
+    <div className="contents-wrapper">
+      <h2 className="headline">Contents</h2>
+      <div className="breadcrumb-list">
+        <ol>
+          <li>ポスティングサイト</li>
+          <li>コンテンツ</li>
+          <li>編集</li>
+        </ol>
+      </div>
+      <div className="sidebar">
+        <ul>
+          <li>
+            <Link to="/postingsite">TOP</Link>
+          </li>
+          <li>
+            <Link to="/postingsite/contents/list">コンテンツ一覧</Link>
+          </li>
+          <li>
+            <Link to="/postingsite/contents/create">コンテンツ新規作成</Link>
+          </li>
+        </ul>
+      </div>
+      <div className="main">
+        <div className="contents-header">
+          <h3>コンテンツ編集</h3>
         </div>
-      </Container>
-    </Fragment>
+        {error && 'Error!'}
+        {loading && 'Loading...'}
+        <div className="contents-body">
+          <form className="edit-contents">
+            <div className="contents-title">
+              <label className="form-label">タイトル:</label>
+              <input
+                id="title"
+                name="title"
+                type="text"
+                onChange={handleChange}
+                value={form.title}
+              />
+            </div>
+            <div className="contents-author">
+              <label className="form-label">作者:</label>
+              <input
+                id="author"
+                name="author"
+                type="text"
+                onChange={handleChange}
+                value={form.author}
+              />
+            </div>
+            <div className="contents-summary">
+              <label className="form-label">要約:</label>
+              <textarea
+                id="summary"
+                name="summary"
+                onChange={handleChange}
+                value={form.summary}
+              />
+            </div>
+          </form>
+        </div>
+        <div className="contents-footer">
+          <button type="button" onClick={putContents}>
+            送信
+          </button>
+        </div>
+      </div>
+    </div>
   )
 }
 export default EditContents
