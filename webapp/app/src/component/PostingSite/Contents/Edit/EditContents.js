@@ -1,6 +1,8 @@
 import { Link, useParams } from 'react-router-dom'
 import { useState, useEffect, useCallback } from 'react'
 import useFetch from 'use-http'
+import Button from '@mui/material/Button'
+import TextField from '@mui/material/TextField'
 
 const EditContents = () => {
   // これだけで URL パラメータから値を取得できる
@@ -107,40 +109,43 @@ const EditContents = () => {
         <div className="contents-body">
           <form className="edit-contents">
             <div className="contents-title">
-              <label className="form-label">タイトル:</label>
-              <input
+              <TextField
+                label="タイトル"
+                variant="standard"
                 id="title"
                 name="title"
-                type="text"
+                fullWidth="true"
                 onChange={handleChange}
                 value={form.title}
               />
             </div>
             <div className="contents-author">
-              <label className="form-label">作者:</label>
-              <input
+              <TextField
+                label="作者"
+                variant="standard"
                 id="author"
                 name="author"
-                type="text"
+                fullWidth="true"
                 onChange={handleChange}
                 value={form.author}
               />
             </div>
             <div className="contents-summary">
-              <label className="form-label">要約:</label>
-              <textarea
+              <TextField
+                label="要約"
+                variant="standard"
                 id="summary"
                 name="summary"
+                fullWidth="true"
                 onChange={handleChange}
                 value={form.summary}
+                multiline
               />
             </div>
           </form>
         </div>
         <div className="contents-footer">
-          <button type="button" onClick={putContents}>
-            送信
-          </button>
+          <Button variant="outlined" onClick={putContents}>送信</Button>
         </div>
       </div>
     </div>
