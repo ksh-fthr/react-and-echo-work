@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback } from 'react'
 import useFetch from 'use-http'
 import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
+import Box from '@mui/material/Box'
 
 const EditContents = () => {
   // これだけで URL パラメータから値を取得できる
@@ -107,42 +108,49 @@ const EditContents = () => {
         {error && 'Error!'}
         {loading && 'Loading...'}
         <div className="contents-body">
-          <form className="edit-contents">
-            <div className="contents-title">
-              <TextField
-                label="タイトル"
-                variant="standard"
-                id="title"
-                name="title"
-                fullWidth="true"
-                onChange={handleChange}
-                value={form.title}
-              />
-            </div>
-            <div className="contents-author">
-              <TextField
-                label="作者"
-                variant="standard"
-                id="author"
-                name="author"
-                fullWidth="true"
-                onChange={handleChange}
-                value={form.author}
-              />
-            </div>
-            <div className="contents-summary">
-              <TextField
-                label="要約"
-                variant="standard"
-                id="summary"
-                name="summary"
-                fullWidth="true"
-                onChange={handleChange}
-                value={form.summary}
-                multiline
-              />
-            </div>
-          </form>
+          <Box
+            component="form"
+            sx={{
+              '& .MuiTextField-root': { m: 1, width: '125ch' }
+            }}
+            noValidate
+            autoComplete="off"
+          >
+            <form className="edit-contents">
+              <div className="contents-title">
+                <TextField
+                  label="タイトル"
+                  variant="outlined"
+                  id="title"
+                  name="title"
+                  onChange={handleChange}
+                  value={form.title}
+                />
+              </div>
+              <div className="contents-author">
+                <TextField
+                  label="作者"
+                  variant="outlined"
+                  id="author"
+                  name="author"
+                  onChange={handleChange}
+                  value={form.author}
+                />
+              </div>
+              <div className="contents-summary">
+                <TextField
+                  label="要約"
+                  variant="outlined"
+                  id="summary"
+                  name="summary"
+                  onChange={handleChange}
+                  value={form.summary}
+                  multiline
+                  rows={16}
+                />
+              </div>
+            </form>
+          </Box>
         </div>
         <div className="contents-footer">
           <Button variant="outlined" onClick={putContents}>送信</Button>
