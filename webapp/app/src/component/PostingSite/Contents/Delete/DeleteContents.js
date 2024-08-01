@@ -7,6 +7,8 @@ import DialogActions from '@mui/material/DialogActions'
 import DialogContent from '@mui/material/DialogContent'
 import DialogContentText from '@mui/material/DialogContentText'
 import DialogTitle from '@mui/material/DialogTitle'
+import Box from '@mui/material/Box'
+import Paper from '@mui/material/Paper'
 
 const DeleteContents = () => {
   // これだけで URL パラメータから値を取得できる
@@ -79,7 +81,28 @@ const DeleteContents = () => {
           <h3>コンテンツ削除</h3>
         </div>
         <div className="contents-body">
-          ID: {params.contentId}, タイトル: {params.title} を削除します
+          <Box
+            sx={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              '& > :not(style)': {
+                m: 1,
+                width: '100%',
+                height: 128
+              }
+            }}
+          >
+            <Paper
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+            >
+              ID: {params.contentId}, タイトル: {params.title} を削除します
+            </Paper>
+          </Box>
+
         </div>
         <div className="contents-footer">
           <Button type="button" variant="outlined" onClick={handleClickOpen}>
