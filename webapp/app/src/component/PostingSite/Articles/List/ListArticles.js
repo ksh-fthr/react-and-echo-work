@@ -58,7 +58,7 @@ const ListArticles = () => {
               className="article-new-create"
               to={`/postingsite/contents/${contentId}/article/create`}
             >
-              新規作成
+               記事追加
             </Link>
           </caption>
           <thead>
