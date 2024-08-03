@@ -5,6 +5,10 @@ import useFetch from 'use-http'
 import { MockArticle } from '../../../../mock/MockArticle'
 import { ArticleModel } from '../../../../service/Contents/Article'
 
+import Button from '@mui/material/Button'
+import TextField from '@mui/material/TextField'
+import Box from '@mui/material/Box'
+
 const EditArticle = () => {
   // これだけで URL パラメータから値を取得できる
   const params = useParams()
@@ -61,7 +65,7 @@ const EditArticle = () => {
     })
   }
 
-  const editArticle = () => {
+  const putArticle = () => {
     console.dir({
       id: params.id,
       contentId: params.contentId,
@@ -102,42 +106,52 @@ const EditArticle = () => {
         {error && 'Error!'}
         {loading && 'Loading...'}
         <div className="article-body">
-          <form className="edit-article">
-            <div className="article-subtitle">
-              <label className="form-label">サブタイトル:</label>
-              <input
-                id="subtitle"
-                name="subtitle"
-                type="text"
-                onChange={handleChange}
-                value={form.subtitle}
-              />
-            </div>
-            <div className="article-body">
-              <label className="form-label">本文:</label>
-              <textarea
-                id="body"
-                name="body"
-                type="text"
-                onChange={handleChange}
-                value={form.body}
-              />
-            </div>
-            <div className="article-remarks">
-              <label className="form-label">備考:</label>
-              <textarea
-                id="remarks"
-                name="remarks"
-                onChange={handleChange}
-                value={form.remarks}
-              />
-            </div>
-          </form>
+          <Box
+            component="form"
+            sx={{
+              '& .MuiTextField-root': { m: 1, width: '125ch' }
+            }}
+            noValidate
+            autoComplete="off"
+          >
+            <form className="edit-article">
+              <div className="article-subtitle">
+                <TextField
+                  label="サブタイトル"
+                  variant="outlined"
+                  id="subtitle"
+                  name="subtitle"
+                  onChange={handleChange}
+                  value={form.subtitle}
+                />
+              </div>
+              <div className="article-body">
+                <TextField
+                  label="本文"
+                  variant="outlined"
+                  id="body"
+                  name="body"
+                  onChange={handleChange}
+                  value={form.body}
+                  multiline
+                  rows={16}
+                />
+              </div>
+              <div className="article-remarks">
+                <TextField
+                  label="備考"
+                  variant="outlined"
+                  id="remarks"
+                  name="remarks"
+                  onChange={handleChange}
+                  value={form.remarks}
+                />
+              </div>
+            </form>
+          </Box>
         </div>
         <div className="article-footer">
-          <button type="button" onClick={editArticle}>
-            送信
-          </button>
+          <Button variant="outlined" onClick={putArticle}>送信</Button>
         </div>
       </div>
     </div>
