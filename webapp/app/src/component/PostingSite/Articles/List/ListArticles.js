@@ -6,6 +6,14 @@ import {
   currentContentsState
 } from '../../../../reducer/PostingSite/ContentsReducer'
 
+import Table from '@mui/material/Table'
+import TableBody from '@mui/material/TableBody'
+import TableCell from '@mui/material/TableCell'
+import TableContainer from '@mui/material/TableContainer'
+import TableHead from '@mui/material/TableHead'
+import TableRow from '@mui/material/TableRow'
+import Paper from '@mui/material/Paper'
+
 const articles = MockArticles.articles
 
 const ListArticles = () => {
@@ -51,62 +59,67 @@ const ListArticles = () => {
       </div>
       <div className="main">
         <h3>記事一覧</h3>
-        <table>
-          <caption className="article-caption">
-            <span className="article-caption-text">{summary}</span>
-            <Link
-              className="article-new-create"
-              to={`/postingsite/contents/${contentId}/article/create`}
-            >
-               記事追加
-            </Link>
-          </caption>
-          <thead>
-            <tr>
-              <th>コンテンツID</th>
-              <th>記事ID</th>
-              <th>サブタイトル</th>
-              <th>作成日時</th>
-              <th>更新日時</th>
-              <th>編集</th>
-              <th>削除</th>
-            </tr>
-          </thead>
-          <tbody>
-            {articles.map((article) => {
-              return (
-                // See: https://bobbyhadz.com/blog/react-missing-key-prop-for-element-in-iterator
-                <tr key={article.id}>
-                  <td>{contentId}</td>
-                  <td>{article.id}</td>
-                  <td>
+        <div className="article-caption">
+          <span className="article-caption-text">{summary}</span>
+          <Link
+            className="article-new-create"
+            to={`/postingsite/contents/${contentId}/article/create`}
+          >
+             記事追加
+          </Link>
+        </div>
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell align="right">コンテンツID</TableCell>
+                <TableCell align="right">記事ID</TableCell>
+                <TableCell align="left">サブタイトル</TableCell>
+                <TableCell align="left">作成日時</TableCell>
+                <TableCell align="left">更新日時</TableCell>
+                <TableCell align="center">編集</TableCell>
+                <TableCell align="center">削除</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {articles.map((article) => (
+                <TableRow
+                  key={article.d}
+                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row" align="right">
+                    {article.id}
+                  </TableCell>
+                  <TableCell align="right">{contentId}</TableCell>
+                  <TableCell align="right">{article.id}</TableCell>
+                  <TableCell align="left">
                     <Link
                       to={`/postingsite/contents/${contentId}/article/${article.id}/view`}
                     >
                       {article.subtitle}
                     </Link>
-                  </td>
-                  <td>{article.createdAt}</td>
-                  <td>{article.updatedAt}</td>
-                  <td>
+                  </TableCell>
+                  <TableCell align="left">{article.createdAt}</TableCell>
+                  <TableCell align="left">{article.updatedAt}</TableCell>
+                  <TableCell align="center">
                     <Link
                       to={`/postingsite/contents/${contentId}/article/${article.id}/edit`}
                     >
                       編集
                     </Link>
-                  </td>
-                  <td>
+                  </TableCell>
+                  <TableCell align="center">
                     <Link
                       to={`/postingsite/contents/${contentId}/article/${article.id}/${article.subtitle}/delete`}
                     >
                       削除
                     </Link>
-                  </td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </div>
     </div>
   )
