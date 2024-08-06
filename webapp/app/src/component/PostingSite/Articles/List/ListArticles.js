@@ -88,8 +88,8 @@ const ListArticles = () => {
                 <TableCell align="left">サブタイトル</TableCell>
                 <TableCell align="left">作成日時</TableCell>
                 <TableCell align="left">更新日時</TableCell>
-                <TableCell align="center">編集</TableCell>
-                <TableCell align="center">削除</TableCell>
+                <TableCell align="center"></TableCell>
+                <TableCell align="center"></TableCell>
               </TableRow>
             </TableHead>
             <TableBody>

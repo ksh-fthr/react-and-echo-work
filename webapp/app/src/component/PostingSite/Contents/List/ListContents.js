@@ -79,8 +79,8 @@ const ListContents = () => {
                 <TableCell align="left">著者</TableCell>
                 <TableCell align="left">作成日</TableCell>
                 <TableCell align="left">更新日</TableCell>
-                <TableCell align="center">編集</TableCell>
-                <TableCell align="center">削除</TableCell>
+                <TableCell align="center"></TableCell>
+                <TableCell align="center"></TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
