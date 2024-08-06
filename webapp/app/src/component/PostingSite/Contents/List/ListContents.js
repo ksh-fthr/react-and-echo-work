@@ -13,6 +13,7 @@ import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import Paper from '@mui/material/Paper'
+import Button from '@mui/material/Button'
 
 const ListContents = () => {
   const [contents, setContents] = useState([])
@@ -103,16 +104,20 @@ const ListContents = () => {
                   <TableCell align="left">{content.createdAt}</TableCell>
                   <TableCell align="left">{content.updatedAt}</TableCell>
                   <TableCell align="center">
-                    <Link to={`/postingsite/contents/${content.id}/edit`}>
+                    <Button
+                      variant="outlined"
+                      href={`/postingsite/contents/${content.id}/edit`}
+                    >
                       編集
-                    </Link>
+                    </Button>
                   </TableCell>
                   <TableCell align="center">
-                    <Link
-                      to={`/postingsite/contents/${content.id}/${content.title}/delete`}
+                    <Button
+                      variant="outlined"
+                      href={`/postingsite/contents/${content.id}/${content.title}/delete`}
                     >
                       削除
-                    </Link>
+                    </Button>
                   </TableCell>
                 </TableRow>
               ))}

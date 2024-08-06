@@ -110,18 +110,20 @@ const ListArticles = () => {
                   <TableCell align="left">{article.createdAt}</TableCell>
                   <TableCell align="left">{article.updatedAt}</TableCell>
                   <TableCell align="center">
-                    <Link
-                      to={`/postingsite/contents/${contentId}/article/${article.id}/edit`}
+                    <Button
+                      variant="outlined"
+                      href={`/postingsite/contents/${contentId}/article/${article.id}/edit`}
                     >
                       編集
-                    </Link>
+                    </Button>
                   </TableCell>
                   <TableCell align="center">
-                    <Link
-                      to={`/postingsite/contents/${contentId}/article/${article.id}/${article.subtitle}/delete`}
+                    <Button
+                      variant="outlined"
+                      href={`/postingsite/contents/${contentId}/article/${article.id}/${article.subtitle}/delete`}
                     >
                       削除
-                    </Link>
+                    </Button>
                   </TableCell>
                 </TableRow>
               ))}
