@@ -63,7 +63,26 @@ const ListArticles = () => {
       <div className="main">
         <h3>記事一覧</h3>
         <div className="article-caption">
-          <span className="article-caption-text">{summary}</span>
+          <Box
+            sx={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              '& > :not(style)': {
+                m: 0,
+                width: '100%',
+                height: 128
+              }
+            }}
+          >
+            <Paper
+              sx={{
+                padding: '20px'
+              }}
+              className="article"
+            >
+              <span className="article-caption-text">{summary}</span>
+            </Paper>
+          </Box>
         </div>
         <Box
           display='flex'

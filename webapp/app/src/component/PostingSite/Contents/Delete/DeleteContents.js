@@ -86,7 +86,7 @@ const DeleteContents = () => {
               display: 'flex',
               flexWrap: 'wrap',
               '& > :not(style)': {
-                m: 1,
+                m: 0,
                 width: '100%',
                 height: 128
               }
@@ -102,7 +102,6 @@ const DeleteContents = () => {
               ID: {params.contentId}, タイトル: {params.title} を削除します
             </Paper>
           </Box>
-
         </div>
         <div className="contents-footer">
           <Button type="button" variant="outlined" onClick={handleClickOpen}>
