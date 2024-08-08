@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import useFetch from 'use-http'
 import { Link } from 'react-router-dom'
+import { Box, Paper } from '@mui/material'
 
 // TODO: API 疎通ができたらこのメッセージは削除する.
 const initialMessage = `
@@ -62,11 +63,30 @@ const PostingSite = () => {
       </div>
       <div className="main">
         <h3>Posting Site へようこそ</h3>
-        <p className="article">
-          {error && 'Error!'}
-          {loading && 'Loading...'}
-          {message}
-        </p>
+        <Box
+          sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            '& > :not(style)': {
+              m: 0,
+              width: '100%',
+              height: 128
+            }
+          }}
+        >
+          <Paper
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+            className="article"
+          >
+            {error && 'Error!'}
+            {loading && 'Loading...'}
+            {message}
+          </Paper>
+        </Box>
       </div>
     </div>
   )
