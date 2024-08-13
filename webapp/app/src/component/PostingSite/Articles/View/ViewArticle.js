@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import { MockArticle } from '../../../../mock/MockArticle'
+import Box from '@mui/material/Box'
+import Paper from '@mui/material/Paper'
 
 const subtitle = MockArticle.article.subtitle
 const article = MockArticle.article.body
@@ -30,8 +32,33 @@ const ViewArticle = () => {
         </ul>
       </div>
       <div className="main">
-        <h3>{subtitle}</h3>
-        <article className="article"> {article} </article>
+        <div className="article-header">
+          <h3>{subtitle}</h3>
+        </div>
+        <div className="article-body">
+          <article className="article">
+            <Box
+              sx={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                '& > :not(style)': {
+                  m: 0,
+                  width: '100%',
+                  height: 128
+                }
+              }}
+            >
+              <Paper
+                sx={{
+                  padding: '20px'
+                }}
+                className="article"
+              >
+                {article}
+              </Paper>
+            </Box>
+          </article>
+        </div>
       </div>
     </div>
   )
