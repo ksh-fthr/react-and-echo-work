@@ -4,7 +4,6 @@ import './css/Tab.css'
 import './css/PostingSite.css'
 
 import App from './component/App/App'
-import Hello from './component/Hello/Hello'
 import TestApi from './component/TestApi/TestAPi'
 // PostingSite
 import PostingSite from './component/PostingSite/PostingSite'
@@ -47,11 +46,6 @@ const Routing = () => {
             </Link>
           </li>
           <li className={tabClassName} onClick={currentTab}>
-            <Link className="li-link" to="/hello">
-              Hello
-            </Link>
-          </li>
-          <li className={tabClassName} onClick={currentTab}>
             <Link className="li-link" to="/testapi">
               TestApi
             </Link>
@@ -64,7 +58,6 @@ const Routing = () => {
         </ul>
         <Routes>
           <Route path="/" element={<App />} />
-          <Route path="/hello" element={<Hello />} />
           <Route path="/testapi" element={<TestApi />} />
           <Route path="/postingsite" element={<PostingSite />} />
           <Route path="/postingsite/contents/list" element={<ListContents />} />
