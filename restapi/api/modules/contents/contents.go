@@ -142,7 +142,7 @@ func UpdateContents(c echo.Context) error {
 
 	if err != nil {
 		fmt.Println(err)
-		return c.String(http.StatusInternalServerError, "Error: DB Register Content.\n")
+		return c.String(http.StatusInternalServerError, "Error: DB Update Content.\n")
 	}
 
 	data.ID = id
@@ -173,7 +173,7 @@ func DeleteContents(c echo.Context) error {
 
 	if err != nil {
 		fmt.Println(err)
-		return c.String(http.StatusInternalServerError, "Error: DB Register Content.\n")
+		return c.String(http.StatusInternalServerError, "Error: DB Delete Content.\n")
 	}
 
 	// 削除したデータを返却したい
