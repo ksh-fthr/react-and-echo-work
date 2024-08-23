@@ -33,7 +33,7 @@ func Routing(e *echo.Echo) {
 
 	// contents API
 	e.GET("/contents/:contentId/articles", articles.GetAllArticles)
-	e.GET("/contents/:contentId/article/:articeId", articles.GetOneArticles)
+	e.GET("/contents/:contentId/article/:articleId", articles.GetOneArticles)
 	e.POST("/contents/:contentId/article", articles.RegisterArticles)
 	e.PUT("/contents/:contentId/article/:articleId", articles.UpdateArticles)
 	e.DELETE("/contents/:contentId/article/:articleId", articles.DeleteArticles)
