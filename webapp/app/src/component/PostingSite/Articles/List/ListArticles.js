@@ -1,6 +1,6 @@
-import { useEffect, useReducer, useState } from 'react'
+import { useState, useEffect, useCallback, useReducer } from 'react'
+import useFetch from 'use-http'
 import { Link, useParams } from 'react-router-dom'
-import { MockArticles } from '../../../../mock/MockArticles'
 import {
   contentsReducer,
   currentContentsState
@@ -17,24 +17,62 @@ import Paper from '@mui/material/Paper'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 
-const articles = MockArticles.articles
-
 const ListArticles = () => {
   // これだけで URL パラメータから値を取得できる
   const params = useParams()
   const contentId = params.contentId
 
+  const [summary, setSummary] = useState('')
+  const [articles, setArticles] = useState([])
+
   // Reducerを呼び出す
+  // コンテンツサマリーは Reducer から取得する
   const [state] = useReducer(contentsReducer, currentContentsState)
 
-  const [summary, setSummary] = useState('')
+  // API 実行のための変数群
+  const { get, response, loading, error } = useFetch(
+    'http://127.0.0.1:3000/api'
+  )
 
-  useEffect(() => {
+  /**
+   * コンテンツサマリーの取得
+   *
+   * @remarks
+   * 描画時のみ実行したいのでuseCalleback の第２引数は空を指定する
+   */
+  const getSummary = useCallback(async () => {
+    // コンテンツの概要取得
     const content = state.contents.find((content) => {
       return content.id === Number(contentId)
     })
     setSummary(content.summary)
-  }, [state])
+  }, [])
+
+  /**
+   * 記事一覧取得 API の呼び出し( 記事ID 指定なし )
+   *
+   * @remarks
+   * 描画時のみ実行したいのでuseCalleback の第２引数は空を指定する
+   */
+  const getArticles = useCallback(async () => {
+    const articles = await get(`/contents/${contentId}/articles`)
+    if (!response.ok) {
+      return
+    }
+    setArticles(articles)
+  }, [])
+
+  // useEffectの実行されるタイミング
+  // * 第二引数を指定しない場合、副作用は全レンダリング後に実行
+  // * 第二引数を指定した場合、配列に格納された値が変更された場合のみ実行
+  useEffect(() => {
+    // 副作用として実行される処理
+    // コンテンツサマリー取得
+    getSummary()
+
+    // 記事一覧取得
+    getArticles()
+  }, [])
 
   return (
     <div className="article-wrapper">
@@ -61,7 +99,7 @@ const ListArticles = () => {
         </ul>
       </div>
       <div className="main">
-        <h3>記事一覧</h3>
+        <h3>記事概要</h3>
         <div className="article-caption">
           <Box
             sx={{
@@ -84,6 +122,9 @@ const ListArticles = () => {
             </Paper>
           </Box>
         </div>
+        <h3>記事一覧</h3>
+        {error && 'Error!'}
+        {loading && 'Loading...'}
         <Box
           display='flex'
           alignItems='center'
