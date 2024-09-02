@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 import { useState } from 'react'
+import useFetch from 'use-http'
 import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
 import Box from '@mui/material/Box'
@@ -8,26 +9,56 @@ const CreateArticle = () => {
   // これだけで URL パラメータから値を取得できる
   const params = useParams()
 
+  // API コール
+  const { post, response } = useFetch(
+    'http://127.0.0.1:3000/api'
+  )
+
+  /**
+   * API の戻り値で取得したデータを setForm を介して既存情報をフォーム上に設定する
+   */
+  const setFormData = (article) => {
+    setForm({
+      subtitle: article.subtitle,
+      body: article.body,
+      remarks: article.remarks
+    })
+  }
+
+  /**
+   * React Hook によるフォームの管理.
+   */
   const [form, setForm] = useState({
     subtitle: '',
     body: '',
     remarks: ''
   })
 
+  /**
+   * 入力フォームの変更を検知して form の値を更新する.
+   */
   const handleChange = (e) => {
     setForm({
-      ...form,
-      [e.target.name]: e.target.value
+      ...form, // スプレッド構文でコピー
+      [e.target.name]: e.target.value // 差分を設定する際、プロパティ変数を使用する
     })
   }
 
-  const postArticle = () => {
-    console.dir({
+  /**
+   * 入力フォームの情報をバックエンドに送って更新する.
+   */
+  const postArticle = async () => {
+    const postData = {
       contentId: params.contentId,
-      title: form.subtitle,
+      subtitle: form.subtitle,
       body: form.body,
       remarks: form.remarks
-    })
+    }
+
+    const content = await post(`/contents/${params.contentId}/article`, postData)
+    if (response.ok) {
+      setFormData(content)
+    }
   }
 
   return (
@@ -75,7 +106,7 @@ const CreateArticle = () => {
                   id="subtitle"
                   name="subtitle"
                   onChange={handleChange}
-                  value={form.title}
+                  value={form.subtitle}
                 />
               </div>
               <div className="article-body">

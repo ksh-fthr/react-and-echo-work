@@ -12,7 +12,7 @@ const CreateContents = () => {
   )
 
   /**
-   * API の戻り値で取得したデータを setForm を介して既存情報をフォーム上に設定す
+   * API の戻り値で取得したデータを setForm を介して既存情報をフォーム上に設定する
    */
   const setFormData = (content) => {
     setForm({
