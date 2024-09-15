@@ -8,7 +8,7 @@ require (
 	gorm.io/driver/mysql v1.5.7
 	gorm.io/gen v0.3.26
 	gorm.io/gorm v1.25.12
-	gorm.io/plugin/dbresolver v1.5.2
+	gorm.io/plugin/dbresolver v1.5.3
 )
 
 require (
