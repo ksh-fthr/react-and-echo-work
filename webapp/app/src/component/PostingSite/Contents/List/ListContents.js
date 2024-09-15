@@ -66,11 +66,10 @@ const ListContents = () => {
         </ul>
       </div>
       <div className="main">
-        <h3>コンテンツ一覧</h3>
         {error && 'Error!'}
         {loading && 'Loading...'}
         <Paper style={{ width: '100%' }}>
-          <TableContainer sx={{ maxHeight: 'calc(75vh - 28px)' }}>
+          <TableContainer sx={{ maxHeight: '80vh' }}>
             <Table stickyHeader aria-label="simple table">
               <TableHead>
                 <TableRow>
