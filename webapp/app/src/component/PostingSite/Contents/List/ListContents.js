@@ -69,61 +69,63 @@ const ListContents = () => {
         <h3>コンテンツ一覧</h3>
         {error && 'Error!'}
         {loading && 'Loading...'}
-        <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell align="right">コンテンツID</TableCell>
-                <TableCell align="left">タイトル</TableCell>
-                <TableCell align="left">サマリ</TableCell>
-                <TableCell align="left">著者</TableCell>
-                <TableCell align="left">作成日</TableCell>
-                <TableCell align="left">更新日</TableCell>
-                <TableCell align="center"></TableCell>
-                <TableCell align="center"></TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {contents.map((content) => (
-                <TableRow
-                  key={content.d}
-                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                >
-                  <TableCell component="th" scope="row" align="right">
-                    {content.id}
-                  </TableCell>
-                  <TableCell align="left">
-                    <Link
-                      to={`/postingsite/contents/${content.id}/article/list`}
-                    >
-                      {content.title}
-                    </Link>
-                  </TableCell>
-                  <TableCell align="left">{content.summary}</TableCell>
-                  <TableCell align="left">{content.author}</TableCell>
-                  <TableCell align="left">{content.createdAt}</TableCell>
-                  <TableCell align="left">{content.updatedAt}</TableCell>
-                  <TableCell align="center">
-                    <Button
-                      variant="outlined"
-                      href={`/postingsite/contents/${content.id}/edit`}
-                    >
-                      編集
-                    </Button>
-                  </TableCell>
-                  <TableCell align="center">
-                    <Button
-                      variant="outlined"
-                      href={`/postingsite/contents/${content.id}/${content.title}/delete`}
-                    >
-                      削除
-                    </Button>
-                  </TableCell>
+        <Paper style={{ width: '100%' }}>
+          <TableContainer sx={{ maxHeight: 'calc(75vh - 28px)' }}>
+            <Table stickyHeader aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <TableCell align="right">ID</TableCell>
+                  <TableCell align="left">タイトル</TableCell>
+                  <TableCell align="left">サマリ</TableCell>
+                  <TableCell align="left">著者</TableCell>
+                  <TableCell align="left" sx={{ width: '50px' }}>作成日</TableCell>
+                  <TableCell align="left" sx={{ width: '50px' }}>更新日</TableCell>
+                  <TableCell align="center" sx={{ width: '20px' }}></TableCell>
+                  <TableCell align="center" sx={{ width: '20px' }}></TableCell>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+              </TableHead>
+              <TableBody>
+                {contents.map((content) => (
+                  <TableRow
+                    key={content.d}
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                  >
+                    <TableCell component="th" scope="row" align="right">
+                      {content.id}
+                    </TableCell>
+                    <TableCell align="left">
+                      <Link
+                        to={`/postingsite/contents/${content.id}/article/list`}
+                      >
+                        {content.title}
+                      </Link>
+                    </TableCell>
+                    <TableCell align="left">{content.summary}</TableCell>
+                    <TableCell align="left">{content.author}</TableCell>
+                    <TableCell align="left">{content.createdAt}</TableCell>
+                    <TableCell align="left">{content.updatedAt}</TableCell>
+                    <TableCell align="center">
+                      <Button
+                        variant="outlined"
+                        href={`/postingsite/contents/${content.id}/edit`}
+                      >
+                        編集
+                      </Button>
+                    </TableCell>
+                    <TableCell align="center">
+                      <Button
+                        variant="outlined"
+                        href={`/postingsite/contents/${content.id}/${content.title}/delete`}
+                      >
+                        削除
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </Paper>
       </div>
     </div>
   )
