@@ -1,35 +1,35 @@
 div.tab-area-base {
-  height: 50px;
-  width: 90%;
-  margin: auto;
+    height: 50px;
+    width: 90%;
+    margin: auto;
 }
 
 ul.tab-menu-base {
-  overflow: hidden;
-  list-style: none;
-  margin: 0px auto;
-  padding: 0;
-  border-bottom: 5px solid rgb(240, 240, 240);
+    overflow: hidden;
+    list-style: none;
+    margin: 0px auto;
+    padding: 0;
+    border-bottom: 5px solid rgb(240, 240, 240);
 }
 
 ul.tab-menu-base li {
-  float: left;
-  margin: 20px 8px 0 0;
-  padding: 0;
-  background: rgb(180, 180, 180);
-  border-radius: 10px 10px 0 0;
-  height: 100%;
-  width: 150px;
-  font-size: 1.5em;
-  text-align: center;
+    float: left;
+    margin: 20px 8px 0 0;
+    padding: 0;
+    background: rgb(180, 180, 180);
+    border-radius: 10px 10px 0 0;
+    height: 100%;
+    width: 150px;
+    font-size: 1.5em;
+    text-align: center;
 }
 
 ul.tab-menu-base li.current {
-  background: rgb(240, 240, 240);
+    background: rgb(240, 240, 240);
 }
 
 a.li-link {
-  display: block;
-  width: 100%;
-  height: 100%;
+    display: block;
+    width: 100%;
+    height: 100%;
 }

@@ -1,30 +1,30 @@
 .contents-wrapper,
 .article-wrapper {
-  margin: 0 auto;
-  overflow: hidden;
+    margin: 0 auto;
+    overflow: hidden;
 }
 
 .main {
-  position: relative;
-  float: right;
-  width: calc(100% - 220px);
-  height: calc(100vh - 160px);
+    position: relative;
+    float: right;
+    width: calc(100% - 220px);
+    height: calc(100vh - 160px);
 }
 
 .sidebar {
-  float: left;
-  height: calc(100vh - 160px);
-  width: 210px;
-  border-right: solid 1px #a9a9a9;
+    float: left;
+    height: calc(100vh - 160px);
+    width: 210px;
+    border-right: solid 1px #a9a9a9;
 }
 
 .disable-link {
-  pointer-events: none;
-  color: #d3d3d3;
+    pointer-events: none;
+    color: #d3d3d3;
 }
 
 .headline {
-  text-align: center;
+    text-align: center;
 }
 
 /**
@@ -32,86 +32,84 @@
  */
 
 .breadcrumb-list ol li {
-  display: inline;
+    display: inline;
 }
 
 .breadcrumb-list ol li::after {
-  content: '>';
-  padding: 7px;
+    content: '>';
+    padding: 7px;
 }
 
 .breadcrumb-list ol li:last-child::after {
-  content: none;
+    content: none;
 }
 
 .breadcrumb-list ol {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 /**
  * 本セレクタが適用された element は文中の改行がブラウザ上の表示にも反映される.
  */
 .article {
-  white-space: pre-wrap;
+    white-space: pre-wrap;
 }
 
 /**
  * form 関連のスタイル
  */
 .form-label {
-  display: block;
+    display: block;
 }
 
 .contents-title > #title,
 .article-subtitle > #subtitle {
-  width: 450px;
+    width: 450px;
 }
 
 .contents-author > #author {
-  width: 450px;
+    width: 450px;
 }
 
 .contents-summary > #summary,
 .article-body > #body {
-  width: 450px;
-  min-width: 450px;
-  max-width: 450px;
-  height: 400px;
-  min-height: 400px;
-  max-height: 400px;
+    width: 450px;
+    min-width: 450px;
+    max-width: 450px;
+    height: 400px;
+    min-height: 400px;
+    max-height: 400px;
 }
 
 .article-remarks > #remarks {
-  width: 450px;
-  min-width: 450px;
-  max-width: 450px;
-  height: 150px;
-  min-height: 150px;
-  max-height: 150px;
+    width: 450px;
+    min-width: 450px;
+    max-width: 450px;
+    height: 150px;
+    min-height: 150px;
+    max-height: 150px;
 }
 
 .article-caption {
-  margin:  20px 0;
-  padding: 0;
+    margin: 20px 0;
+    padding: 0;
 }
 
 .articel-caption-text {
-  margin:  0;
-  padding: 0;
-
+    margin: 0;
+    padding: 0;
 }
 
 .article-new-create {
-  margin:  0;
-  padding: 0 16px 0 0;
-  float: right;
+    margin: 0;
+    padding: 0 16px 0 0;
+    float: right;
 }
 
 .contents-footer,
 .article-footer {
-  position: absolute;
-  bottom: 0;
+    position: absolute;
+    bottom: 0;
 }
-
