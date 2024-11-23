@@ -5,11 +5,11 @@ export const currentContentsState = initialContentsState
 
 // アクション用の contentsReducerを作成する
 export const contentsReducer = (state, action) => {
-  switch (action.type) {
-    case 'add_contents':
-      currentContentsState.contents = action.payload
-      break
-    default:
-      throw new Error()
-  }
+    switch (action.type) {
+        case 'add_contents':
+            currentContentsState.contents = action.payload
+            break
+        default:
+            throw new Error()
+    }
 }
