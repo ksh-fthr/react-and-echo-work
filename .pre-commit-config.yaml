@@ -4,5 +4,5 @@ repos:
     hooks:
       - id: go-fmt
       - id: go-imports
-      # - id: go-lint
-      # - id: go-vet
+      - id: go-vet
+        files: ./restapi/api/
