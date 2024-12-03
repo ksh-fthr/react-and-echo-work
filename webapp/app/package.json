@@ -63,8 +63,8 @@
     "lint-staged": {
         "**/*.{js,css,scss,html,md,yml,yaml},(!src)/**/*.ts": "prettier --write",
         "src/**/*.{js,css,scss,html,md,yml,yaml}": [
-          "eslint --fix --ext \".js,.ts\" --ignore-path .gitignore .",
-          "prettier --write"
+            "eslint --fix --ext \".js,.ts\" --ignore-path .gitignore .",
+            "prettier --write"
         ]
     }
 }
