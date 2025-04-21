@@ -50,7 +50,7 @@ go version go1.22.1 darwin/amd64
 
 ```zsh
 % cd ${REPOSITORY_ROOT}/restapi/api
-% go install github.com/cosmtrek/air@latest
+% go install github.com/air-verse/air@latest
 ```
 
 ## 7. shell の再起動(2回目)
