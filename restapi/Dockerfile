@@ -15,7 +15,7 @@ RUN go mod tidy
 # Error:
 #   ERROR: for restapi  Cannot start service api: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: exec: "air": executable file not found in $PATH: unknown
 # ---
-RUN go install github.com/cosmtrek/air@latest
+RUN go install github.com/air-verse/air@latest
 
 # air による build と api の起動を行う
 CMD ["air", "-c", ".air.toml"]
