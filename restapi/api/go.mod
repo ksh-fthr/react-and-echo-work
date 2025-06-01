@@ -6,7 +6,7 @@ require (
 	github.com/go-sql-driver/mysql v1.9.2
 	github.com/labstack/echo/v4 v4.13.3
 	gorm.io/driver/mysql v1.5.7
-	gorm.io/gen v0.3.26
+	gorm.io/gen v0.3.27
 	gorm.io/gorm v1.25.12
 	gorm.io/plugin/dbresolver v1.5.3
 )
@@ -18,6 +18,7 @@ require (
 	github.com/fatih/color v1.13.0 // indirect
 	github.com/fsnotify/fsnotify v1.5.4 // indirect
 	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
+	github.com/google/uuid v1.3.0 // indirect
 	github.com/imdario/mergo v0.3.13 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
@@ -38,6 +39,6 @@ require (
 	golang.org/x/text v0.21.0 // indirect
 	golang.org/x/time v0.8.0 // indirect
 	golang.org/x/tools v0.21.1-0.20240508182429-e35e4ccd0d2d // indirect
-	gorm.io/datatypes v1.2.0 // indirect
+	gorm.io/datatypes v1.2.4 // indirect
 	gorm.io/hints v1.1.2 // indirect
 )
