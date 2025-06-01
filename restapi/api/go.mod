@@ -7,7 +7,7 @@ require (
 	github.com/labstack/echo/v4 v4.13.3
 	gorm.io/driver/mysql v1.5.7
 	gorm.io/gen v0.3.27
-	gorm.io/gorm v1.25.12
+	gorm.io/gorm v1.30.0
 	gorm.io/plugin/dbresolver v1.5.3
 )
 
