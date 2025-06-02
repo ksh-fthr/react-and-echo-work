@@ -322,3 +322,5 @@ gorm.io/plugin/dbresolver v1.5.2 h1:Iut7lW4TXNoVs++I+ra3zxjSxTRj4ocIeFEVp4lLhII=
 gorm.io/plugin/dbresolver v1.5.2/go.mod h1:jPh59GOQbO7v7v28ZKZPd45tr+u3vyT+8tHdfdfOWcU=
 gorm.io/plugin/dbresolver v1.5.3 h1:wFwINGZZmttuu9h7XpvbDHd8Lf9bb8GNzp/NpAMV2wU=
 gorm.io/plugin/dbresolver v1.5.3/go.mod h1:TSrVhaUg2DZAWP3PrHlDlITEJmNOkL0tFTjvTEsQ4XE=
+gorm.io/plugin/dbresolver v1.6.0 h1:XvKDeOtTn1EIX6s4SrKpEH82q0gXVemhYjbYZFGFVcw=
+gorm.io/plugin/dbresolver v1.6.0/go.mod h1:tctw63jdrOezFR9HmrKnPkmig3m5Edem9fdxk9bQSzM=
