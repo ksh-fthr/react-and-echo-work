@@ -3,7 +3,7 @@ module restapi
 go 1.21
 
 require (
-	github.com/go-sql-driver/mysql v1.9.3
+	github.com/go-sql-driver/mysql v1.10.0
 	github.com/labstack/echo/v4 v4.15.1
   gorm.io/driver/mysql v1.6.0
 	gorm.io/gen v0.3.27
