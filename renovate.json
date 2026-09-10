@@ -14,7 +14,7 @@
   ],
   "constraints": {
     "go": "1.19",
-    "node": "18.7.0"
+    "node": "18.20.8"
   },  
   "major": {
     "enabled": false
