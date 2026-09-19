@@ -4,7 +4,7 @@
     "private": true,
     "engines": {
         "node": "18.20.8",
-        "npm": "10.9.7"
+        "npm": "10.9.9"
     },
     "scripts": {
         "start": "react-scripts start",
