@@ -6,7 +6,7 @@ require (
 	github.com/go-sql-driver/mysql v1.9.3
 	github.com/labstack/echo/v4 v4.15.1
   gorm.io/driver/mysql v1.6.0
-	gorm.io/gen v0.3.27
+	gorm.io/gen v0.3.29
 	gorm.io/gorm v1.31.1
 	gorm.io/plugin/dbresolver v1.6.2
 )
